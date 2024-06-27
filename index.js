@@ -1,14 +1,14 @@
 import GtfsRealTimeBindings from 'gtfs-realtime-bindings'
 import express from 'express';
 // import cors from 'cors';
-import fs from 'fs';
+import fs from 'fs/promises';
 
-function saveToFile(content) {
-    fs.writeFile('save.txt', content, (err) => {
+function writeToFile(filename, content) {
+    fs.writeFile(filename, content, (err) => {
         if (err) {
             console.error('Error writing to file:', err);
         } else {
-            console.log('Content saved to save.txt');
+            console.log('Content saved to ' + filename);
         }
     });
 }
@@ -40,7 +40,7 @@ async function getServiceAlerts() {
     const feed = await parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")
     // Where all the data is. The other key is header, used for metadata
     const processed = feed["entity"]
-    saveToFile(JSON.stringify(processed, null, 2))
+    // writeToFile(JSON.stringify(processed, null, 2))
     for (var i = 0; i < processed.length; i++) {
         // console.log(processed[i])
         const id = processed[i]["id"]
@@ -87,7 +87,7 @@ function unixTimestampToDateTime(unixTimestamp) {
 }
 
 
-async function getRealTimeData(line, targetStopID) {
+async function getRealTimeData(line, targetStop, direction) {
     let source = null;
     if (["A", "C", "E"].includes(line)) {
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"
@@ -106,11 +106,27 @@ async function getRealTimeData(line, targetStopID) {
     } else if (["SIR"].includes(line)) {
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si"
     }
+
     const feed = await parseAndReturnFeed(source)
     // console.log(feed);
     // what are entities? idk :/
     const entities = feed["entity"]
     var obj = {}
+    const data = await fs.readFile("./google_transit/stops.txt", 'utf-8')
+    const splitByLine = data.split('\n');
+    var stopID = null;
+    for (var x = 0; x < splitByLine.length; x++) {
+        if (splitByLine[x] == '') {
+            continue;
+        }
+        const splitByComma = splitByLine[x].split(',')
+        // console.log(splitByComma[0], targetStopID)
+        if (splitByComma[1].includes(targetStop)) {
+            stopID = splitByComma[0]
+            // console.log(stopID, ' !')
+            break;
+        }
+    }
     for (var i = 0; i < entities.length; i++) {
         // trip data for each train? not sure
         const tripUpdate = entities[i]["tripUpdate"]
@@ -127,16 +143,35 @@ async function getRealTimeData(line, targetStopID) {
         // all the arrivals for each stop in stops.txt (google_transit folder)
         const stopTimeUpdate = tripUpdate["stopTimeUpdate"]
         for (let j = 0; j < stopTimeUpdate.length; j++) {
-            let stopID = stopTimeUpdate[j]["stopId"]
+            let stopIDInData = stopTimeUpdate[j]["stopId"]
             // the stopID looks like "R20N" and it can either be
             // R20, R20S, R20N representing the direction the arrival times are bound
-            if (stopID === targetStopID) {
-                let time = stopTimeUpdate[j]["arrival"]["time"]
-                let timeDifference = unixTimestampToDateTime(time) - Date.now()
-                timeDifference /= (1000 * 60)
-                obj[i] = `${line} arrives in ${timeDifference} minutes in stop ${'TODO: read stops.txt and put the corresponding stop here.'}`
+            // console.log(stopID + direction, stopIDInData)
+            if ((stopID + direction) === stopIDInData) {
+                // console.log(stopTimeUpdate[j])
+                let arrivalObj = stopTimeUpdate[j]["arrival"]
+                if (arrivalObj == null) {
+                    // I'm not sure if that means it departed already
+                    // It seems like it gives data even at the last stop going to nowhere
+                    // so maybe just return an empty string?
+                    return 'Error'
+                    // let departureObj = stopTimeUpdate[j]["departure"]
+                    // let departureTime = departureObj["time"]
+                    // let timeDifference = unixTimestampToDateTime(departureTime) - Date.now()
+                    // timeDifference = Math.round(timeDifference / (1000 * 60))
+                    // obj[i] = `${line} departed ${timeDifference} minutes ago at ${targetStop}`
+                    continue
+                }
+                let arrivalTime = arrivalObj["time"]
+                let timeDifference = unixTimestampToDateTime(arrivalTime) - Date.now()
+                timeDifference = Math.round(timeDifference / (1000 * 60))
+                obj[i] = `${line} arrives in ${timeDifference} minutes at ${targetStop}`
             }
         }
+    }
+    if (Object.keys(obj).length === 0) {
+        console.log('EMPTY OBJECT')
+        return feed
     }
     return obj
 }
@@ -154,9 +189,10 @@ app.get('/serviceAlerts', async (req, res) => {
 app.get('/realtimeTrainData', async (req, res) => {
     try {
         // to test
-        const currentStopID = 'R20N'
-        const line = 'N'
-        const realtime = await getRealTimeData(line, currentStopID);
+        const currentStop = 'DeKalb Av'
+        const line = 'Q'
+        const direction = "N"
+        const realtime = await getRealTimeData(line, currentStop, direction);
         res.json(realtime); // Send the alerts as JSON
     } catch (error) {
         res.status(500).send(error.message);

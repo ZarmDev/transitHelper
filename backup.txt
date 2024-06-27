@@ -1,0 +1,65 @@
+async function getRealTimeData(line, targetStopID) {
+    let source = null;
+    if (["A", "C", "E"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"
+    } else if (["B", "D", "F", "M"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm"
+    } else if (["G"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-g"
+    } else if (["J", "Z"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-jz"
+    } else if (["N", "Q", "R", "W"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw"
+    } else if (["L"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l"
+    } else if (["1", "2", "3", "4", "5", "6", "7"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs"
+    } else if (["SIR"].includes(line)) {
+        source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si"
+    }
+    const feed = await parseAndReturnFeed(source)
+    // console.log(feed);
+    // what are entities? idk :/
+    const entities = feed["entity"]
+    var obj = {}
+    for (var i = 0; i < entities.length; i++) {
+        // trip data for each train? not sure
+        const tripUpdate = entities[i]["tripUpdate"]
+        if (tripUpdate == null || tripUpdate == undefined) {
+            continue;
+        }
+        const trip = tripUpdate["trip"]
+        const tripID = trip["tripId"]
+        const routeID = trip["routeId"]
+        // not sure if this works for all lines... maybe not working for SIR
+        if (routeID != line) {
+            continue;
+        }
+        // all the arrivals for each stop in stops.txt (google_transit folder)
+        const stopTimeUpdate = tripUpdate["stopTimeUpdate"]
+        for (let j = 0; j < stopTimeUpdate.length; j++) {
+            let stopID = stopTimeUpdate[j]["stopId"]
+            // the stopID looks like "R20N" and it can either be
+            // R20, R20S, R20N representing the direction the arrival times are bound
+            if (stopID === targetStopID) {
+                let time = stopTimeUpdate[j]["arrival"]["time"]
+                let timeDifference = unixTimestampToDateTime(time) - Date.now()
+                timeDifference = Math.round(timeDifference / (1000 * 60))
+                const data = await fs.readFile("./google_transit/stops.txt", 'utf-8')
+                const splitByLine = data.split('\n');
+                for (var x = 0; x < splitByLine.length; x++) {
+                    if (splitByLine[x] == '') {
+                        continue;
+                    }
+                    const splitByComma = splitByLine[x].split(',')
+                    // console.log(splitByComma[0], targetStopID)
+                    if (splitByComma[0].includes(targetStopID)) {
+                        let realStopName = splitByComma[1]
+                        obj[i] = `${line} arrives in ${timeDifference} minutes at ${realStopName}`
+                    }
+                }
+            }
+        }
+    }
+    return obj
+}
