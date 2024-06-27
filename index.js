@@ -1,6 +1,17 @@
 import GtfsRealTimeBindings from 'gtfs-realtime-bindings'
 import express from 'express';
 // import cors from 'cors';
+import fs from 'fs';
+
+function saveToFile(content) {
+  fs.writeFile('save.txt', content, (err) => {
+    if (err) {
+      console.error('Error writing to file:', err);
+    } else {
+      console.log('Content saved to save.txt');
+    }
+  });
+}
 
 const app = express();
 const PORT = 8082;
@@ -25,20 +36,23 @@ async function getServiceAlerts() {
     // return feed
     // Where all the data is. The other key is header, used for metadata
     const processed = feed["entity"]
+    saveToFile(JSON.stringify(processed, null, 2))
     for (var i = 0; i < processed.length; i++) {
         // console.log(processed[i])
         const id = processed[i]["id"]
         // make sure the id is a current alert and not planned alert
         // console.log(id, !id.includes('lmm:alert'))
         if (!id.includes('lmm:alert')) {
-            console.log(id);
+            // console.log(id);
             break
+        } else {
+            // console.log(id, true);
         }
-        // console.log(processed[i]["alert"]);
         if (processed[i]["alert"] != undefined) {
             const alert = processed[i]["alert"]
             const routesAffected = alert["informedEntity"]           
             const header = alert["headerText"]
+            console.log(header);
             const description = alert["descriptionText"]
             const headerTextTranslation = header["translation"]
             const descriptionTranslation = description == null ? null : description["translation"]
@@ -46,12 +60,13 @@ async function getServiceAlerts() {
             const headerText = headerTextTranslation[1]["text"]
             const descriptionText = description == null ? null : descriptionTranslation[1]["text"]
             // console.log(routesAffected.length)
-            for (var i = 0; i < routesAffected.length; i++) {
-                const routeId = routesAffected[i]['routeId']
-                trainAlerts[routeId] = `${headerText} \n${descriptionText}`
-            }
+            const routeId = routesAffected[0]['routeId']
+            trainAlerts[routeId] = `${headerText} \n${descriptionText}`
+            // for (var i = 0; i < routesAffected.length; i++) {
+            //     const routeId = routesAffected[i]['routeId']
+            //     trainAlerts[routeId] = `${headerText} \n${descriptionText}`
+            // }
         }
-        console.log(i);
         if (i > 100) {
             console.log('damn')
             break;
