@@ -13,13 +13,8 @@ function saveToFile(content) {
   });
 }
 
-const app = express();
-const PORT = 8082;
-
-const trainAlerts = {}
-
-async function getServiceAlerts() {
-    const response = await fetch("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts", {
+async function parseAndReturnFeed(url) {
+    const response = await fetch(url, {
         method: 'GET',
         headers: {
             // ...
@@ -33,7 +28,16 @@ async function getServiceAlerts() {
     // Convert ArrayBuffer to Uint8Array
     const uint8Array = new Uint8Array(buffer);
     const feed = GtfsRealTimeBindings.transit_realtime.FeedMessage.decode(uint8Array);
-    // return feed
+    return feed
+}
+
+const app = express();
+const PORT = 8082;
+
+const trainAlerts = {}
+
+async function getServiceAlerts() {
+    const feed = await parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")
     // Where all the data is. The other key is header, used for metadata
     const processed = feed["entity"]
     saveToFile(JSON.stringify(processed, null, 2))
@@ -75,10 +79,25 @@ async function getServiceAlerts() {
     return trainAlerts
 }
 
-app.get('/', async (req, res) => {
+async function getRealTimeData() {
+    const feed = await parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw")
+    // console.log(feed);
+    return feed
+}
+
+app.get('/serviceAlerts', async (req, res) => {
     try {
         const alerts = await getServiceAlerts();
         res.json(alerts); // Send the alerts as JSON
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+app.get('/realtimeTrainData', async (req, res) => {
+    try {
+        const realtime = await getRealTimeData();
+        res.json(realtime); // Send the alerts as JSON
     } catch (error) {
         res.status(500).send(error.message);
     }
