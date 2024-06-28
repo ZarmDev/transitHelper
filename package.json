@@ -1,17 +1,19 @@
 {
-  "name": "mapappjshelper",
+  "name": "mta-js-utils",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "ZarmDev",
+  "license": "MIT",
+  "description": "useful functions to handle MTA data",
   "dependencies": {
     "express": "^4.19.2",
-    "gtfs-realtime-bindings": "^1.1.1"
+    "gtfs-realtime-bindings": "^1.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
   }
 }
