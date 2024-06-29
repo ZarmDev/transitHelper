@@ -43,12 +43,13 @@ function parseAndReturnFeed(url) {
     });
 }
 const trainAlerts = {};
+// not done
 function getServiceAlerts() {
     return __awaiter(this, void 0, void 0, function* () {
         const feed = yield parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts");
         // Where all the data is. The other key is header, used for metadata
         const processed = feed["entity"];
-        // writeToFile(JSON.stringify(processed, null, 2))
+        writeToFile('save.txt', JSON.stringify(processed, null, 2));
         for (var i = 0; i < processed.length; i++) {
             // console.log(processed[i])
             const id = processed[i]["id"];
@@ -61,28 +62,38 @@ function getServiceAlerts() {
             else {
                 // console.log(id, true);
             }
-            if (processed[i]["alert"] != undefined) {
-                const alert = processed[i]["alert"];
+            const alert = processed[i]["alert"];
+            // make sure alert is not null/undefined
+            if (alert) {
                 const routesAffected = alert["informedEntity"];
                 const header = alert["headerText"];
-                console.log(header);
-                const description = alert["descriptionText"];
-                const headerTextTranslation = header["translation"];
-                const descriptionTranslation = description == null ? null : description["translation"];
-                // you can either use index 0 or 1 which either gives you the normal version or version in HTML
-                const headerText = headerTextTranslation[1]["text"];
-                const descriptionText = description == null ? null : descriptionTranslation[1]["text"];
-                // console.log(routesAffected.length)
-                const routeId = routesAffected[0]['routeId'];
-                trainAlerts[routeId] = `${headerText} \n${descriptionText}`;
-                // for (var i = 0; i < routesAffected.length; i++) {
-                //     const routeId = routesAffected[i]['routeId']
-                //     trainAlerts[routeId] = `${headerText} \n${descriptionText}`
-                // }
-            }
-            if (i > 100) {
-                console.log('damn');
-                break;
+                if (header) {
+                    const description = alert["descriptionText"];
+                    const headerTextTranslation = header["translation"];
+                    const descriptionTranslation = description == null ? null : description["translation"];
+                    if (headerTextTranslation) {
+                        // you can either use index 0 or 1 which either gives you the normal version or version in HTML
+                        const headerText = headerTextTranslation[1]["text"];
+                        if (routesAffected) {
+                            // loop through each route affected
+                            console.log(routesAffected, i);
+                            for (var j = 0; j < routesAffected.length; j++) {
+                                const routeId = routesAffected[j]['routeId'];
+                                if (routeId) {
+                                    var descriptionText = null;
+                                    if (descriptionTranslation != null) {
+                                        descriptionText = descriptionTranslation[1]["text"];
+                                    }
+                                    trainAlerts[routeId] = { "headerText": headerText, "descriptionText": descriptionText };
+                                    // for (var i = 0; i < routesAffected.length; i++) {
+                                    //     const routeId = routesAffected[i]['routeId']
+                                    //     trainAlerts[routeId] = `${headerText} \n${descriptionText}`
+                                    // }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         return trainAlerts;
@@ -94,7 +105,8 @@ function unixTimestampToDateTime(unixTimestamp) {
     const date = new Date(milliseconds);
     return date;
 }
-function getArrivals(line, targetStopID) {
+// not done
+function getArrivals(line, targetStopID, date, direction) {
     return __awaiter(this, void 0, void 0, function* () {
         let source = "";
         if (["A", "C", "E"].includes(line)) {
@@ -125,7 +137,9 @@ function getArrivals(line, targetStopID) {
         // console.log(feed);
         // what are entities? idk :/
         const entities = feed["entity"];
-        var obj = {};
+        var arrivals = [];
+        const data = yield fs.readFile("./google_transit/stops.txt", 'utf-8');
+        const splitByLine = data.split('\n');
         for (var i = 0; i < entities.length; i++) {
             // trip data for each train? not sure
             const tripUpdate = entities[i]["tripUpdate"];
@@ -136,38 +150,53 @@ function getArrivals(line, targetStopID) {
             const tripID = trip["tripId"];
             const routeID = trip["routeId"];
             // not sure if this works for all lines... maybe not working for SIR
+            // console.log(routeID, line)
             if (routeID != line) {
                 continue;
             }
             // all the arrivals for each stop in stops.txt (google_transit folder)
             const stopTimeUpdate = tripUpdate["stopTimeUpdate"];
-            for (let j = 0; j < stopTimeUpdate.length; j++) {
-                let stopID = stopTimeUpdate[j]["stopId"];
-                // the stopID looks like "R20N" and it can either be
-                // R20, R20S, R20N representing the direction the arrival times are bound
-                if (stopID === targetStopID) {
-                    let time = stopTimeUpdate[j]["arrival"]["time"];
-                    let timeDifference = unixTimestampToDateTime(time) - Date.now();
-                    timeDifference = Math.round(timeDifference / (1000 * 60));
-                    const data = yield fs.readFile("./google_transit/stops.txt", 'utf-8');
-                    const splitByLine = data.split('\n');
-                    for (var x = 0; x < splitByLine.length; x++) {
-                        if (splitByLine[x] == '') {
-                            continue;
-                        }
-                        const splitByComma = splitByLine[x].split(',');
-                        // console.log(splitByComma[0], targetStopID)
-                        if (splitByComma[0].includes(targetStopID)) {
-                            let realStopName = splitByComma[1];
-                            obj[i] = `${line} arrives in ${timeDifference} minutes at ${realStopName}`;
+            // make sure it's not null/undefined
+            if (stopTimeUpdate) {
+                for (let j = 0; j < stopTimeUpdate.length; j++) {
+                    if (stopTimeUpdate[j]) {
+                        var stopID = stopTimeUpdate[j]["stopId"];
+                        if (stopID) {
+                            // the stopID looks like "R20N" and it can either be
+                            // R20, R20S, R20N representing the direction the arrival times are bound
+                            if (stopID === (targetStopID + direction)) {
+                                const arrivalObject = stopTimeUpdate[j]["arrival"];
+                                if (arrivalObject) {
+                                    const time = Number(arrivalObject["time"]);
+                                    if (time) {
+                                        // using .valueOf() to not annoy typescript: https://stackoverflow.com/questions/36560806/the-left-hand-side-of-an-arithmetic-operation-must-be-of-type-any-number-or
+                                        const unixToDate = unixTimestampToDateTime(time).valueOf();
+                                        const currentDate = date.valueOf();
+                                        let timeDifference = unixToDate - currentDate;
+                                        timeDifference = Math.round(timeDifference / (1000 * 60));
+                                        for (var x = 0; x < splitByLine.length; x++) {
+                                            if (splitByLine[x] == '') {
+                                                continue;
+                                            }
+                                            const splitByComma = splitByLine[x].split(',');
+                                            // console.log(splitByComma[0], targetStopID)
+                                            if (splitByComma[0] === targetStopID) {
+                                                let realStopName = splitByComma[1];
+                                                arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName}`);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
         }
-        return obj;
+        return arrivals;
     });
 }
+// not done
 function getTrainLineCoordinates(data) {
     return __awaiter(this, void 0, void 0, function* () {
         var splitByLine = data.split('\n');
@@ -194,23 +223,6 @@ function getTrainStopCoordinates(data) {
     return __awaiter(this, void 0, void 0, function* () {
     });
 }
-// getAllData returns an object like:
-/*
-{
-    "stopID": {
-        "coordinates": {longitude: "", latitude: ""},
-        "trains": {"N, Q, R, W"},
-        "name": "34st Herald Square"
-    },
-    >> example
-    "R27": {
-        "coordinates": {longitude: "40.703087", latitude: "-74.012994"},
-        "trains": {"N": "#FFFD37", Q: "#FFFD37", R: "#FFFD37", W: "#FFFD37"},
-        "name": "Whitehall St-South Ferry",
-        "icon": "1.svg, r.svg, w.svg"
-    }
-}
-*/
 function getAllData() {
     return __awaiter(this, void 0, void 0, function* () {
     });
@@ -221,20 +233,24 @@ app.get('/serviceAlerts', (req, res) => __awaiter(void 0, void 0, void 0, functi
         res.json(alerts); // Send the alerts as JSON
     }
     catch (error) {
-        res.status(500).send(error.message);
+        const e = error;
+        res.status(500).send(e.message);
     }
 }));
 app.get('/realtimeTrainData', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // to test
-        const currentCoords = '40.889248,-73.898583';
-        const line = 'Q';
+        const targetStopID = '101';
+        const line = '1';
         const direction = "N";
-        const realtime = yield getArrivals(line, currentStop, direction);
+        const date = Date.now();
+        const realtime = yield getArrivals(line, targetStopID, date, direction);
         res.json(realtime); // Send the alerts as JSON
     }
     catch (error) {
-        res.status(500).send(error.message);
+        // Huh?!? AI said you could do this which I never knew...
+        const e = error;
+        res.status(500).send(e.message);
     }
 }));
 app.listen(PORT, () => {

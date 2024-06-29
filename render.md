@@ -12,3 +12,7 @@ Fourth, go to each coordinate of the stops
 get the station name AND id from the langitude and latitude
 
 Fourth, use the backup.txt function with the station id to get the real time data
+
+Notes:
+In the react-native project, download google_transit every year
+Cache the object from stops.txt in react-native
