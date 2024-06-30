@@ -10,7 +10,7 @@ tH.getRouteTo(data, fromstopID, tostopID)
 // includePlannedWork: true or false
 tH.getServiceAlerts(data, shouldIncludePlannedWork, optional: lineOrBus)
 
-tH.getAllStopCoordinates(data) // returns all stop coordinates in NYC
+tH.getAllTrainStopCoordinates(data) // returns all stop coordinates in NYC
 
 tH.getTransfers(data, stopID) // will keep service alerts in mind?
 

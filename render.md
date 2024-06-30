@@ -14,5 +14,8 @@ get the station name AND id from the langitude and latitude
 Fourth, use the backup.txt function with the station id to get the real time data
 
 Notes:
-In the react-native project, download google_transit every year
-Cache the object from stops.txt in react-native
+- In the react-native project, download google_transit every year
+- Cache the object from stops.txt in react-native
+- In the react-native project, when getting arrivals, check
+every 15 seconds if the closest arrival is >8 minutes away
+otherwise, check every 5 seconds

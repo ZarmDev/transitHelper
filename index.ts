@@ -236,13 +236,23 @@ async function getTrainLineShapes(data: string) {
     }
 }
 
-async function getTrainStopCoordinates(data: string) {
+async function getAllTrainStopCoordinates(data: string) {
 
 }
+
+//https://algs4.cs.princeton.edu/44sp/NYC.txt 
+// "NYC.txt is the undirected road network of New York City. The graph contains 264346 vertices and 733846 edges. It is connected, contains parallel edges, but no self-loops. The edge weights are travel times and are strictly positive."
+// maybe gonna try to use openstreetmaps
+// https://www.openstreetmap.org/relation/175905#map=11/40.5934/-73.9895&layers=T
+async function getDistanceToCoord() {
+    
+}
+
 
 async function getAllData() {
 
 }
+
 
 app.get('/serviceAlerts', async (req, res) => {
     try {
