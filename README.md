@@ -3,19 +3,21 @@ The plan is to make this a library that let's you do commands like:
 ```
 // expects stopID (which is from stops.txt) and unixTime (which is the current time in unix format)
 // direction can either be "N", "S" or an empty string if you want both directions
-tH.getArrivals(line, targetStopID, unixTime, direction)
+tH.getArrivals(data, line, targetStopID, unixTime, direction)
 
 tH.getRouteTo(data, fromstopID, tostopID)
 
-tH.getServiceAlerts(data, optional: lineOrBus)
+// includePlannedWork: true or false
+tH.getServiceAlerts(data, shouldIncludePlannedWork, optional: lineOrBus)
 
-tH.getPlannedWork(data, optional: lineOrBus)
-
-tH.getAllStopCoordinates(data, ) // returns all stop coordinates in NYC
+tH.getAllStopCoordinates(data) // returns all stop coordinates in NYC
 
 tH.getTransfers(data, stopID) // will keep service alerts in mind?
 
 tH.getLocationsOfVehicles(data, stopID)
+
+// returns the shape data from shapes.txt
+tH.getTrainLineShapes(data)
 
 tH.getAllData() // getAllData returns an object like:
 {

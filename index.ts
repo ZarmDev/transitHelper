@@ -48,7 +48,7 @@ async function getServiceAlerts() {
     const feed = await parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")
     // Where all the data is. The other key is header, used for metadata
     const processed = feed["entity"]
-    writeToFile('save.txt', JSON.stringify(processed, null, 2))
+    // writeToFile('save.txt', JSON.stringify(processed, null, 2))
     for (var i = 0; i < processed.length; i++) {
         // console.log(processed[i])
         const id = processed[i]["id"]
@@ -83,7 +83,7 @@ async function getServiceAlerts() {
                                 if (descriptionTranslation != null) {
                                     descriptionText = descriptionTranslation[1]["text"]
                                 }
-                                trainAlerts[routeId] = {"headerText": headerText, "descriptionText": descriptionText}
+                                trainAlerts[routeId] = { "headerText": headerText, "descriptionText": descriptionText }
                                 // for (var i = 0; i < routesAffected.length; i++) {
                                 //     const routeId = routesAffected[i]['routeId']
                                 //     trainAlerts[routeId] = `${headerText} \n${descriptionText}`
@@ -105,7 +105,7 @@ function unixTimestampToDateTime(unixTimestamp: number): Date {
     return date
 }
 // not done
-async function getArrivals(line: string, targetStopID: string, date: number, direction: string) {
+async function getArrivals(data: string, line: string, targetStopID: string, date: number, direction: string) {
     let source = "";
     if (["A", "C", "E"].includes(line)) {
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"
@@ -125,12 +125,17 @@ async function getArrivals(line: string, targetStopID: string, date: number, dir
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si"
     }
     const feed = await parseAndReturnFeed(source)
+    // writeToFile('save.txt', JSON.stringify(feed, null, 2))
     // console.log(feed);
     // what are entities? idk :/
     const entities = feed["entity"]
     var arrivals = []
-    const data = await fs.readFile("./google_transit/stops.txt", 'utf-8')
     const splitByLine = data.split('\n');
+    // just to get both the north and south arrivals and combine them
+    var numOfDirections = 1;
+    if (direction === "") {
+        numOfDirections = 2;
+    }
     for (var i = 0; i < entities.length; i++) {
         // trip data for each train? not sure
         const tripUpdate = entities[i]["tripUpdate"]
@@ -155,25 +160,48 @@ async function getArrivals(line: string, targetStopID: string, date: number, dir
                     if (stopID) {
                         // the stopID looks like "R20N" and it can either be
                         // R20, R20S, R20N representing the direction the arrival times are bound
-                        if (stopID === (targetStopID + direction)) {
-                            const arrivalObject = stopTimeUpdate[j]["arrival"]
-                            if (arrivalObject) {
-                                const time = Number(arrivalObject["time"])
-                                if (time) {
-                                    // using .valueOf() to not annoy typescript: https://stackoverflow.com/questions/36560806/the-left-hand-side-of-an-arithmetic-operation-must-be-of-type-any-number-or
-                                    const unixToDate = unixTimestampToDateTime(time).valueOf();
-                                    const currentDate = date.valueOf()
-                                    let timeDifference = unixToDate - currentDate
-                                    timeDifference = Math.round(timeDifference / (1000 * 60))
-                                    for (var x = 0; x < splitByLine.length; x++) {
-                                        if (splitByLine[x] == '') {
-                                            continue;
-                                        }
-                                        const splitByComma = splitByLine[x].split(',')
-                                        // console.log(splitByComma[0], targetStopID)
-                                        if (splitByComma[0] === targetStopID) {
-                                            let realStopName = splitByComma[1]
-                                            arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName}`)
+
+                        let currentDirection = direction;
+                        if (currentDirection == "") {
+                            currentDirection = "N"
+                        }
+                        for (var z = 0; z < numOfDirections; z++) {
+                            // just a complicated way to make sure it checks both directions if you want both directions
+                            if (direction == "" && z == 1) {
+                                if (currentDirection == "N") {
+                                    currentDirection = "S"
+                                } else {
+                                    currentDirection = "N"
+                                }
+                            }
+                            // console.log(stopID, (targetStopID + currentDirection))
+                            if (stopID === (targetStopID + currentDirection)) {
+                                const arrivalObject = stopTimeUpdate[j]["arrival"]
+                                if (arrivalObject) {
+                                    const time = Number(arrivalObject["time"])
+                                    if (time) {
+                                        // using .valueOf() to not annoy typescript: https://stackoverflow.com/questions/36560806/the-left-hand-side-of-an-arithmetic-operation-must-be-of-type-any-number-or
+                                        const unixToDate = unixTimestampToDateTime(time).valueOf();
+                                        const currentDate = date.valueOf()
+                                        let timeDifference = unixToDate - currentDate
+                                        timeDifference = Math.round(timeDifference / (1000 * 60))
+                                        for (var x = 0; x < splitByLine.length; x++) {
+                                            if (splitByLine[x] == '') {
+                                                continue;
+                                            }
+                                            const splitByComma = splitByLine[x].split(',')
+                                            // console.log(splitByComma[0], (targetStopID + currentDirection))
+                                            if (splitByComma[0] === (targetStopID + currentDirection)) {
+                                                // console.log(currentDirection)
+                                                let realStopName = splitByComma[1]
+                                                arrivals.push({
+                                                        "arrivalTime": timeDifference,
+                                                        "direction": currentDirection,
+                                                        "stopname": realStopName,
+                                                        "line": line
+                                                })
+                                                // arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName} in the direction of ${}`)
+                                            }
                                         }
                                     }
                                 }
@@ -187,7 +215,7 @@ async function getArrivals(line: string, targetStopID: string, date: number, dir
     return arrivals
 }
 // not done
-async function getTrainLineCoordinates(data: string) {
+async function getTrainLineShapes(data: string) {
     var splitByLine = data.split('\n');
     var trainLines = [
         { coordinates: [{ latitude: 37.78825, longitude: -122.4324 }, { latitude: 37.75825, longitude: -122.4424 }], color: '#FF0000' },
@@ -230,11 +258,12 @@ app.get('/serviceAlerts', async (req, res) => {
 app.get('/realtimeTrainData', async (req, res) => {
     try {
         // to test
-        const targetStopID = '101'
+        const targetStopID = '112'
         const line = '1'
-        const direction = "N"
+        const direction = ""
         const date = Date.now()
-        const realtime = await getArrivals(line, targetStopID, date, direction);
+        const data = await fs.readFile("./google_transit/stops.txt", 'utf-8')
+        const realtime = await getArrivals(data, line, targetStopID, date, direction);
         res.json(realtime); // Send the alerts as JSON
     } catch (error) {
         // Huh?!? AI said you could do this which I never knew...
