@@ -1,50 +1,92 @@
 # transitHelper
 The plan is to make this a library that let's you do commands like:
+(✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
 ```
-// expects stopID (which is from stops.txt) and unixTime (which is the current time in unix format)
-// direction can either be "N", "S" or an empty string if you want both directions
-tH.getArrivals(data, line, targetStopID, unixTime, direction)
+✅tH.getTrainArrivals(line, targetStopID, unixTime, direction)
 
-tH.getRouteTo(data, fromstopID, tostopID)
+❌tH.getBusArrivals(line, targetStopID, unixTime, direction)
 
-// includePlannedWork: true or false
-tH.getServiceAlerts(data, shouldIncludePlannedWork, optional: lineOrBus)
+❕tH.getTrainServiceAlerts(data, shouldIncludePlannedWork)
 
-tH.getAllTrainStopCoordinates(data) // returns all stop coordinates in NYC
+❌tH.getBusServiceAlerts(data, shouldIncludePlannedWork)
 
-tH.getTransfers(data, stopID) // will keep service alerts in mind?
+✅tH.getAllTrainStopCoordinates(data)
 
-tH.getLocationsOfVehicles(data, stopID)
+❌tH.getAllBusStopCoordinates(data)
 
-// returns the shape data from shapes.txt
-tH.getTrainLineShapes(data)
+❌tH.getAllFerryStopCoordinates(data)
 
-tH.getAllData() // getAllData returns an object like:
+❌tH.getAllStopCoordinates(data)
+
+❌tH.getTransfers(data, stopID) // When using this keep in mind construction, service alerts, etc
+
+❌tH.getLocationsOfTrains(data, stopID)
+
+❌tH.getLocationsOfBuses(data, stopID)
+
+❌tH.getTrainLineShapes(data)
+
+❌tH.getAllData()
+```
+Maybe in the far future:
+```
+// to get streets/avenues shapes and also find walking routes
+tH.getCityGrid()
+// use Overhead API to download open street map data
+tH.getOpenStreetMapData()
+// also maybe use https://algs4.cs.princeton.edu/44sp/ (nyc.txt) to get routes to places
+tH.getRouteTo()
+```
+
+# Documentation (work-in-progress)
+> tH.getArrivals(line, targetStopID, unixTime, direction)
+
+Example usage: (Please read the stuff below to understand this)
+```
+const targetStopID = '112'
+const line = '1'
+const direction = ""
+const date = Date.now()
+const realtime = await getTrainArrivals(line, targetStopID, date, direction);
+```
+
+> tH.getAllData()
+
+Returns an object like:
+```
 {
     "stopID": {
         "coordinates": {longitude: "", latitude: ""},
         "trains": {},
-        "name": "",
+        "stopname": "",
         "icon": "...",
         "alerts": []
     },
-    >> example
+}
+HOW IT (WOULD) ACTUALLY LOOK WITH WHITEHALL-ST FERRY (I made it up, not real data)
+{
     "R27": {
         "coordinates": {longitude: "40.703087", latitude: "-74.012994"},
         "trains": {"1": "#FFFFFF", "R": "#FFFD37", "W": "#FFFD37"},
-        "name": "Whitehall St-South Ferry",
+        "stopname": "Whitehall St-South Ferry",
         "icon": "1.svg, r.svg, w.svg",
         "alerts": ["1 train is running with delays while we address a switch problem at 34st Penn Station"]
     }
 }
 ```
-Note: The library is preinstalled with subway icons but NOT
-the google_transit folder - that you must supply to the library
-yourself
-# Why data parameter?
+
+# FAQ
+
+## Why the data parameter?
 In the react-native app I was making, file reading didn't work.
 So, I thought it would be good if:
 - The user provides the data in whatever environment they are using
 - The package is not preinstalled with every single google_transit
 file - which reduces storage and let's user decide what to use
 - The package can work in most places
+For example, if you wanted to get the bus arrivals, you would have to go to https://new.mta.info/developers and under "Static GTFS data", you would have to install "Regular GTFS".
+Finally, you would put the contents of the stops.txt folder as the data argument.
+
+## How to get a route to a certain place?
+Use leaflet routing machine (Node.js) or use react-native-maps directions (React Native)
+This library does not provide any functions for that.

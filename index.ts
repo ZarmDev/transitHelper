@@ -41,10 +41,9 @@ interface SimpleTrainInterface {
     [key: string]: string
 }
 
-const trainAlerts: ObjectInterface = {}
-
 // not done
-async function getServiceAlerts() {
+async function getTrainServiceAlerts() {
+    var trainAlerts: ObjectInterface = {}
     const feed = await parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")
     // Where all the data is. The other key is header, used for metadata
     const processed = feed["entity"]
@@ -105,7 +104,7 @@ function unixTimestampToDateTime(unixTimestamp: number): Date {
     return date
 }
 // not done
-async function getArrivals(data: string, line: string, targetStopID: string, date: number, direction: string) {
+async function getTrainArrivals(line: string, targetStopID: string, date: number, direction: string) {
     let source = "";
     if (["A", "C", "E"].includes(line)) {
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"
@@ -130,7 +129,6 @@ async function getArrivals(data: string, line: string, targetStopID: string, dat
     // what are entities? idk :/
     const entities = feed["entity"]
     var arrivals = []
-    const splitByLine = data.split('\n');
     // just to get both the north and south arrivals and combine them
     var numOfDirections = 1;
     if (direction === "") {
@@ -185,24 +183,12 @@ async function getArrivals(data: string, line: string, targetStopID: string, dat
                                         const currentDate = date.valueOf()
                                         let timeDifference = unixToDate - currentDate
                                         timeDifference = Math.round(timeDifference / (1000 * 60))
-                                        for (var x = 0; x < splitByLine.length; x++) {
-                                            if (splitByLine[x] == '') {
-                                                continue;
-                                            }
-                                            const splitByComma = splitByLine[x].split(',')
-                                            // console.log(splitByComma[0], (targetStopID + currentDirection))
-                                            if (splitByComma[0] === (targetStopID + currentDirection)) {
-                                                // console.log(currentDirection)
-                                                let realStopName = splitByComma[1]
-                                                arrivals.push({
-                                                        "arrivalTime": timeDifference,
-                                                        "direction": currentDirection,
-                                                        "stopname": realStopName,
-                                                        "line": line
-                                                })
-                                                // arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName} in the direction of ${}`)
-                                            }
-                                        }
+                                        arrivals.push({
+                                            "arrivalTime": timeDifference,
+                                            "direction": currentDirection,
+                                            "line": line
+                                        })
+                                        // arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName} in the direction of ${}`)
                                     }
                                 }
                             }
@@ -236,16 +222,38 @@ async function getTrainLineShapes(data: string) {
     }
 }
 
+// supply a stops.txt as data
 async function getAllTrainStopCoordinates(data: string) {
-
-}
-
-//https://algs4.cs.princeton.edu/44sp/NYC.txt 
-// "NYC.txt is the undirected road network of New York City. The graph contains 264346 vertices and 733846 edges. It is connected, contains parallel edges, but no self-loops. The edge weights are travel times and are strictly positive."
-// maybe gonna try to use openstreetmaps
-// https://www.openstreetmap.org/relation/175905#map=11/40.5934/-73.9895&layers=T
-async function getDistanceToCoord() {
-    
+    var trainstops : ObjectInterface = {}
+    /*
+    trainstops = {
+        "stopID": {
+            "stopname": "",
+            "coordinates": {
+                latitude: , 
+                longitude: ,
+            },
+            "parent_station": ""
+    }
+    We can use this data and combine it with the other functions in getAllData
+    */
+    const splitByLine = data.split('\n');
+    for (var x = 0; x < splitByLine.length; x++) {
+        if (splitByLine[x] == '') {
+            continue;
+        }
+        const splitByComma = splitByLine[x].split(',')
+        const [stop_id,stop_name,stop_lat,stop_lon,location_type,parent_station] = splitByComma;
+        trainstops[stop_id] = {
+            "stopname": stop_name,
+            "coordinates": {
+                latitude: stop_lat,
+                longitude: stop_lon
+            },
+            "parent_station": parent_station
+        }
+    }
+    return trainstops
 }
 
 
@@ -256,8 +264,8 @@ async function getAllData() {
 
 app.get('/serviceAlerts', async (req, res) => {
     try {
-        const alerts = await getServiceAlerts();
-        res.json(alerts); // Send the alerts as JSON
+        const alerts = await getTrainServiceAlerts();
+        res.json(alerts);
     } catch (error) {
         const e = error as Error;
         res.status(500).send(e.message);
@@ -272,11 +280,22 @@ app.get('/realtimeTrainData', async (req, res) => {
         const line = '1'
         const direction = ""
         const date = Date.now()
-        const data = await fs.readFile("./google_transit/stops.txt", 'utf-8')
-        const realtime = await getArrivals(data, line, targetStopID, date, direction);
-        res.json(realtime); // Send the alerts as JSON
+        const realtime = await getTrainArrivals(line, targetStopID, date, direction);
+        res.json(realtime);
     } catch (error) {
         // Huh?!? AI said you could do this which I never knew...
+        const e = error as Error;
+        res.status(500).send(e.message);
+    }
+});
+
+app.get('/getAllTrainStops', async (req, res) => {
+    try {
+        // to test
+        const data = await fs.readFile("./assets/trains/google_transit/stops.txt", 'utf-8')
+        const realtime = await getAllTrainStopCoordinates(data);
+        res.json(realtime);
+    } catch (error) {
         const e = error as Error;
         res.status(500).send(e.message);
     }

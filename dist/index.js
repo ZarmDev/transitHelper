@@ -42,10 +42,10 @@ function parseAndReturnFeed(url) {
         return feed;
     });
 }
-const trainAlerts = {};
 // not done
-function getServiceAlerts() {
+function getTrainServiceAlerts() {
     return __awaiter(this, void 0, void 0, function* () {
+        var trainAlerts = {};
         const feed = yield parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts");
         // Where all the data is. The other key is header, used for metadata
         const processed = feed["entity"];
@@ -106,7 +106,7 @@ function unixTimestampToDateTime(unixTimestamp) {
     return date;
 }
 // not done
-function getArrivals(line, targetStopID, date, direction) {
+function getTrainArrivals(line, targetStopID, date, direction) {
     return __awaiter(this, void 0, void 0, function* () {
         let source = "";
         if (["A", "C", "E"].includes(line)) {
@@ -139,8 +139,6 @@ function getArrivals(line, targetStopID, date, direction) {
         // what are entities? idk :/
         const entities = feed["entity"];
         var arrivals = [];
-        const data = yield fs.readFile("./google_transit/stops.txt", 'utf-8');
-        const splitByLine = data.split('\n');
         // just to get both the north and south arrivals and combine them
         var numOfDirections = 1;
         if (direction === "") {
@@ -179,7 +177,6 @@ function getArrivals(line, targetStopID, date, direction) {
                                 if (direction == "" && z == 1) {
                                     if (currentDirection == "N") {
                                         currentDirection = "S";
-                                        console.log('da f?');
                                     }
                                     else {
                                         currentDirection = "N";
@@ -196,24 +193,12 @@ function getArrivals(line, targetStopID, date, direction) {
                                             const currentDate = date.valueOf();
                                             let timeDifference = unixToDate - currentDate;
                                             timeDifference = Math.round(timeDifference / (1000 * 60));
-                                            for (var x = 0; x < splitByLine.length; x++) {
-                                                if (splitByLine[x] == '') {
-                                                    continue;
-                                                }
-                                                const splitByComma = splitByLine[x].split(',');
-                                                // console.log(splitByComma[0], (targetStopID + currentDirection))
-                                                if (splitByComma[0] === (targetStopID + currentDirection)) {
-                                                    // console.log(currentDirection)
-                                                    let realStopName = splitByComma[1];
-                                                    arrivals.push({
-                                                        "arrivalTime": timeDifference,
-                                                        "direction": currentDirection,
-                                                        "stopname": realStopName,
-                                                        "line": line
-                                                    });
-                                                    // arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName} in the direction of ${}`)
-                                                }
-                                            }
+                                            arrivals.push({
+                                                "arrivalTime": timeDifference,
+                                                "direction": currentDirection,
+                                                "line": line
+                                            });
+                                            // arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName} in the direction of ${}`)
                                         }
                                     }
                                 }
@@ -227,7 +212,7 @@ function getArrivals(line, targetStopID, date, direction) {
     });
 }
 // not done
-function getTrainLineCoordinates(data) {
+function getTrainLineShapes(data) {
     return __awaiter(this, void 0, void 0, function* () {
         var splitByLine = data.split('\n');
         var trainLines = [
@@ -249,8 +234,39 @@ function getTrainLineCoordinates(data) {
         }
     });
 }
-function getTrainStopCoordinates(data) {
+// supply a stops.txt as data
+function getAllTrainStopCoordinates(data) {
     return __awaiter(this, void 0, void 0, function* () {
+        var trainstops = {};
+        /*
+        trainstops = {
+            "stopID": {
+                "stopname": "",
+                "coordinates": {
+                    latitude: ,
+                    longitude: ,
+                },
+                "parent_station": ""
+        }
+        We can use this data and combine it with the other functions in getAllData
+        */
+        const splitByLine = data.split('\n');
+        for (var x = 0; x < splitByLine.length; x++) {
+            if (splitByLine[x] == '') {
+                continue;
+            }
+            const splitByComma = splitByLine[x].split(',');
+            const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma;
+            trainstops[stop_id] = {
+                "stopname": stop_name,
+                "coordinates": {
+                    latitude: stop_lat,
+                    longitude: stop_lon
+                },
+                "parent_station": parent_station
+            };
+        }
+        return trainstops;
     });
 }
 function getAllData() {
@@ -259,8 +275,8 @@ function getAllData() {
 }
 app.get('/serviceAlerts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const alerts = yield getServiceAlerts();
-        res.json(alerts); // Send the alerts as JSON
+        const alerts = yield getTrainServiceAlerts();
+        res.json(alerts);
     }
     catch (error) {
         const e = error;
@@ -274,11 +290,23 @@ app.get('/realtimeTrainData', (req, res) => __awaiter(void 0, void 0, void 0, fu
         const line = '1';
         const direction = "";
         const date = Date.now();
-        const realtime = yield getArrivals(line, targetStopID, date, direction);
-        res.json(realtime); // Send the alerts as JSON
+        const realtime = yield getTrainArrivals(line, targetStopID, date, direction);
+        res.json(realtime);
     }
     catch (error) {
         // Huh?!? AI said you could do this which I never knew...
+        const e = error;
+        res.status(500).send(e.message);
+    }
+}));
+app.get('/getAllTrainStops', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // to test
+        const data = yield fs.readFile("./assets/trains/google_transit/stops.txt", 'utf-8');
+        const realtime = yield getAllTrainStopCoordinates(data);
+        res.json(realtime);
+    }
+    catch (error) {
         const e = error;
         res.status(500).send(e.message);
     }
