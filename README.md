@@ -1,5 +1,12 @@
 # transitHelper
-The plan is to make this a library that let's you do commands like:
+A Typescript library to make it easy to create a transit app. (Only for NYC)
+
+It takes ~41MB (including node_modules) and depends on gtfs-realtime-binding, express and typescript.
+
+The express library is only used to test the library (due to CORS) and will be added in a seperate file as a dev dependency.
+
+This should work with any JS compatible library.
+# All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
 ```
 ✅tH.getTrainArrivals(line, targetStopID, unixTime, direction)
