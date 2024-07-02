@@ -9,13 +9,25 @@ This should work with any JS compatible library.
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
 ```
+Realtime functions:
+
 ✅tH.getTrainArrivals(line, targetStopID, unixTime, direction)
 
 ❌tH.getBusArrivals(line, targetStopID, unixTime, direction)
 
-❕tH.getTrainServiceAlerts(data, shouldIncludePlannedWork)
+❕tH.getTrainServiceAlerts(shouldIncludePlannedWork)
 
 ❌tH.getBusServiceAlerts(data, shouldIncludePlannedWork)
+
+❌tH.getTransfers(data, stopID) // When using this keep in mind construction, service alerts, etc
+
+❌tH.getLocationsOfTrains(data, stopID)
+
+❌tH.getLocationsOfBuses(data, stopID)
+
+Not realtime data: (Updated every x months according to https://new.mta.info/developers/gtfs-schedules-transition)
+
+> if you are making a transit app, you should probably ignore all of these functions below and only use tH.getAllData()
 
 ✅tH.getAllTrainStopCoordinates(data)
 
@@ -25,13 +37,7 @@ This should work with any JS compatible library.
 
 ❌tH.getAllStopCoordinates(data)
 
-❌tH.getTransfers(data, stopID) // When using this keep in mind construction, service alerts, etc
-
-❌tH.getLocationsOfTrains(data, stopID)
-
-❌tH.getLocationsOfBuses(data, stopID)
-
-❌tH.getTrainLineShapes(data)
+✅tH.getTrainLineShapes(data, shouldMatchWithColors)
 
 ❌tH.getAllData()
 ```
@@ -97,3 +103,6 @@ Finally, you would put the contents of the stops.txt folder as the data argument
 ## How to get a route to a certain place?
 Use leaflet routing machine (Node.js) or use react-native-maps directions (React Native)
 This library does not provide any functions for that.
+
+## Is it possible to use this for other cities?
+Nope. Maybe https://mobilitydatabase.org/ will be used for other cities in the future.
