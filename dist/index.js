@@ -300,6 +300,7 @@ app.get('/getAllTrainStops', (req, res) => __awaiter(void 0, void 0, void 0, fun
     }
 }));
 app.get('/getTrainLineShapes', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("WTF?");
     try {
         // to test
         const data = yield fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8');
