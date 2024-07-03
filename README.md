@@ -6,6 +6,15 @@ It takes ~41MB (including node_modules) and depends on gtfs-realtime-binding, ex
 The express library is only used to test the library (due to CORS) and will be added in a seperate file as a dev dependency.
 
 This should work with any JS compatible library.
+
+In the future (if this is published) you should run:
+
+```npm install --production transitHelper```
+
+To edit the code, just clone the repo and run:
+
+```npm install```
+
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
 ```

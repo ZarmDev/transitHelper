@@ -1,5 +1,4 @@
 import GtfsRealTimeBindings from 'gtfs-realtime-bindings';
-export declare function writeToFile(filename: string, content: string): Promise<void>;
 export declare function parseAndReturnFeed(url: string): Promise<GtfsRealTimeBindings.transit_realtime.FeedMessage>;
 interface ServiceAlerts {
     [line: string]: {

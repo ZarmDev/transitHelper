@@ -8,21 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import GtfsRealTimeBindings from 'gtfs-realtime-bindings';
-import express from 'express';
-// import cors from 'cors';
-import fs from 'fs/promises';
-const app = express();
-const PORT = 8082;
-export function writeToFile(filename, content) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            yield fs.writeFile(filename, content);
-        }
-        catch (err) {
-            console.error('Error:', err);
-        }
-    });
-}
 export function parseAndReturnFeed(url) {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch(url, {
@@ -261,58 +246,4 @@ export function getAllData() {
     return __awaiter(this, void 0, void 0, function* () {
     });
 }
-app.get('/serviceAlerts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const alerts = yield getTrainServiceAlerts(false);
-        res.json(alerts);
-    }
-    catch (error) {
-        const e = error;
-        res.status(500).send(e.message);
-    }
-}));
-app.get('/realtimeTrainData', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        // to test
-        const targetStopID = '112';
-        const line = '1';
-        const direction = "";
-        const date = Date.now();
-        const realtime = yield getTrainArrivals(line, targetStopID, date, direction);
-        res.json(realtime);
-    }
-    catch (error) {
-        // Huh?!? AI said you could do this which I never knew...
-        const e = error;
-        res.status(500).send(e.message);
-    }
-}));
-app.get('/getAllTrainStops', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        // to test
-        const data = yield fs.readFile("./assets/trains/google_transit/stops.txt", 'utf-8');
-        const realtime = yield getAllTrainStopCoordinates(data);
-        res.json(realtime);
-    }
-    catch (error) {
-        const e = error;
-        res.status(500).send(e.message);
-    }
-}));
-app.get('/getTrainLineShapes', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("WTF?");
-    try {
-        // to test
-        const data = yield fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8');
-        const realtime = yield getTrainLineShapes(data);
-        res.json(realtime);
-    }
-    catch (error) {
-        const e = error;
-        res.status(500).send(e.message);
-    }
-}));
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
 //# sourceMappingURL=index.js.map
