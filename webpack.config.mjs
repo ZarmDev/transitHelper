@@ -21,7 +21,8 @@ export default {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),libraryTarget: 'umd', // Universal Module Definition
+    globalObject: 'this' // Ensures compatibility with both browser and Node environments
   },
   target: 'node', // Specify 'node' if you're bundling a Node.js app
 };
