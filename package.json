@@ -1,7 +1,7 @@
 {
-  "name": "mta-js-utils",
+  "name": "transitHelper",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -9,7 +9,7 @@
   },
   "author": "ZarmDev",
   "license": "MIT",
-  "description": "useful functions to handle MTA data",
+  "description": "useful functions to handle train data",
   "dependencies": {
     "express": "^4.19.2",
     "gtfs-realtime-bindings": "^1.1.1",

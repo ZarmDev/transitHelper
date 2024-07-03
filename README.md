@@ -39,7 +39,7 @@ Not realtime data: (Updated every x months according to https://new.mta.info/dev
 
 ✅tH.getTrainLineShapes(data, shouldMatchWithColors)
 
-❌tH.getAllData()
+❌tH.getAllData(shouldAttemptToMerge)
 ```
 Maybe in the far future:
 ```
@@ -63,7 +63,7 @@ const date = Date.now()
 const realtime = await getTrainArrivals(line, targetStopID, date, direction);
 ```
 
-> tH.getAllData()
+> tH.getAllData(shouldAttemptToMerge)
 
 Returns an object like:
 ```
@@ -87,6 +87,18 @@ HOW IT (WOULD) ACTUALLY LOOK WITH WHITEHALL-ST FERRY (I made it up, not real dat
     }
 }
 ```
+
+shouldAttemptToMerge is just a parameter to try to merge the google_transit folder with the new folder online just like in:
+https://github.com/google/transitfeed/blob/104b5a5b339c62a94c1579d7209a41c7c0833e35/merge.py
+
+MTA says:
+
+"We ask that you do not manipulate the calendar.txt or calendar_dates.txt to extend the effective dates of any schedules. Instead, we encourage you to adopt one of the following strategies to mitigate any issues. This should get the best information to your users:
+
+Hold newly-published datasets until they become active, and deploy them on that date.
+
+Use a GTFS merge tool to prepare a merged GTFS dataset spanning the current and future timetables. There are several tools available for merging GTFS datasets, including:"
+
 
 # FAQ
 
