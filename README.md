@@ -7,11 +7,11 @@ The express library is only used to test the library (due to CORS) and will be a
 
 This should work with any JS compatible library.
 
-In the future (if this is published) you should run:
+In the future (**if this is published**) you should run:
 
 ```npm install --production transitHelper```
 
-To edit the code, just clone the repo and run:
+**To edit the code, just clone the repo and run:**
 
 ```npm install```
 
