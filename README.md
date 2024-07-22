@@ -7,13 +7,13 @@ The express library is only used to test the library (due to CORS) and will be a
 
 This should work with any JS compatible library.
 
-In the future (if this is published) you should run:
-
-```npm install --production transitHelper```
-
-To edit the code, just clone the repo and run:
+To edit the code, just clone the repo and run: (Only works if you cloned repo)
 
 ```npm install```
+
+To use in a html file add this to your <head> tag:
+
+```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
 
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)

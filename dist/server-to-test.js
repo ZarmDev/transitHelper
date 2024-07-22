@@ -34,7 +34,6 @@ app.get('/serviceAlerts', (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
 }));
 app.get('/realtimeTrainData', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("YOLO");
     try {
         // to test
         const targetStopID = '112';
@@ -67,7 +66,7 @@ app.get('/getTrainLineShapes', (req, res) => __awaiter(void 0, void 0, void 0, f
         // to test
         const data = yield fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8');
         const realtime = yield tH.getTrainLineShapes(data);
-        res.json(realtime);
+        res.json(realtime[1]);
     }
     catch (error) {
         const e = error;

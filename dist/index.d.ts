@@ -15,20 +15,7 @@ interface ArrivalInterface {
 }
 type ArrivalsInterface = ArrivalInterface[];
 export declare function getTrainArrivals(line: string, targetStopID: string, date: number, direction: string): Promise<ArrivalsInterface>;
-interface TrainLineInterface {
-    [coordinates: string]: [
-        {
-            latitude: number;
-            longitude: number;
-        },
-        {
-            latitude: number;
-            longitude: number;
-        }
-    ];
-}
-type TrainLinesInterface = TrainLineInterface[];
-export declare function getTrainLineShapes(data: string): Promise<TrainLinesInterface>;
+export declare function getTrainLineShapes(data: string): Promise<(string[] | number[][])[]>;
 interface TrainStopsInterface {
     [stopID: string]: {
         stopname: string;

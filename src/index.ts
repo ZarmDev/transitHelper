@@ -205,22 +205,58 @@ interface TrainLineInterface {
         }
     ]
 }
-type TrainLinesInterface = TrainLineInterface[];
-export async function getTrainLineShapes(data : string) {
-    var trainLines : TrainLinesInterface = []
-    var splitByLine = data.split('\n');
-    // if it's not even, then one line will be cut off
-    for (var i = 1; i < splitByLine.length - 2; i += 2) {
-        var splitByComma = splitByLine[i].split(',')
-        var splitByComma2 = splitByLine[i + 1].split(',')
-        trainLines.push({
-            coordinates: [
-                { latitude: parseFloat(splitByComma[2]), longitude: parseFloat(splitByComma[3]) },
-                { latitude: parseFloat(splitByComma2[2]), longitude: parseFloat(splitByComma2[3]) }
-            ]
-        })
+
+function getTrainLineColor(line : string) {
+    let color = "";
+    // S is wierdly missing in shapes.txt...
+    if (["A", "C", "E"].includes(line)) {
+        color = "#0039A6"
+    } else if (["B", "D", "F", "M"].includes(line)) {
+        color = "#FF6319"
+    } else if (["G"].includes(line)) {
+        color = "#6CBE45"
+    } else if (["J", "Z"].includes(line)) {
+        color = "#996633"
+    } else if (["N", "Q", "R", "W"].includes(line)) {
+        color = "#FCCC0A"
+    } else if (["L"].includes(line)) {
+        color = "#A7A9AC"
+    } else if (["1", "2", "3", "4", "5", "6", "7"].includes(line)) {
+        color = "#EE352E"
+    } else if (["SI"].includes(line)) {
+        // not official color, just added it quickly
+        color = "#2A9FDD"
     }
-    return trainLines
+    //  else if (["GS"].includes(line)) {
+    //     // GS IS THE S LINE?!? bro what
+    //     color = "#808183"
+    // }
+    // if (color == "") {
+    //     console.log(line)
+    // }
+    return color
+}
+
+// in leaflet.js format: [lat, lng], [lat, lng]
+export async function getTrainLineShapes(data : string) {
+    var trainLines = [];
+    var trainColors = [];
+    var splitByLine = data.split('\n');
+    // cut off last line because it's empty
+    for (var i = 1; i < splitByLine.length - 1; i++) {
+        const splitByComma = splitByLine[i].split(',')
+        // var splitByComma2 = splitByLine[i + 1].split(',')
+        // shape_id: 1..N03R
+        const trainLine = splitByComma[0].slice(0, splitByComma[0].indexOf('.'))
+        trainLines.push(
+            [parseFloat(splitByComma[2]), parseFloat(splitByComma[3])]
+        )
+        trainColors.push(getTrainLineColor(trainLine))
+        // trainLines.push(
+        //     [parseFloat(splitByComma2[2]), parseFloat(splitByComma2[3])]
+        // )
+    }
+    return [trainLines, trainColors]
 }
 
 interface TrainStopsInterface {
