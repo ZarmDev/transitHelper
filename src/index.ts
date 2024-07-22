@@ -19,14 +19,14 @@ export async function parseAndReturnFeed(url: string) {
 }
 
 interface ServiceAlerts {
-    [line : string]: {
+    [line: string]: {
         headerText: string,
         descriptionText: string | null
     }
 }
 
 // not done
-export async function getTrainServiceAlerts(shouldIncludePlannedWork : boolean) {
+export async function getTrainServiceAlerts(shouldIncludePlannedWork: boolean) {
     // Partial is here so Typescript doesn't attack the compiler :( (To let the object be empty at first)
     var trainAlerts: Partial<ServiceAlerts> = {}
     const feed = await parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")
@@ -97,7 +97,7 @@ interface ArrivalInterface {
 //Huh?!?
 type ArrivalsInterface = ArrivalInterface[];
 export async function getTrainArrivals(line: string, targetStopID: string, date: number, direction: string) {
-    var arrivals : ArrivalsInterface = []
+    var arrivals: ArrivalsInterface = []
     let source = "";
     if (["A", "C", "E"].includes(line)) {
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"
@@ -193,7 +193,7 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
     return arrivals
 }
 
-function getTrainLineColor(line : string) {
+function getTrainLineColor(line: string) {
     let color = "";
     // S is wierdly missing in shapes.txt...
     if (["A", "C", "E"].includes(line)) {
@@ -230,41 +230,75 @@ function getTrainLineColor(line : string) {
 
 // thanks AI!
 interface TrainLineInterface {
-    [trainLine : string]: {
+    [trainLine: string]: {
         color: string,
-        latlngs: [number, number][]
+        // in leaflet.js format: [lat, lng], [lat, lng], ...
+        layers: [number, number][]
     }
 }
 
-// in leaflet.js format: [lat, lng], [lat, lng]
+`using shouldSkipToSavePerformance:
+49418 lines
+not using it:
+706696 lines
+
+Summary: It takes 93% less storage and is much faster`
 export async function getTrainLineShapes(data : string) {
     var trainLines : TrainLineInterface = {};
     var splitByLine = data.split('\n');
+    var sequence = -1;
+    var shouldSkipToSavePerformance = false;
     // cut off last line because it's empty
     for (var i = 1; i < splitByLine.length - 1; i++) {
         const splitByComma = splitByLine[i].split(',')
         // var splitByComma2 = splitByLine[i + 1].split(',')
-        // shape_id: 1..N03R
         const trainLine = splitByComma[0].slice(0, splitByComma[0].indexOf('.'))
+
+        // If the trainLine found in shapes.txt doesn't already exist in our object
         if (!trainLines[trainLine]) {
-            trainLines[trainLine] = {"color" : "black", "latlngs": []};
-            trainLines[trainLine]["color"] = getTrainLineColor(trainLine);
-            if (i == 1) {
-                console.log(trainLines)
+            if (shouldSkipToSavePerformance) {
+                // no longer need to skip data, because we are at a different train line
+                shouldSkipToSavePerformance = false;
             }
+            // restart the sequence
+            sequence = -1;
+            // fill in default values (might be useful to say that black indicates something went wrong)
+            trainLines[trainLine] = { "color": "black", "layers": [] };
+            trainLines[trainLine]["color"] = getTrainLineColor(trainLine);
+        } else if (shouldSkipToSavePerformance) {
+            continue;
         }
-        trainLines[trainLine]["latlngs"].push(
-            [parseFloat(splitByComma[2]), parseFloat(splitByComma[3])]
-        )
-        // trainLines.push(
-        //     [parseFloat(splitByComma2[2]), parseFloat(splitByComma2[3])]
-        // )
+        // If you look in shapes.txt, each line has a "shape_pt_sequence" and it goes up until around 200 and something
+        // This code is just trying to split every 0..200 intos portions
+        // Because, in each train line, it can have a lot of these 0..200 portions for some reason
+        // I'm still not sure how it works but I know this atleast gives some correct lines
+        // Maybe they are for lines like the 6 with a local and express route. I don't know
+        if (splitByComma[1] == "0") {
+            // Only get the first 0...200 then skip the rest until the next train line appears in the data
+            // Also no this doesn't run immediately because sequence will be -1 not 0
+            if (sequence == 0) {
+                shouldSkipToSavePerformance = true;
+            }
+            sequence += 1;
+            // trainLines[trainLine]["layers"].push([])
+        }
+        // Sometimes it gives an error to try an extract the coordinates, so just use try and catch (cuz it works 😎)
+        try {
+            // trainLines[trainLine]["layers"][sequence].push(
+            //     [parseFloat(splitByComma[2]), parseFloat(splitByComma[3])]
+            // )
+            trainLines[trainLine]["layers"].push(
+                [parseFloat(splitByComma[2]), parseFloat(splitByComma[3])]
+            )
+        } catch {
+
+        }
     }
     return trainLines
 }
 
 interface TrainStopsInterface {
-    [stopID : string]: {
+    [stopID: string]: {
         stopname: string;
         coordinates: {
             latitude: number;
@@ -287,7 +321,7 @@ export async function getAllTrainStopCoordinates(data: string) {
         const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma;
         // console.log(stop_id);
         // if the last character doesn't indicate direction (bad for performance)
-        if (!["N", "S"].includes(stop_id.slice(stop_id.length-1, stop_id.length))) {
+        if (!["N", "S"].includes(stop_id.slice(stop_id.length - 1, stop_id.length))) {
             trainstops[stop_id] = {
                 "stopname": stop_name,
                 "coordinates": {
