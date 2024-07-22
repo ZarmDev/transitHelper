@@ -7,7 +7,7 @@ The express library is only used to test the library (due to CORS) and will be a
 
 This should work with any JS compatible library.
 
-To edit the code, just clone the repo and run: (Only works if you cloned repo)
+To edit the code, just clone the repo and run:
 
 ```npm install```
 
