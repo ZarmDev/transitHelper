@@ -46,7 +46,7 @@ Not realtime data: (Updated every x months according to https://new.mta.info/dev
 
 ❌tH.getAllStopCoordinates(data)
 
-✅tH.getTrainLineShapes(data, shouldMatchWithColors)
+✅tH.getTrainLineShapes(data)
 
 ❌tH.getAllData(shouldAttemptToMerge)
 ```
