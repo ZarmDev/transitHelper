@@ -60,6 +60,15 @@ tH.getOpenStreetMapData()
 tH.getRouteTo()
 ```
 
+# How to test it locally
+Just run ```npm run start``` and go to the route you want
+to test.
+
+For example, if you changed getTrainLineShapes(), run
+npm run start and then go to localhost:8082/getTrainLineShapes
+
+**All the routes are specified in server-to-test.ts**
+
 # Documentation (work-in-progress)
 > tH.getArrivals(line, targetStopID, unixTime, direction)
 

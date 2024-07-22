@@ -58,7 +58,7 @@ app.get('/getTrainLineShapes',  async (req, res) => {
         // to test
         const data = await fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8')
         const realtime = await tH.getTrainLineShapes(data);
-        res.json(realtime[1]);
+        res.json(realtime);
     } catch (error) {
         const e = error as Error;
         res.status(500).send(e.message);

@@ -193,19 +193,6 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
     return arrivals
 }
 
-interface TrainLineInterface {
-    [coordinates : string]: [
-        {
-            latitude: number,
-            longitude: number
-        },
-        {
-            latitude: number,
-            longitude: number
-        }
-    ]
-}
-
 function getTrainLineColor(line : string) {
     let color = "";
     // S is wierdly missing in shapes.txt...
@@ -237,10 +224,35 @@ function getTrainLineColor(line : string) {
     return color
 }
 
+// thanks AI!
+interface TrainLineInterface {
+    [trainLine : string]: {
+        color: string,
+        latlngs: [number, number][]
+    }
+}
+const exampleTrainLines: TrainLineInterface = {
+    "RedLine": {
+        color: "#FF0000",
+        latlngs: [
+            [40.712776, -74.005974], // New York City
+            [34.052235, -118.243683], // Los Angeles
+            [41.878113, -87.629799] // Chicago
+        ]
+    },
+    "BlueLine": {
+        color: "#0000FF",
+        latlngs: [
+            [29.760427, -95.369804], // Houston
+            [39.739236, -104.990251], // Denver
+            [25.761680, -80.191790] // Miami
+        ]
+    }
+};
+
 // in leaflet.js format: [lat, lng], [lat, lng]
 export async function getTrainLineShapes(data : string) {
-    var trainLines = [];
-    var trainColors = [];
+    var trainLines : TrainLineInterface = {};
     var splitByLine = data.split('\n');
     // cut off last line because it's empty
     for (var i = 1; i < splitByLine.length - 1; i++) {
@@ -248,15 +260,21 @@ export async function getTrainLineShapes(data : string) {
         // var splitByComma2 = splitByLine[i + 1].split(',')
         // shape_id: 1..N03R
         const trainLine = splitByComma[0].slice(0, splitByComma[0].indexOf('.'))
-        trainLines.push(
+        if (!trainLines[trainLine]) {
+            trainLines[trainLine] = {"color" : "black", "latlngs": []};
+            trainLines[trainLine]["color"] = getTrainLineColor(trainLine);
+            if (i == 1) {
+                console.log(trainLines)
+            }
+        }
+        trainLines[trainLine]["latlngs"].push(
             [parseFloat(splitByComma[2]), parseFloat(splitByComma[3])]
         )
-        trainColors.push(getTrainLineColor(trainLine))
         // trainLines.push(
         //     [parseFloat(splitByComma2[2]), parseFloat(splitByComma2[3])]
         // )
     }
-    return [trainLines, trainColors]
+    return trainLines
 }
 
 interface TrainStopsInterface {

@@ -1,11 +1,11 @@
 {
   "name": "transit-helper",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "npm run build && node dist/server-to-test.js"
+    "start": "npm run build && node build/server-to-test.js"
   },
   "author": "ZarmDev",
   "license": "MIT",
