@@ -208,8 +208,12 @@ function getTrainLineColor(line : string) {
         color = "#FCCC0A"
     } else if (["L"].includes(line)) {
         color = "#A7A9AC"
-    } else if (["1", "2", "3", "4", "5", "6", "7"].includes(line)) {
+    } else if (["1", "2", "3"].includes(line)) {
         color = "#EE352E"
+    } else if (["4", "5", "6"].includes(line)) {
+        color = "#00933C"
+    } else if (["7"].includes(line)) {
+        color = "#B933AD"
     } else if (["SI"].includes(line)) {
         // not official color, just added it quickly
         color = "#2A9FDD"
@@ -231,24 +235,6 @@ interface TrainLineInterface {
         latlngs: [number, number][]
     }
 }
-const exampleTrainLines: TrainLineInterface = {
-    "RedLine": {
-        color: "#FF0000",
-        latlngs: [
-            [40.712776, -74.005974], // New York City
-            [34.052235, -118.243683], // Los Angeles
-            [41.878113, -87.629799] // Chicago
-        ]
-    },
-    "BlueLine": {
-        color: "#0000FF",
-        latlngs: [
-            [29.760427, -95.369804], // Houston
-            [39.739236, -104.990251], // Denver
-            [25.761680, -80.191790] // Miami
-        ]
-    }
-};
 
 // in leaflet.js format: [lat, lng], [lat, lng]
 export async function getTrainLineShapes(data : string) {
