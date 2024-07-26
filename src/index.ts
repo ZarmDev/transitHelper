@@ -59,7 +59,7 @@ export async function getTrainServiceAlerts(shouldIncludePlannedWork: boolean) {
 
                     if (routesAffected) {
                         // loop through each route affected
-                        console.log(routesAffected, i)
+                        // console.log(routesAffected, i)
                         for (var j = 0; j < routesAffected.length; j++) {
                             const routeId = routesAffected[j]['routeId']
                             if (routeId) {
@@ -238,11 +238,11 @@ interface TrainLineInterface {
 }
 
 `using shouldSkipToSavePerformance:
-49418 lines
+49322 lines
 not using it:
 706696 lines
 
-Summary: It takes 93% less storage and is much faster`
+Summary: It takes 93% less storage and is easier to work with`
 export async function getTrainLineShapes(data : string) {
     var trainLines : TrainLineInterface = {};
     var splitByLine = data.split('\n');
@@ -278,6 +278,7 @@ export async function getTrainLineShapes(data : string) {
             // Also no this doesn't run immediately because sequence will be -1 not 0
             if (sequence == 0) {
                 shouldSkipToSavePerformance = true;
+                continue;
             }
             sequence += 1;
             // trainLines[trainLine]["layers"].push([])

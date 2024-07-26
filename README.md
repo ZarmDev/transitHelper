@@ -68,6 +68,10 @@ For example, if you changed getTrainLineShapes(), run
 npm run start and then go to localhost:8082/getTrainLineShapes
 
 **All the routes are specified in server-to-test.ts**
+# Notes
+If you use tH.getTrainLineShapes, you may be wondering what FS, GS and SI are in the return value.
+When testing on the map, it shows that **FS represents the Franklin Shuttle, GS stands for the Grand Central Shuttle, SI is the Staten Island Transit and H is the Rockaway Park
+Shuttle**
 
 # Documentation (work-in-progress)
 > tH.getArrivals(line, targetStopID, unixTime, direction)
@@ -117,6 +121,21 @@ Hold newly-published datasets until they become active, and deploy them on that 
 
 Use a GTFS merge tool to prepare a merged GTFS dataset spanning the current and future timetables. There are several tools available for merging GTFS datasets, including:"
 
+> tH.getAllTrainLineShapes(data)
+
+Gets train line shapes to use in maps.
+It's given like:
+```
+example {
+    "1": {
+        color: "red",
+        // in leaflet.js format: [lat, lng], [lat, lng]
+        layers: [[0.5, 1], [0.6, 0.7], ...]
+    }
+}
+```
+
+Although the MTA provides multiple stop "sequences," (not really sure what that is)
 
 # FAQ
 
