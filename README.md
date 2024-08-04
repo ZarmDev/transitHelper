@@ -3,9 +3,9 @@ A Typescript library to make it easy to create a transit app. (Only for NYC)
 
 It takes ~41MB (including node_modules) and depends on gtfs-realtime-binding, express and typescript.
 
-The express library is only used to test the library (due to CORS) and will be added in a seperate file as a dev dependency.
+The express library is only used to test the library (due to CORS) and is in a seperate file as a dev dependency.
 
-This should work with any JS compatible library.
+This definitely works with React-native, in the browser and maybe with Node.js (you have to build the ts file first)
 
 To edit the code, just clone the repo and run:
 
@@ -14,6 +14,19 @@ To edit the code, just clone the repo and run:
 To use in a html file add this to your <head> tag:
 
 ```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
+
+# Important
+If you are considering using this, use the file src/server-to-test.ts and it has examples for every function that work.
+
+To see how to use a function, find the app.get with the function name. (scroll through the file)
+
+To actually try the function, clone the repository and
+run ```npm run start```. Wait until you see localhost://whateveritshows and then you can open that link and put the function name in the url.
+
+For example:
+
+After running npm run start and going to ```http://localhost:8082/getTrainLineShapes``` you should
+see output in the console.
 
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
@@ -48,6 +61,13 @@ Not realtime data: (Updated every x months according to https://new.mta.info/dev
 
 ✅tH.getTrainLineShapes(data)
 
+tH.getNearbyBusStops()
+
+tH.getNearbyTrainStops()
+
+// get an array of coordinates that correspond to the 4 corners and one middle of each borough
+tH.getBorough(location)
+
 ❌tH.getAllData(shouldAttemptToMerge)
 ```
 Maybe in the far future:
@@ -72,6 +92,10 @@ npm run start and then go to localhost:8082/getTrainLineShapes
 If you use tH.getTrainLineShapes, you may be wondering what FS, GS and SI are in the return value.
 When testing on the map, it shows that **FS represents the Franklin Shuttle, GS stands for the Grand Central Shuttle, SI is the Staten Island Transit and H is the Rockaway Park
 Shuttle**
+
+# Showcase
+Proof that it works:
+https://github.com/ZarmDev/TransitApp
 
 # Documentation (work-in-progress)
 > tH.getArrivals(line, targetStopID, unixTime, direction)
@@ -136,6 +160,9 @@ example {
 ```
 
 Although the MTA provides multiple stop "sequences," (not really sure what that is)
+
+> tH.getNearbyStops() / tH.getNearbyTrainStops()
+
 
 # FAQ
 

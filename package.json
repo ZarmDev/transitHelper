@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "npm run build && node build/server-to-test.js"
+    "start": "npm run build && node build/server-to-test.js",
+    "newVersion": "npx webpack && npm run build"
   },
   "author": "ZarmDev",
   "license": "MIT",

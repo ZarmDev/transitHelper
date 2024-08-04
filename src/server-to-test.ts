@@ -65,6 +65,38 @@ app.get('/getTrainLineShapes',  async (req, res) => {
     }
 })
 
+app.get('/getNearbyBusStops', async (req, res) => {
+    try {
+        // to test
+        const data = await fs.readFile("./assets/buses/google_transit_manhattan/stops.txt", 'utf-8')
+        // save the processedStopData somewhere (to save performance)
+        var stopData : any = data;
+        var processedStopData = tH.processBusStopData(stopData)
+        let location : [number, number] = [40.735470, -73.9910]
+        const realtime = tH.getNearbyBusStops(processedStopData, location);
+        res.json(realtime);
+    } catch (error) {
+        const e = error as Error;
+        res.status(500).send(e.message);
+    }
+})
+
+app.get('/getNearbyTrainStops', async (req, res) => {
+    try {
+        // to test
+        const data = await fs.readFile("./assets/trains/google_transit/stops.txt", 'utf-8')
+        let stopData : string[] = data.split('\n')
+        let stopCoordinates : string[][] = [];
+        let stopNames : string[] = [];
+        let coords : [number, number] = [40.735470, -73.9910]
+        // const realtime = tH.getNearbyTrainStops(stopData, coords, stopCoordinates, stopNames);
+        // res.json(realtime);
+    } catch (error) {
+        const e = error as Error;
+        res.status(500).send(e.message);
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
