@@ -16,9 +16,12 @@ Please follow the instructions below (including "Requirements"!!!) to use the li
 Proof that it works:
 https://github.com/ZarmDev/OpenTransitApp
 
-I'm not saying that you should use it though...
+Note that this project is still being developed, if you have any questions please open an issue :))))))
 
-If your serious about making an transit app, I think https://github.com/OneBusAway is a good option, although, I have no idea if they have a library to make transit apps or if you can use it in React-native or anything like that so maybe this library could be useful to you.
+# Credits
+Louh for the subway icons:
+
+https://github.com/louh/mta-subway-bullets?tab=readme-ov-file
 
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
@@ -59,7 +62,7 @@ Not realtime data: (Updated every x months according to https://new.mta.info/dev
 
 ❌tH.getBorough(locationOfUser)
 
-❌tH.getAllData(shouldAttemptToMerge)
+⛔ (redundant - just use tH.processTrainStopData/tH.processBusStopData) tH.getAllData(shouldAttemptToMerge)
 ```
 Maybe in the far future:
 ```

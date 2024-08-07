@@ -97,6 +97,12 @@ interface ArrivalInterface {
 //Huh?!?
 type ArrivalsInterface = ArrivalInterface[];
 export async function getTrainArrivals(line: string, targetStopID: string, date: number, direction: string) {
+    console.log(targetStopID);
+    if (targetStopID.length === 4) {
+        let errormsg = "Error: The length of the stop ID should be 4. It's possible that you provided the stopID with the S or N at the end. If you did that, just slice off the last character of the stop ID before running this function."
+        console.error(errormsg);
+        return errormsg;
+    }
     var arrivals: ArrivalsInterface = []
     let source = "";
     if (["A", "C", "E"].includes(line)) {
@@ -136,7 +142,6 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
         const tripID = trip["tripId"]
         const routeID = trip["routeId"]
         // not sure if this works for all lines... maybe not working for SIR
-        // console.log(routeID, line)
         if (routeID != line) {
             continue;
         }
@@ -164,7 +169,7 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
                                     currentDirection = "N"
                                 }
                             }
-                            // console.log(stopID, (targetStopID + currentDirection))
+                            console.log(stopID, (targetStopID + currentDirection))
                             if (stopID === (targetStopID + currentDirection)) {
                                 const arrivalObject = stopTimeUpdate[j]["arrival"]
                                 if (arrivalObject) {
@@ -296,6 +301,9 @@ interface StopInterface {
         stopname: string;
         coordinates: [number, number];
         parent_station: string;
+        type: "bus" | "train";
+        // example: "1", "2", "3"
+        icon?: string;
     };
 }
 
@@ -331,17 +339,18 @@ export function processBusStopData(stopData: string[]) {
             continue;
         }
         let splitByComma = stopData[i].split(',')
-        const [stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station] = splitByComma;
+        const [stop_id, stop_name, stop_desc, stop_lat, stop_lon, zone_id, stop_url, location_type, parent_station] = splitByComma;
         stops[stop_id] = {
             "stopname": stop_name,
             "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
-            "parent_station": parent_station
+            "parent_station": parent_station,
+            "type": "bus"
         }
     }
     return stops
 }
 
-export function processTrainStopData(stopData: string[]) {
+export function processTrainStopData(stopData: string[], shapeData?: string[]) {
     let stops: StopInterface = {};
     for (var i = 1; i < stopData.length; i++) {
         // if the current line doesn't show it's direction ex: 101 vs 101N or 101S
@@ -353,11 +362,30 @@ export function processTrainStopData(stopData: string[]) {
             console.log(stopData[i])
         }
         let splitByComma = stopData[i].split(',')
-        const [stop_id,stop_name,stop_lat,stop_lon,location_type,parent_station] = splitByComma;
+        const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma;
         stops[stop_id] = {
             "stopname": stop_name,
             "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
-            "parent_station": parent_station
+            "parent_station": parent_station,
+            "type": "train"
+        }
+    }
+    // if they want to also get the train line then: (note this is only for trains because buses have their bus name in the stop_name)
+    if (shapeData != null) {
+        for (var i = 1; i < shapeData.length; i++) {
+            let sKeys = Object.keys(stops)
+            for (var i = 1; i < sKeys.length; i++) {
+                let splitByComma = stopData[i].split(',')
+                const [shape_id, shape_pt_sequence, shape_pt_lat, shape_pt_lon] = splitByComma;
+                let shapeCoords = [parseFloat(shape_pt_lat), parseFloat(shape_pt_lon)]
+                // if the coordinates match, put the shape_id which is the train line 
+                if (stops[i]["coordinates"][0] == shapeCoords[0] && stops[i]["coordinates"][1] == shapeCoords[1]) {
+                    stops[i]["icon"] = shape_id;
+                }
+            }
+            if (stopData[i] == '') {
+                continue;
+            }
         }
     }
     return stops
@@ -402,15 +430,35 @@ export function getNearbyStops(processedStopData: StopInterface, locationOfUser:
         // console.log(inRangeLat, inRangeLong)
         // if ((latSame && longSame)) {
         if (inRangeLat && inRangeLong) {
-            stops[sDKeys[i]] = {
-                "stopname": currentVal["stopname"],
-                "coordinates": [locationOfStop[0], locationOfStop[1]],
-                "parent_station": currentVal["parent_station"]
-            }
+            // Just use the same values but only the ones that are nearby
+            stops[sDKeys[i]] = sDVals[i];
         }
     }
     return stops
     // return `Failed ${stopData.length != 0} ${stopCoordinates.length == 0}`
+}
+
+// const iconToURL = {
+//     "1": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "2": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "3": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "4": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "5": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "6": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "7": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "7d": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "a": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "b": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "c": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "d": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "e": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "f": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "g": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     "h": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+//     ""
+// }
+export function getIconURLFromString() {
+
 }
 
 // export function getNearbyTrainStops(stopData: string[], location: [number, number], stopCoordinates: string[][], stopNames: string[]) {
@@ -468,9 +516,5 @@ export function getNearbyStops(processedStopData: StopInterface, locationOfUser:
 //     return `Failed ${stopData.length != 0} ${stopCoordinates.length == 0}`
 // }
 
-export async function getAllData() {
-
-}
-
 // get an array of coordinates that correspond to the 4 corners and one middle of each borough
-function getBorough() {}
+function getBorough() { }
