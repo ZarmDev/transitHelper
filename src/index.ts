@@ -218,13 +218,6 @@ function getTrainLineColor(line: string) {
         // not official color, just added it quickly
         color = "#2A9FDD"
     }
-    //  else if (["GS"].includes(line)) {
-    //     // GS IS THE S LINE?!? bro what
-    //     color = "#808183"
-    // }
-    // if (color == "") {
-    //     console.log(line)
-    // }
     return color
 }
 
@@ -243,14 +236,13 @@ not using it:
 706696 lines
 
 Summary: It takes 93% less storage and is easier to work with`
-export async function getTrainLineShapes(data: string) {
+export async function getTrainLineShapes(data: string[]) {
     var trainLines: TrainLineInterface = {};
-    var splitByLine = data.split('\n');
     var sequence = -1;
     var shouldSkipToSavePerformance = false;
     // cut off last line because it's empty
-    for (var i = 1; i < splitByLine.length - 1; i++) {
-        const splitByComma = splitByLine[i].split(',')
+    for (var i = 1; i < data.length - 1; i++) {
+        const splitByComma = data[i].split(',')
         // var splitByComma2 = splitByLine[i + 1].split(',')
         const trainLine = splitByComma[0].slice(0, splitByComma[0].indexOf('.'))
 
@@ -308,36 +300,60 @@ interface StopInterface {
 }
 
 // supply a stops.txt as data
-export async function getAllTrainStopCoordinates(data: string) {
-    var trainstops: StopInterface = {}
-    // We can use this data and combine it with the other functions in getAllData
-    const splitByLine = data.split('\n');
-    for (var x = 0; x < splitByLine.length; x++) {
-        if (splitByLine[x] == '') {
+// export async function getAllTrainStopCoordinates(data: string) {
+//     var trainstops: StopInterface = {}
+//     // We can use this data and combine it with the other functions in getAllData
+//     const splitByLine = data.split('\n');
+//     for (var x = 0; x < splitByLine.length; x++) {
+//         if (splitByLine[x] == '') {
+//             continue;
+//         }
+//         const splitByComma = splitByLine[x].split(',')
+//         const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma;
+//         // console.log(stop_id);
+//         // if the last character doesn't indicate direction (bad for performance)
+//         if (!["N", "S"].includes(stop_id.slice(stop_id.length - 1, stop_id.length))) {
+//             trainstops[stop_id] = {
+//                 "stopname": stop_name,
+//                 "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
+//                 "parent_station": parent_station
+//             }
+//         }
+//     }
+//     return trainstops
+// }
+
+export function processBusStopData(stopData: string[]) {
+    let stops: StopInterface = {};
+    // let splitStopData = stopData.split('\n')
+    for (var i = 1; i < stopData.length; i++) {
+        if (stopData[i] == '') {
             continue;
         }
-        const splitByComma = splitByLine[x].split(',')
-        const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma;
-        // console.log(stop_id);
-        // if the last character doesn't indicate direction (bad for performance)
-        if (!["N", "S"].includes(stop_id.slice(stop_id.length - 1, stop_id.length))) {
-            trainstops[stop_id] = {
-                "stopname": stop_name,
-                "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
-                "parent_station": parent_station
-            }
+        let splitByComma = stopData[i].split(',')
+        const [stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station] = splitByComma;
+        stops[stop_id] = {
+            "stopname": stop_name,
+            "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
+            "parent_station": parent_station
         }
     }
-    return trainstops
+    return stops
 }
 
-
-export function processBusStopData(stopData: string) {
+export function processTrainStopData(stopData: string[]) {
     let stops: StopInterface = {};
-    let splitStopData = stopData.split('\n')
-    for (var i = 0; i < splitStopData.length; i++) {
-        let splitByComma = splitStopData[i].split(',')
-        const [stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station] = splitByComma;
+    for (var i = 1; i < stopData.length; i++) {
+        // if the current line doesn't show it's direction ex: 101 vs 101N or 101S
+        if (stopData[i][3] == ',' || stopData[i] == '') {
+            // then, skip over it, because we only want train lines with directions, not any direction (should help performance as well)
+            continue;
+        }
+        if (i === stopData.length - 1) {
+            console.log(stopData[i])
+        }
+        let splitByComma = stopData[i].split(',')
+        const [stop_id,stop_name,stop_lat,stop_lon,location_type,parent_station] = splitByComma;
         stops[stop_id] = {
             "stopname": stop_name,
             "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
@@ -349,22 +365,22 @@ export function processBusStopData(stopData: string) {
 
 /**
  * Function to get nearby bus stops.
- * @param stopData - The stop data as a string (just the contents of the stops.txt file)
+ * @param processedStopData - The stop data as a string (just the contents of the stops.txt file)
  * @param location - The location in the format of [latitude, longitude].
  */
-export function getNearbyBusStops(stopData: StopInterface, location: [number, number]) {
+export function getNearbyStops(processedStopData: StopInterface, locationOfUser: [number, number], distance: number) {
     // TODO: Maybe skip stops we have already seen to save performane because MTA provides mutliple of the same stops with almost the same coordinates
     let stops: StopInterface = {};
     // let location = [location["latitude"], location["longitude"]] // .map((i) => parseFloat(i.toFixed(precision)));
-    let sDKeys = Object.keys(stopData);
-    let sDVals = Object.values(stopData);
-    let test = []
-    for (var i = 0; i < sDKeys.length; i++) {
+    let sDKeys = Object.keys(processedStopData);
+    let sDVals = Object.values(processedStopData);
+    for (var i = 1; i < sDKeys.length; i++) {
         let currentVal = sDVals[i];
-        let location = currentVal["coordinates"];
+        let locationOfStop = currentVal["coordinates"];
         // let latSame = stopCoordinates[i][0] == location[0];
         // let longSame = stopCoordinates[i][1] == location[1];
-        let acceptableDifference = 0.004;
+        // let acceptableDifference = 0.004;
+        let acceptableDifference = distance;
         // if the latitude/longitude is close enough by the acceptableDifference (plus or minus range)
         // console.log(`${parseFloat(location[0])} - ${acceptableDifference}`)
         /*
@@ -373,28 +389,27 @@ export function getNearbyBusStops(stopData: StopInterface, location: [number, nu
         let longMinus = (parseFloat(location[1]) - acceptableDifference);
         let longPlus = (parseFloat(location[1]) + acceptableDifference);
         */
-        let latMinus = (location[0] - acceptableDifference);
-        let latPlus = (location[0] + acceptableDifference);
-        let longMinus = (location[1] - acceptableDifference);
-        let longPlus = (location[1] + acceptableDifference);
+        let latMinus = (locationOfStop[0] - acceptableDifference);
+        let latPlus = (locationOfStop[0] + acceptableDifference);
+        let longMinus = (locationOfStop[1] - acceptableDifference);
+        let longPlus = (locationOfStop[1] + acceptableDifference);
         // multiply each side by 100000 or something and maybe the comparisons will work?
-        let inRangeLat = (latMinus <= location[0]) && (latPlus >= location[0])
-        let inRangeLong = (longMinus <= location[1]) && (longPlus >= location[1])
+        let inRangeLat = (latMinus <= locationOfUser[0]) && (latPlus >= locationOfUser[0])
+        let inRangeLong = (longMinus <= locationOfUser[1]) && (longPlus >= locationOfUser[1])
         // console.log(stopData[i].split(',')[1])
         // console.log(`${latMinus} <= ${location[0]} && ${latPlus} >= ${location[0]}`)
         // console.log(`${longMinus} <= ${location[1]} && ${longPlus} >= ${location[1]}`)
         // console.log(inRangeLat, inRangeLong)
         // if ((latSame && longSame)) {
         if (inRangeLat && inRangeLong) {
-            test.push(currentVal["stopname"])
             stops[sDKeys[i]] = {
                 "stopname": currentVal["stopname"],
-                "coordinates": [location[0], location[1]],
+                "coordinates": [locationOfStop[0], locationOfStop[1]],
                 "parent_station": currentVal["parent_station"]
             }
         }
     }
-    return test
+    return stops
     // return `Failed ${stopData.length != 0} ${stopCoordinates.length == 0}`
 }
 
@@ -456,3 +471,6 @@ export function getNearbyBusStops(stopData: StopInterface, location: [number, nu
 export async function getAllData() {
 
 }
+
+// get an array of coordinates that correspond to the 4 corners and one middle of each borough
+function getBorough() {}

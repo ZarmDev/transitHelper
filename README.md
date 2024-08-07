@@ -1,32 +1,24 @@
 # transitHelper
-A Typescript library to make it easy to create a transit app. (Only for NYC)
+A Typescript library to make it easy (cough, cough) to create a transit app. (Only for NYC)
 
 It takes ~41MB (including node_modules) and depends on gtfs-realtime-binding, express and typescript.
 
-The express library is only used to test the library (due to CORS) and is in a seperate file as a dev dependency.
+The express library is only used to test the library (due to CORS) and is used as a dev dependency.
 
-This definitely works with React-native, in the browser and maybe with Node.js (you have to build the ts file first)
+This works with:
+- React-native
+- In the browser 
+- Node.js
 
-To edit the code, just clone the repo and run:
+Please follow the instructions below (including "Requirements"!!!) to use the library.
 
-```npm install```
+# Showcase
+Proof that it works:
+https://github.com/ZarmDev/OpenTransitApp
 
-To use in a html file add this to your <head> tag:
+I'm not saying that you should use it though...
 
-```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
-
-# Important
-If you are considering using this, use the file src/server-to-test.ts and it has examples for every function that work.
-
-To see how to use a function, find the app.get with the function name. (scroll through the file)
-
-To actually try the function, clone the repository and
-run ```npm run start```. Wait until you see localhost://whateveritshows and then you can open that link and put the function name in the url.
-
-For example:
-
-After running npm run start and going to ```http://localhost:8082/getTrainLineShapes``` you should
-see output in the console.
+If your serious about making an transit app, I think https://github.com/OneBusAway is a good option, although, I have no idea if they have a library to make transit apps or if you can use it in React-native or anything like that so maybe this library could be useful to you.
 
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
@@ -35,11 +27,11 @@ Realtime functions:
 
 ✅tH.getTrainArrivals(line, targetStopID, unixTime, direction)
 
-❌tH.getBusArrivals(line, targetStopID, unixTime, direction)
+❌tH.getBusArrivals(line, targetStopID, unixTime, direction, apiKey)
 
 ❕tH.getTrainServiceAlerts(shouldIncludePlannedWork)
 
-❌tH.getBusServiceAlerts(data, shouldIncludePlannedWork)
+❌tH.getBusServiceAlerts(data, shouldIncludePlannedWork, apiKey)
 
 ❌tH.getTransfers(data, stopID) // When using this keep in mind construction, service alerts, etc
 
@@ -49,9 +41,7 @@ Realtime functions:
 
 Not realtime data: (Updated every x months according to https://new.mta.info/developers/gtfs-schedules-transition)
 
-> if you are making a transit app, you should probably ignore all of these functions below and only use tH.getAllData()
-
-✅tH.getAllTrainStopCoordinates(data)
+⛔ (removed - use tH.processTrainStopData instead) tH.getAllTrainStopCoordinates(data)
 
 ❌tH.getAllBusStopCoordinates(data)
 
@@ -61,12 +51,13 @@ Not realtime data: (Updated every x months according to https://new.mta.info/dev
 
 ✅tH.getTrainLineShapes(data)
 
-tH.getNearbyBusStops()
+✅tH.processTrainStopData(stopData);
 
-tH.getNearbyTrainStops()
+✅tH.processBusStopData(stopData);
 
-// get an array of coordinates that correspond to the 4 corners and one middle of each borough
-tH.getBorough(location)
+✅tH.getNearbyStops(processedStopData, locationOfUser, distance)
+
+❌tH.getBorough(locationOfUser)
 
 ❌tH.getAllData(shouldAttemptToMerge)
 ```
@@ -80,22 +71,97 @@ tH.getOpenStreetMapData()
 tH.getRouteTo()
 ```
 
-# How to test it locally
-Just run ```npm run start``` and go to the route you want
-to test.
+# Requirements
+## 1. Requirements for doing anything with this library
+Regardless if your testing, using or whatever with this project, **you need to install the assets beforehand**.
 
-For example, if you changed getTrainLineShapes(), run
-npm run start and then go to localhost:8082/getTrainLineShapes
+To install the assets, which is GTFS data, you can go to
+https://new.mta.info/developers and go to "Static GTFS data"
+
+Then, you can click Regular GTFS Data for the train data and you can click the links in the "Buses" sections for bus data (if you need it)
+
+If you use server-to-test.ts, you must put the **unzipped** folders you downloaded in assets and put the bus data in a folder called "buses" and all the train data "trains" folder.
+**Otherwise, it will not work!!! (Unless you change each of the data variables in server-to-test.ts but do you really want to do that...)**
+
+## 2. Requirements for getting *realtime* bus data
+As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
+
+You have to request an api key before getting **realtime** bus data. That being said, you can still get bus stop data so it's only if you need realtime data.
+
+Here's the link: http://bt.mta.info/wiki/Developers/Index
+
+Or, just go to the MTA developer site and find it there.
+
+# How to use it
+## In the browser
+To use in a html file add this to your <head> tag: 
+
+```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
+
+(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
+
+## In node.js
+Just copy the index.js file in the build folder and put the file in your project.
+
+Then, import it in your file that you want the functions to be available.
+```import * as tH from './index.js'```
+
+Or, just import whatever you need:
+``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
+
+## In React-native
+You can just copy the src/index.ts file and put it in your React-native project. Then, you can import it anyway you want:
+
+```import * as tH from './index.ts'```
+
+OR
+
+``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
+
+# Is this trustworthy?
+Well the data is from the MTA site and the actual code is pretty short so you could review it. The dependencies aren't uncommon except gtfs-realtime-bindings, which is from https://github.com/MobilityData/gtfs-realtime-bindings and the example is here: https://github.com/MobilityData/gtfs-realtime-bindings/blob/master/nodejs/README.md
+
+# How to edit the code (short explanation)
+If you are considering using this, use the file src/server-to-test.ts and it has examples for every function that work.
+
+To see how to use a function, find the app.get with the function name. (scroll through the file)
+
+To actually try the function, clone the repository and
+run ```npm run start```. Wait until you see localhost://whateveritshows and then you can open that link and put the function name in the url.
+
+For example:
+
+After running npm run start and going to ```http://localhost:8082/getTrainLineShapes``` you should
+see output in the console.
 
 **All the routes are specified in server-to-test.ts**
+
+# How to edit the code (long explanation)
+To edit the code:
+1. Clone the repo
+2. Add your changes
+3. Run npm install
+4. Run npm run start
+- You will see localhost:8082 appear. You can hold crtl and click it to see it in the browser.
+- Say I wanted to see the train arrivals, you would go to the browser and go to the url of "localhost:8082/realtimeTrainData"
+- By default, it's going to give you a 1 train stop which I forgot where it was
+- If you want to see other stop arrivals, you can go to server-to-test.ts and find ```app.get('/realtimeTrainData', async (req, res) => {```
+- In the ```try {}``` block of code, you can add your own stop id and the corresponding line.
+- What is a stop id? Well, basically in your assets folder you should see a stops.txt file in the google_transit folder or whatever the folder is called from the MTA developer site. (if you followed the instructions earlier)
+- To find a stop id, use the find tool (crtl + f on windows) and look for whichever stop you want.
+- For example, the second line in stops.txt is:
+"106,Marble Hill-225 St,40.874561,-73.909831,1,"
+- The stop id is 106
+- Now, in server-to-test, set the targetStopID to 106, the line to 1 (you can search up what the line is online) and the direction to either "", "N" or "S". North and south are "N" and "S" and putting an empty string ("") means you want both directions.
+- Do note that you should never put the targetStopID with the N or S for example, in "101N,Van Cortlandt Park-242 St,40.889248,-73.898583,,101" there are versions without and with N or S. Just put 101 without the N or S.
+5. If you want to deploy it to a bundle, then run ```npm run deploy```
+- A bundle is just using webpack to put everything in one JS file that can be used in the browser or even in Node.js.
+- The bundles are provided for users in dist/bundle.js
+
 # Notes
 If you use tH.getTrainLineShapes, you may be wondering what FS, GS and SI are in the return value.
 When testing on the map, it shows that **FS represents the Franklin Shuttle, GS stands for the Grand Central Shuttle, SI is the Staten Island Transit and H is the Rockaway Park
 Shuttle**
-
-# Showcase
-Proof that it works:
-https://github.com/ZarmDev/TransitApp
 
 # Documentation (work-in-progress)
 > tH.getArrivals(line, targetStopID, unixTime, direction)
