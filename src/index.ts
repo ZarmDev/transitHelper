@@ -372,20 +372,20 @@ export function processTrainStopData(stopData: string[]) {
     return stops
 }
 
-export function getTrainLineFromLocation(processedShapeData : TrainLineInterface, coordinates: [number, number]) {
-    let pSDKeys = Object.keys(processedShapeData)
-    let pSDVals = Object.values(processedShapeData)
-    for (var i = 0; i < pSDKeys.length; i++) {
-        return pSDVals[i]["layers"]
-        pSDVals[i]["layers"].forEach((item) => {
-            // if the coordinates are found, return the train line
-            if (item[0] == coordinates[0] && item[1] == coordinates[1]) {
-                return pSDKeys[i]
-            }
-        })
-    }
-    return "Not found"
-}
+// export function getTrainLineFromLocation(processedShapeData : TrainLineInterface, coordinates: [number, number]) {
+//     let pSDKeys = Object.keys(processedShapeData)
+//     let pSDVals = Object.values(processedShapeData)
+//     for (var i = 0; i < pSDKeys.length; i++) {
+//         return pSDVals[i]["layers"]
+//         pSDVals[i]["layers"].forEach((item) => {
+//             // if the coordinates are found, return the train line
+//             if (item[0] == coordinates[0] && item[1] == coordinates[1]) {
+//                 return pSDKeys[i]
+//             }
+//         })
+//     }
+//     return "Not found"
+// }
 
 /**
  * Function to get nearby bus stops.

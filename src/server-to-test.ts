@@ -108,10 +108,10 @@ app.get('/getNearbyTrainStops', async (req, res) => {
         const realtime = tH.getNearbyStops(processedStopData, location, 0.009);
         let rKeys = Object.keys(realtime)
         let rVals = Object.values(realtime)
-        for (var i = 0; i < rKeys.length; i++) {
-            let processedShapeData = await tH.getTrainLineShapes(shapeData.split('\n'))
-            console.log(tH.getTrainLineFromLocation(processedShapeData, rVals[i]["coordinates"]))
-        }
+        // for (var i = 0; i < rKeys.length; i++) {
+        //     let processedShapeData = await tH.getTrainLineShapes(shapeData.split('\n'))
+        //     // console.log(tH.getTrainLineFromLocation(processedShapeData, rVals[i]["coordinates"]))
+        // }
         res.json(realtime);
     } catch (error) {
         const e = error as Error;
