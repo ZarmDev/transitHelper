@@ -100,11 +100,18 @@ app.get('/getNearbyTrainStops', async (req, res) => {
     try {
         // to test
         const data = await fs.readFile("./assets/trains/google_transit/stops.txt", 'utf-8')
+        const shapeData = await fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8')
         let stopData : string = data;
         let processedStopData = tH.processTrainStopData(stopData.split('\n'));
         // 14 st union square as example
         let location : [number, number] = [40.735470, -73.9910]
         const realtime = tH.getNearbyStops(processedStopData, location, 0.009);
+        let rKeys = Object.keys(realtime)
+        let rVals = Object.values(realtime)
+        for (var i = 0; i < rKeys.length; i++) {
+            let processedShapeData = await tH.getTrainLineShapes(shapeData.split('\n'))
+            console.log(tH.getTrainLineFromLocation(processedShapeData, rVals[i]["coordinates"]))
+        }
         res.json(realtime);
     } catch (error) {
         const e = error as Error;

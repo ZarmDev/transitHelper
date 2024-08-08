@@ -303,7 +303,6 @@ interface StopInterface {
         parent_station: string;
         type: "bus" | "train";
         // example: "1", "2", "3"
-        icon?: string;
     };
 }
 
@@ -350,7 +349,7 @@ export function processBusStopData(stopData: string[]) {
     return stops
 }
 
-export function processTrainStopData(stopData: string[], shapeData?: string[]) {
+export function processTrainStopData(stopData: string[]) {
     let stops: StopInterface = {};
     for (var i = 1; i < stopData.length; i++) {
         // if the current line doesn't show it's direction ex: 101 vs 101N or 101S
@@ -370,25 +369,22 @@ export function processTrainStopData(stopData: string[], shapeData?: string[]) {
             "type": "train"
         }
     }
-    // if they want to also get the train line then: (note this is only for trains because buses have their bus name in the stop_name)
-    if (shapeData != null) {
-        for (var i = 1; i < shapeData.length; i++) {
-            let sKeys = Object.keys(stops)
-            for (var i = 1; i < sKeys.length; i++) {
-                let splitByComma = stopData[i].split(',')
-                const [shape_id, shape_pt_sequence, shape_pt_lat, shape_pt_lon] = splitByComma;
-                let shapeCoords = [parseFloat(shape_pt_lat), parseFloat(shape_pt_lon)]
-                // if the coordinates match, put the shape_id which is the train line 
-                if (stops[i]["coordinates"][0] == shapeCoords[0] && stops[i]["coordinates"][1] == shapeCoords[1]) {
-                    stops[i]["icon"] = shape_id;
-                }
-            }
-            if (stopData[i] == '') {
-                continue;
-            }
-        }
-    }
     return stops
+}
+
+export function getTrainLineFromLocation(processedShapeData : TrainLineInterface, coordinates: [number, number]) {
+    let pSDKeys = Object.keys(processedShapeData)
+    let pSDVals = Object.values(processedShapeData)
+    for (var i = 0; i < pSDKeys.length; i++) {
+        return pSDVals[i]["layers"]
+        pSDVals[i]["layers"].forEach((item) => {
+            // if the coordinates are found, return the train line
+            if (item[0] == coordinates[0] && item[1] == coordinates[1]) {
+                return pSDKeys[i]
+            }
+        })
+    }
+    return "Not found"
 }
 
 /**
