@@ -97,7 +97,7 @@ interface ArrivalInterface {
 //Huh?!?
 type ArrivalsInterface = ArrivalInterface[];
 export async function getTrainArrivals(line: string, targetStopID: string, date: number, direction: string) {
-    console.log(targetStopID);
+    // console.log(targetStopID);
     if (targetStopID.length === 4) {
         let errormsg = "Error: The length of the stop ID should be 4. It's possible that you provided the stopID with the S or N at the end. If you did that, just slice off the last character of the stop ID before running this function."
         console.error(errormsg);
@@ -169,7 +169,7 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
                                     currentDirection = "N"
                                 }
                             }
-                            console.log(stopID, (targetStopID + currentDirection))
+                            // console.log(stopID, (targetStopID + currentDirection))
                             if (stopID === (targetStopID + currentDirection)) {
                                 const arrivalObject = stopTimeUpdate[j]["arrival"]
                                 if (arrivalObject) {
@@ -198,9 +198,34 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
     return arrivals
 }
 
+interface BusArrival {
+    // MonitoredVehicleJourney: MonitoredVehicleJourney;
+    MonitoredVehicleJourney: any;
+    RecordedAtTime: string;
+}
+
+type BusArrivalInterface = BusArrival[];
+
+export async function extractVehicleInformation(data: BusArrivalInterface) {
+    
+}
+
+export async function getBusArrivals(busLine: string, targetStopID: string, date: number, direction: string, apiKey: string) {
+    // example url: https://bustime.mta.info/api/siri/stop-monitoring.json?key=##KEY##&OperatorRef=MTA&MonitoringRef=308209&LineRef=MTA NYCT_B63
+    const url = `https://bustime.mta.info/api/siri/stop-monitoring.json?key=${apiKey}&OperatorRef=MTA&MonitoringRef=${targetStopID}&LineRef=MTA NYCT_${busLine}`;
+    // TODO: make me make an interface 😒
+    let response: any = await fetch(url)
+    response = await response.json();
+    // this is where all the important stuff is!
+    const busVehicleArray : BusArrivalInterface = response["Siri"]["ServiceDelivery"]["StopMonitoringDelivery"][0]["MonitoredStopVisit"]
+    // this function is just if your lazy and only want the vehicle locations coming to the stop and the extension object (with useful data)
+    let result = extractVehicleInformation(busVehicleArray)
+    return result
+}
+
 function getTrainLineColor(line: string) {
     let color = "";
-    // S is wierdly missing in shapes.txt...
+    // Should add H, FS and GS later... (Franklin shuttle and Grand Central Shuttle) and H is the old name of the Rockaway shuttle
     if (["A", "C", "E"].includes(line)) {
         color = "#0039A6"
     } else if (["B", "D", "F", "M"].includes(line)) {
@@ -302,7 +327,7 @@ interface StopInterface {
         coordinates: [number, number];
         parent_station: string;
         type: "bus" | "train";
-        // example: "1", "2", "3"
+        trainLine?: string;
     };
 }
 
@@ -357,16 +382,17 @@ export function processTrainStopData(stopData: string[]) {
             // then, skip over it, because we only want train lines with directions, not any direction (should help performance as well)
             continue;
         }
-        if (i === stopData.length - 1) {
-            console.log(stopData[i])
-        }
+        // if (i === stopData.length - 1) {
+        //     console.log(stopData[i])
+        // }
         let splitByComma = stopData[i].split(',')
-        const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma;
+        const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station, trainLine] = splitByComma;
         stops[stop_id] = {
             "stopname": stop_name,
             "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
             "parent_station": parent_station,
-            "type": "train"
+            "type": "train",
+            "trainLine": trainLine
         }
     }
     return stops
@@ -453,9 +479,10 @@ export function getNearbyStops(processedStopData: StopInterface, locationOfUser:
 //     "h": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
 //     ""
 // }
-export function getIconURLFromString() {
+export function getIconURLFromTrainString() {
 
 }
+
 
 // export function getNearbyTrainStops(stopData: string[], location: [number, number], stopCoordinates: string[][], stopNames: string[]) {
 //     let stops = [];

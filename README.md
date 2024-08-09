@@ -86,7 +86,29 @@ Then, you can click Regular GTFS Data for the train data and you can click the l
 If you use server-to-test.ts, you must put the **unzipped** folders you downloaded in assets and put the bus data in a folder called "buses" and all the train data "trains" folder.
 **Otherwise, it will not work!!! (Unless you change each of the data variables in server-to-test.ts but do you really want to do that...)**
 
-## 2. Requirements for getting *realtime* bus data
+## 2. Not required but important
+**You can just skip to the code ⬇️**
+
+Basically, the MTA *doesn't* (to my knowledge) provide an easy way to know what train lines are at a specific stop.
+
+In src/addInfoToStops.ts, you will find a train and bus designed function that adds the trainlines to stops.txt
+
+This is **really** useful (but not required) if you want to know what train lines are at a given stop.
+
+So, how do you use it? Well as an example, in my Transit app I plan to download the MTA files on the users end and then run the function in otherfunctions.ts to add the trainlines in a file called "stops2.txt" or something like that.
+
+(That's not helpful) Well ok then. **Here's the code**:
+```
+const stopFilePath = "./assets/trains/google_transit/stops.txt"
+const shapeData = await fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8')
+const saveToFilePath = './assets/trains/google_transit/stops2.txt';
+addTrainLinesToStopsFile(stopFilePath, shapeData)
+```
+It's looks through shapes.txt and finds the coordinates that match a stop_id (in stops.txt) to a train line (from shapes.txt)
+
+It will probably take about 2 or less minutes to run.
+
+## 2. Requirements for getting *realtime* bus data 
 As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
 
 You have to request an api key before getting **realtime** bus data. That being said, you can still get bus stop data so it's only if you need realtime data.
@@ -95,7 +117,14 @@ Here's the link: http://bt.mta.info/wiki/Developers/Index
 
 Or, just go to the MTA developer site and find it there.
 
+Once you got your api key, you should put it in a .env file as BUS_API_KEY (.env file should look like:
+BUS_API_KEY=999999-9999999999-999999)
+
 # How to use it
+## Note:
+All the examples of how to use the functions are in server-to-test.ts
+
+If you want to test let's just say the train arrivals function then just run ```npm run start``` and go to ```localhost:8082/realtimeTrainData``` in your browser when you see localhost:8082 in the console.
 ## In the browser
 To use in a html file add this to your <head> tag: 
 
@@ -123,19 +152,6 @@ OR
 
 # Is this trustworthy?
 Well the data is from the MTA site and the actual code is pretty short so you could review it. The dependencies aren't uncommon except gtfs-realtime-bindings, which is from https://github.com/MobilityData/gtfs-realtime-bindings and the example is here: https://github.com/MobilityData/gtfs-realtime-bindings/blob/master/nodejs/README.md
-
-# How to edit the code (short explanation)
-If you are considering using this, use the file src/server-to-test.ts and it has examples for every function that work.
-
-To see how to use a function, find the app.get with the function name. (scroll through the file)
-
-To actually try the function, clone the repository and
-run ```npm run start```. Wait until you see localhost://whateveritshows and then you can open that link and put the function name in the url.
-
-For example:
-
-After running npm run start and going to ```http://localhost:8082/getTrainLineShapes``` you should
-see output in the console.
 
 **All the routes are specified in server-to-test.ts**
 
