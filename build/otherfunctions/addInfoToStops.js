@@ -1,5 +1,5 @@
 // NOT USABLE WITH REACT-NATIVE!!! USES fs/promises!
-// This file is explained in README.md
+// This file adds the train line (add maybe bus line in the future) to stops.txt to allow you to get realtime data about that stop
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {

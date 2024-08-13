@@ -20,8 +20,7 @@ interface BusArrival {
     RecordedAtTime: string;
 }
 type BusArrivalInterface = BusArrival[];
-export declare function extractVehicleInformation(data: BusArrivalInterface): Promise<void>;
-export declare function getBusArrivals(busLine: string, targetStopID: string, date: number, direction: string, apiKey: string): Promise<void>;
+export declare function getBusArrivals(busLine: string, targetStopID: string, date: number, direction: string, apiKey: string): Promise<BusArrivalInterface>;
 interface TrainLineInterface {
     [trainLine: string]: {
         color: string;
@@ -46,5 +45,6 @@ export declare function processTrainStopData(stopData: string[]): StopInterface;
  * @param location - The location in the format of [latitude, longitude].
  */
 export declare function getNearbyStops(processedStopData: StopInterface, locationOfUser: [number, number], distance: number): StopInterface;
+export declare function getNearbyBusStops(location: [string, string], latSpan: string, lonSpan: string, apiKey: string): Promise<any>;
 export declare function getIconURLFromTrainString(): void;
 export {};

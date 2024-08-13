@@ -124,7 +124,6 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
     }
     const feed = await parseAndReturnFeed(source)
     // writeToFile('save.txt', JSON.stringify(feed, null, 2))
-    // console.log(feed);
     // what are entities? idk :/
     const entities = feed["entity"]
     // just to get both the north and south arrivals and combine them
@@ -206,21 +205,47 @@ interface BusArrival {
 
 type BusArrivalInterface = BusArrival[];
 
-export async function extractVehicleInformation(data: BusArrivalInterface) {
-    
-}
+// export async function extractVehicleInformation(data: BusArrivalInterface) {
+//     let MSVKeys = Object.keys(data);
+//     let MSVVals = Object.values(data);
+//     interface BusVehiclesInterface {
+//         "arrivalTimes": {
+
+//         },
+//         "distanceAway": {
+
+//         },
+//         "accessibilityFeatures": {
+
+//         },
+//         "capacities": {
+
+//         }
+//     }
+//     // @ts-ignore
+//     var simpleData : BusVehiclesInterface = {};
+
+//     for (var i = 0; i < MSVKeys.length; i++) {
+//         const bus = MSVVals[i]["MonitoredVehicleJourney"]
+//         simpleData["coords"] = [bus["VehicleLocation"][0], bus["VehicleLocation"][1]]
+//         const extensionData = bus["MonitoredCall"]["Extensions"]
+//         distance = extensionData["Distances"]
+//         accessibilityFeatures = extensionData["VehicleFeatures"]
+
+//     }
+//     return data
+// }
 
 export async function getBusArrivals(busLine: string, targetStopID: string, date: number, direction: string, apiKey: string) {
     // example url: https://bustime.mta.info/api/siri/stop-monitoring.json?key=##KEY##&OperatorRef=MTA&MonitoringRef=308209&LineRef=MTA NYCT_B63
-    const url = `https://bustime.mta.info/api/siri/stop-monitoring.json?key=${apiKey}&OperatorRef=MTA&MonitoringRef=${targetStopID}&LineRef=MTA NYCT_${busLine}`;
+    const url = `https://bustime.mta.info/api/siri/stop-monitoring.json?key=${apiKey}&OperatorRef=MTA&MonitoringRef=${targetStopID}&LineRef=${busLine}`;
     // TODO: make me make an interface 😒
     let response: any = await fetch(url)
     response = await response.json();
     // this is where all the important stuff is!
     const busVehicleArray : BusArrivalInterface = response["Siri"]["ServiceDelivery"]["StopMonitoringDelivery"][0]["MonitoredStopVisit"]
     // this function is just if your lazy and only want the vehicle locations coming to the stop and the extension object (with useful data)
-    let result = extractVehicleInformation(busVehicleArray)
-    return result
+    return busVehicleArray
 }
 
 function getTrainLineColor(line: string) {
@@ -458,6 +483,15 @@ export function getNearbyStops(processedStopData: StopInterface, locationOfUser:
     }
     return stops
     // return `Failed ${stopData.length != 0} ${stopCoordinates.length == 0}`
+}
+
+export async function getNearbyBusStops(location: [string, string], latSpan: string, lonSpan: string, apiKey: string) {
+    // https://bustime.mta.info/api/where/stops-for-location.json?lat=40.748433&lon=-73.985656&latSpan=0.005&lonSpan=0.005&key=YOUR_KEY_HERE
+    const url = `https://bustime.mta.info/api/where/stops-for-location.json?lat=${location[0]}&lon=${location[1]}&latSpan=${latSpan}&lonSpan=${lonSpan}&key=${apiKey}`;
+    let response: any = await fetch(url)
+    response = await response.json();
+    let importantdata = response["data"]["stops"]
+    return importantdata
 }
 
 // const iconToURL = {
