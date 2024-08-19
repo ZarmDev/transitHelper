@@ -1,4 +1,4 @@
-// NOT USABLE WITH REACT-NATIVE!!! USES fs/promises!
+// NOT USABLE WITH REACT-NATIVE!!! Go to RNaddInfoToStops.ts for react-native supprot
 // This file adds the train line (add maybe bus line in the future) to stops.txt to allow you to get realtime data about that stop
 
 import fs from 'fs/promises'
@@ -12,11 +12,12 @@ interface ResultsInterface {
 }
 
 // add the train lines because mta doesn't provide it 😿
-export async function addTrainLinesToStopsFile(stopFilePath: string, shapeData: string, saveToFilePath: string) {
+export async function addTrainLinesToStopsFile(stopFilePath: string, shapeFilePath: string, saveToFilePath: string) {
     var results: ResultsInterface = {}
+    const shapeData = await fs.readFile(shapeFilePath, 'utf-8')
     const splitShapeData = shapeData.split('\n');
-    let stopData = await fs.readFile(stopFilePath, 'utf-8')
-    let splitStopData = stopData.split('\n')
+    const stopData = await fs.readFile(stopFilePath, 'utf-8')
+    const splitStopData = stopData.split('\n')
     // for (var i = 1; i < splitShapeData.length - 1; i += 2) {
     for (var i = 1; i < splitShapeData.length - 1; i++) {
         const splitByComma = splitShapeData[i].split(',')

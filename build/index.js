@@ -376,8 +376,13 @@ export function processBusStopData(stopData) {
 export function processTrainStopData(stopData) {
     let stops = {};
     for (var i = 1; i < stopData.length; i++) {
-        // if the current line doesn't show it's direction ex: 101 vs 101N or 101S
-        if (stopData[i][3] == ',' || stopData[i] == '') {
+        /*
+        D39,Sheepshead Bay,40.586896,-73.954155,1,
+        D39N,Sheepshead Bay,40.586896,-73.954155,,D39
+        D39S,Sheepshead Bay,40.586896,-73.954155,,D39
+        We only want the North bound because we need the last value, the train line and we
+        */
+        if (stopData[i][3] != 'N' || stopData[i] == '') {
             // then, skip over it, because we only want train lines with directions, not any direction (should help performance as well)
             continue;
         }

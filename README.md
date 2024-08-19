@@ -100,10 +100,12 @@ So, how do you use it? Well as an example, in my Transit app I plan to download 
 (That's not helpful) Well ok then. **Here's the code**:
 ```
 const stopFilePath = "./assets/trains/google_transit/stops.txt"
-const shapeData = await fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8')
+const shapeFilePath = "./assets/trains/google_transit/shapes.txt"
 const saveToFilePath = './assets/trains/google_transit/stops2.txt';
-addTrainLinesToStopsFile(stopFilePath, shapeData)
+addTrainLinesToStopsFile(stopFilePath, shapeFilePath)
 ```
+** NOTE: If your using React-native, use the RNaddInfoToStops.ts file. Also, since they are TS files, to run them first build it using npx tsc your/file/path and it will put the JS version of the file in the same directory as the typescript file. Then, just do node your/file/path** 
+
 It's looks through shapes.txt and finds the coordinates that match a stop_id (in stops.txt) to a train line (from shapes.txt)
 
 It will probably take about 2 or less minutes to run.
