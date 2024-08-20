@@ -30,7 +30,7 @@ Realtime functions:
 
 ✅tH.getTrainArrivals(line, targetStopID, unixTime, direction)
 
-❌tH.getBusArrivals(line, targetStopID, unixTime, direction, apiKey)
+❕tH.getBusArrivals(line, targetStopID, unixTime, direction, apiKey)
 
 ❕tH.getTrainServiceAlerts(shouldIncludePlannedWork)
 
@@ -44,25 +44,23 @@ Realtime functions:
 
 Not realtime data: (Updated every x months according to https://new.mta.info/developers/gtfs-schedules-transition)
 
-⛔ (removed - use tH.processTrainStopData instead) tH.getAllTrainStopCoordinates(data)
+✅tH.getTrainLineShapes(data)
 
-❌tH.getAllBusStopCoordinates(data)
+✅tH.getAllTrainStopCoordinates(stopData);
+
+✅tH.getAllBusStopCoordinates(stopData);
 
 ❌tH.getAllFerryStopCoordinates(data)
 
-❌tH.getAllStopCoordinates(data)
+✅tH.getNearbyStops(allTrainStopCoordinates, locationOfUser, distance)
 
-✅tH.getTrainLineShapes(data)
+✅tH.getNearbyBusStops(location: [string, string], latSpan: string, lonSpan: string, apiKey: string)
 
-✅tH.processTrainStopData(stopData);
+❌tH.getCurrentBorough(locationOfUser)
 
-✅tH.processBusStopData(stopData);
+❌tH.getAllTrainStopsOnLine(shouldCheckForAlertsOnLine)
 
-✅tH.getNearbyStops(processedStopData, locationOfUser, distance)
-
-❌tH.getBorough(locationOfUser)
-
-⛔ (redundant - just use tH.processTrainStopData/tH.processBusStopData) tH.getAllData(shouldAttemptToMerge)
+❌tH.getAllBusStopsOnLine(shouldCheckForAlertsOnLine)
 ```
 Maybe in the far future:
 ```
@@ -104,11 +102,16 @@ const shapeFilePath = "./assets/trains/google_transit/shapes.txt"
 const saveToFilePath = './assets/trains/google_transit/stops2.txt';
 addTrainLinesToStopsFile(stopFilePath, shapeFilePath)
 ```
-** NOTE: If your using React-native, use the RNaddInfoToStops.ts file. Also, since they are TS files, to run them first build it using npx tsc your/file/path and it will put the JS version of the file in the same directory as the typescript file. Then, just do node your/file/path** 
+** NOTE: If your using React-native, use the RNaddInfoToStops.ts file. Also, since they are TS files, to run them:
+1. Build it by running ```npx tsc -p tsconfig2.json```
+2. Then, just run ```node build/addInfoToStops.js```
+3. If you ever use **ANYTHING THAT REQUIRES STOPS.TXT (stop data)** then you **MUST** run the addInfoToStops file.
 
-It's looks through shapes.txt and finds the coordinates that match a stop_id (in stops.txt) to a train line (from shapes.txt)
+With react-native, just run the RNaddInfoToStops.ts file in react-native.
 
-It will probably take about 2 or less minutes to run.
+With Node.js/Browsers just run the addInfoToStops.ts file (you can build it using the steps above and you can use the JS file)
+
+*What addInfoToStops.ts does:* It looks through shapes.txt and finds the coordinates that match a stop_id (in stops.txt) to a train line (from shapes.txt)
 
 ## 2. Requirements for getting *realtime* bus data 
 As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
