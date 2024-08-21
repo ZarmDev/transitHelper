@@ -7,7 +7,7 @@
     "build": "tsc -p tsconfig.json",
     "start": "npm run build && node build/server-to-test.js",
     "deploy": "npx webpack && npm run build",
-    "oj": "node src/otherfunctions/createBusSvgs.js"
+    "cbs": "node src/otherfunctions/createBusSvgs.js"
   },
   "author": "ZarmDev",
   "license": "MIT",

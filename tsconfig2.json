@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": [
+      "esnext"
+    ],
+    "module": "NodeNext", 
+    "rootDir": "./otherfunctions", 
+    "moduleResolution": "NodeNext",
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "otherfunctions/**/*"
+  ],
+  "exclude": [
+    "otherfunctions/RNaddInfoToStops.ts"
+  ]
+}

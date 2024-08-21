@@ -124,7 +124,6 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
     }
     const feed = await parseAndReturnFeed(source)
     // writeToFile('save.txt', JSON.stringify(feed, null, 2))
-    // console.log(feed);
     // what are entities? idk :/
     const entities = feed["entity"]
     // just to get both the north and south arrivals and combine them
@@ -206,21 +205,47 @@ interface BusArrival {
 
 type BusArrivalInterface = BusArrival[];
 
-export async function extractVehicleInformation(data: BusArrivalInterface) {
-    
-}
+// export async function extractVehicleInformation(data: BusArrivalInterface) {
+//     let MSVKeys = Object.keys(data);
+//     let MSVVals = Object.values(data);
+//     interface BusVehiclesInterface {
+//         "arrivalTimes": {
+
+//         },
+//         "distanceAway": {
+
+//         },
+//         "accessibilityFeatures": {
+
+//         },
+//         "capacities": {
+
+//         }
+//     }
+//     // @ts-ignore
+//     var simpleData : BusVehiclesInterface = {};
+
+//     for (var i = 0; i < MSVKeys.length; i++) {
+//         const bus = MSVVals[i]["MonitoredVehicleJourney"]
+//         simpleData["coords"] = [bus["VehicleLocation"][0], bus["VehicleLocation"][1]]
+//         const extensionData = bus["MonitoredCall"]["Extensions"]
+//         distance = extensionData["Distances"]
+//         accessibilityFeatures = extensionData["VehicleFeatures"]
+
+//     }
+//     return data
+// }
 
 export async function getBusArrivals(busLine: string, targetStopID: string, date: number, direction: string, apiKey: string) {
     // example url: https://bustime.mta.info/api/siri/stop-monitoring.json?key=##KEY##&OperatorRef=MTA&MonitoringRef=308209&LineRef=MTA NYCT_B63
-    const url = `https://bustime.mta.info/api/siri/stop-monitoring.json?key=${apiKey}&OperatorRef=MTA&MonitoringRef=${targetStopID}&LineRef=MTA NYCT_${busLine}`;
+    const url = `https://bustime.mta.info/api/siri/stop-monitoring.json?key=${apiKey}&OperatorRef=MTA&MonitoringRef=${targetStopID}&LineRef=${busLine}`;
     // TODO: make me make an interface 😒
     let response: any = await fetch(url)
     response = await response.json();
     // this is where all the important stuff is!
     const busVehicleArray : BusArrivalInterface = response["Siri"]["ServiceDelivery"]["StopMonitoringDelivery"][0]["MonitoredStopVisit"]
     // this function is just if your lazy and only want the vehicle locations coming to the stop and the extension object (with useful data)
-    let result = extractVehicleInformation(busVehicleArray)
-    return result
+    return busVehicleArray
 }
 
 function getTrainLineColor(line: string) {
@@ -355,7 +380,7 @@ interface StopInterface {
 //     return trainstops
 // }
 
-export function processBusStopData(stopData: string[]) {
+export function getAllBusStopCoordinates(stopData: string[]) {
     let stops: StopInterface = {};
     // let splitStopData = stopData.split('\n')
     for (var i = 1; i < stopData.length; i++) {
@@ -374,11 +399,16 @@ export function processBusStopData(stopData: string[]) {
     return stops
 }
 
-export function processTrainStopData(stopData: string[]) {
+export function getAllTrainStopCoordinates(stopData: string[]) {
     let stops: StopInterface = {};
     for (var i = 1; i < stopData.length; i++) {
-        // if the current line doesn't show it's direction ex: 101 vs 101N or 101S
-        if (stopData[i][3] == ',' || stopData[i] == '') {
+        /*
+        D39,Sheepshead Bay,40.586896,-73.954155,1,
+        D39N,Sheepshead Bay,40.586896,-73.954155,,D39
+        D39S,Sheepshead Bay,40.586896,-73.954155,,D39
+        We only want the North bound because we need the last value, the train line and we
+        */
+        if (stopData[i][3] != 'N' || stopData[i] == '') {
             // then, skip over it, because we only want train lines with directions, not any direction (should help performance as well)
             continue;
         }
@@ -415,15 +445,15 @@ export function processTrainStopData(stopData: string[]) {
 
 /**
  * Function to get nearby bus stops.
- * @param processedStopData - The stop data as a string (just the contents of the stops.txt file)
+ * @param allTrainStopCoordinates - The stop data as a string (just the contents of the stops.txt file)
  * @param location - The location in the format of [latitude, longitude].
  */
-export function getNearbyStops(processedStopData: StopInterface, locationOfUser: [number, number], distance: number) {
+export function getNearbyStops(allTrainStopCoordinates: StopInterface, locationOfUser: [number, number], distance: number) {
     // TODO: Maybe skip stops we have already seen to save performane because MTA provides mutliple of the same stops with almost the same coordinates
     let stops: StopInterface = {};
     // let location = [location["latitude"], location["longitude"]] // .map((i) => parseFloat(i.toFixed(precision)));
-    let sDKeys = Object.keys(processedStopData);
-    let sDVals = Object.values(processedStopData);
+    let sDKeys = Object.keys(allTrainStopCoordinates);
+    let sDVals = Object.values(allTrainStopCoordinates);
     for (var i = 1; i < sDKeys.length; i++) {
         let currentVal = sDVals[i];
         let locationOfStop = currentVal["coordinates"];
@@ -460,29 +490,51 @@ export function getNearbyStops(processedStopData: StopInterface, locationOfUser:
     // return `Failed ${stopData.length != 0} ${stopCoordinates.length == 0}`
 }
 
-// const iconToURL = {
-//     "1": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "2": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "3": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "4": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "5": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "6": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "7": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "7d": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "a": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "b": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "c": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "d": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "e": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "f": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "g": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     "h": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
-//     ""
-// }
-export function getIconURLFromTrainString() {
-
+export async function getNearbyBusStops(location: [string, string], latSpan: string, lonSpan: string, apiKey: string) {
+    // https://bustime.mta.info/api/where/stops-for-location.json?lat=40.748433&lon=-73.985656&latSpan=0.005&lonSpan=0.005&key=YOUR_KEY_HERE
+    const url = `https://bustime.mta.info/api/where/stops-for-location.json?lat=${location[0]}&lon=${location[1]}&latSpan=${latSpan}&lonSpan=${lonSpan}&key=${apiKey}`;
+    let response: any = await fetch(url)
+    response = await response.json();
+    let importantdata = response["data"]["stops"]
+    return importantdata
 }
 
+const iconToURL = {
+    "1": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
+    "2": "https://github.com/louh/mta-subway-bullets/blob/main/svg/2.svg",
+    "3": "https://github.com/louh/mta-subway-bullets/blob/main/svg/3.svg",
+    "4": "https://github.com/louh/mta-subway-bullets/blob/main/svg/4.svg",
+    "5": "https://github.com/louh/mta-subway-bullets/blob/main/svg/6.svg",
+    "6": "https://github.com/louh/mta-subway-bullets/blob/main/svg/6d.svg",
+    "7": "https://github.com/louh/mta-subway-bullets/blob/main/svg/7svg",
+    "7d": "https://github.com/louh/mta-subway-bullets/blob/main/svg/7d.svg",
+    "a": "https://github.com/louh/mta-subway-bullets/blob/main/svg/a.svg",
+    "b": "https://github.com/louh/mta-subway-bullets/blob/main/svg/b.svg",
+    "c": "https://github.com/louh/mta-subway-bullets/blob/main/svg/c.svg",
+    "d": "https://github.com/louh/mta-subway-bullets/blob/main/svg/d.svg",
+    "e": "https://github.com/louh/mta-subway-bullets/blob/main/svg/e.svg",
+    "f": "https://github.com/louh/mta-subway-bullets/blob/main/svg/f.svg",
+    "g": "https://github.com/louh/mta-subway-bullets/blob/main/svg/g.svg",
+    "h": "https://github.com/louh/mta-subway-bullets/blob/main/svg/h.svg",
+    "j": "https://github.com/louh/mta-subway-bullets/blob/main/svg/j.svg",
+    "l": "https://github.com/louh/mta-subway-bullets/blob/main/svg/l.svg",
+    "m": "https://github.com/louh/mta-subway-bullets/blob/main/svg/m.svg",
+    "n": "https://github.com/louh/mta-subway-bullets/blob/main/svg/n.svg",
+    "q": "https://github.com/louh/mta-subway-bullets/blob/main/svg/q.svg",
+    "r": "https://github.com/louh/mta-subway-bullets/blob/main/svg/r.svg",
+    "s": "https://github.com/louh/mta-subway-bullets/blob/main/svg/s.svg",
+    "sf": "https://github.com/louh/mta-subway-bullets/blob/main/svg/sf.svg",
+    "sir": "https://github.com/louh/mta-subway-bullets/blob/main/svg/sir.svg",
+    "sr": "https://github.com/louh/mta-subway-bullets/blob/main/svg/sr.svg",
+    "w": "https://github.com/louh/mta-subway-bullets/blob/main/svg/w.svg",
+    "z": "https://github.com/louh/mta-subway-bullets/blob/main/svg/z.svg",
+}
+
+export function getIconToURL() {return iconToURL}
+
+const trainLinesWithIcons = ["1", "2", "3", "4", "5", "6", "7", "7d", "a", "b", "c", "d", "e", "f", "g", "h", "j", "l", "m", "n", "q", "r", "s", "sf", "sir", "sr", "w", "z"]
+
+export function getTrainLinesWithIcons() {return trainLinesWithIcons}
 
 // export function getNearbyTrainStops(stopData: string[], location: [number, number], stopCoordinates: string[][], stopNames: string[]) {
 //     let stops = [];
