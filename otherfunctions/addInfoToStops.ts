@@ -1,6 +1,5 @@
-// NOT USABLE WITH REACT-NATIVE!!! Go to RNaddInfoToStops.ts for react-native supprot
-// This file adds the train line (add maybe bus line in the future) to stops.txt to allow you to get realtime data about that stop
-
+// Not usable in React-native!!! Uses fs/promises!
+// Go to RNaddInfoToStops.ts if your using React-native
 import fs from 'fs/promises'
 
 interface ResultsInterface {
@@ -26,16 +25,16 @@ export async function addTrainLinesToStopsFile(stopData: string, shapeData: stri
         let trainline = shape_id.slice(0, shape_id.indexOf('.'))
         // let stop_id = shape_id.slice(shape_id.indexOf('.') + 2, shape_id.length)
         let coordinates = [shape_pt_lat, shape_pt_lon]
-        for (var j = 1; j < splitStopData.length; j++) {
-            if (splitStopData[j] == "") {
-                continue;
-            }
+        for (var j = 1; j < splitStopData.length - 1; j++) {
+            // if (splitStopData[j] == "") {
+            //     continue;
+            // }
             let splitByComma2 = splitStopData[j].split(',')
             const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma2;
             let coordinates2 = [stop_lat, stop_lon]
             // console.log(coordinates[0], coordinates2[0])
             if (coordinates[0] == coordinates2[0] && coordinates[1] == coordinates2[1]) {
-                // console.log(trainline, i, j);
+                console.log(trainline, i, j);
                 if (!results[stop_id]) {
                     results[stop_id] = {}
                 }
@@ -45,20 +44,21 @@ export async function addTrainLinesToStopsFile(stopData: string, shapeData: stri
                 results[stop_id][trainline] = "";
 
                 // make the line empty since we found a match
-                splitStopData[j] = ""
+                // splitStopData[j] = ""
             }
         }
         // make the line empty since we won't be checking it again
         splitShapeData[i] = ""
     }
-    var newSplitStopData = stopData.split('\n')
+    // var newSplitStopData = stopData.split('\n')
+    var newSplitStopData = splitStopData;
     for (var i = 1; i < splitStopData.length; i++) {
         let splitByComma = newSplitStopData[i].split(',')
         const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station] = splitByComma;
-        try {
+        if (results[stop_id]) {
             newSplitStopData[i] = newSplitStopData[i] + `,${Object.keys(results[stop_id]).join("-")}`
-        } catch {
-
+        } else {
+            // This means that no train lines were found for that stop_id (Gasp!)
         }
     }
     let modifiedContent = newSplitStopData.join('\n')
@@ -66,9 +66,12 @@ export async function addTrainLinesToStopsFile(stopData: string, shapeData: stri
     return "Success"
 }
 
-const shapeData = await fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8')
-const stopData = await fs.readFile("./assets/trains/google_transit/stops.txt", 'utf-8')
-addTrainLinesToStopsFile(stopData, shapeData, "./assets/trains/google_transit/stop2.txt")
+async function runThisFile() {
+    const shapeData = await fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8')
+    const stopData = await fs.readFile("./assets/trains/google_transit/stops.txt", 'utf-8')
+    addTrainLinesToStopsFile(stopData, shapeData, "./assets/trains/google_transit/stops2222.txt")
+}
+runThisFile()
 
 // ## Working on a function that gives train lines like the Transit app ##
 

@@ -103,8 +103,7 @@ const saveToFilePath = './assets/trains/google_transit/stops2.txt';
 addTrainLinesToStopsFile(stopFilePath, shapeFilePath)
 ```
 ** NOTE: If your using React-native, use the RNaddInfoToStops.ts file. Also, since they are TS files, to run them:
-1. Build it by running ```npx tsc -p tsconfig2.json```
-2. Then, just run ```node build/addInfoToStops.js```
+1. Run it by putting ```npm run addIToStops```
 3. If you ever use **ANYTHING THAT REQUIRES STOPS.TXT (stop data)** then you **MUST** run the addInfoToStops file.
 
 With react-native, just run the RNaddInfoToStops.ts file in react-native.
