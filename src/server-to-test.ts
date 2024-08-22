@@ -74,7 +74,7 @@ app.get('/getAllTrainStops', async (req, res) => {
         // to test
         const data = await fs.readFile("./assets/trains/google_transit/stops2.txt", 'utf-8')
         // const realtime = await tH.getAllTrainStopCoordinates(data);
-        const realtime = tH.processTrainStopData(data.split('\n'))
+        const realtime = tH.getAllTrainStopCoordinates(data.split('\n'))
         res.json(realtime);
     } catch (error) {
         const e = error as Error;
@@ -87,7 +87,7 @@ app.get('/getAllBusStops', async (req, res) => {
         // to test, in manhattan
         const data = await fs.readFile("./assets/buses/google_transit_manhattan/stops.txt", 'utf-8')
         // const realtime = await tH.getAllTrainStopCoordinates(data);
-        const realtime = tH.processBusStopData(data.split('\n'))
+        const realtime = tH.getAllBusStopCoordinates(data.split('\n'))
         res.json(realtime);
     } catch (error) {
         const e = error as Error;
@@ -152,7 +152,7 @@ app.get('/getNearbyTrainStops', async (req, res) => {
         const data = await fs.readFile("./assets/trains/google_transit/stops2.txt", 'utf-8')
         // const shapeData = await fs.readFile("./assets/trains/google_transit/shapes.txt", 'utf-8')
         let stopData: string = data;
-        let processedStopData = tH.processTrainStopData(stopData.split('\n'));
+        let processedStopData = tH.getAllTrainStopCoordinates(stopData.split('\n'));
         // 14 st union square as example
         let location: [number, number] = [40.735470, -73.9910]
         const realtime = tH.getNearbyStops(processedStopData, location, 0.009);
