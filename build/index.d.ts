@@ -37,14 +37,44 @@ interface StopInterface {
         trainLine?: string;
     };
 }
-export declare function processBusStopData(stopData: string[]): StopInterface;
-export declare function processTrainStopData(stopData: string[]): StopInterface;
+export declare function getAllBusStopCoordinates(stopData: string[]): StopInterface;
+export declare function getAllTrainStopCoordinates(stopData: string[]): StopInterface;
 /**
  * Function to get nearby bus stops.
- * @param processedStopData - The stop data as a string (just the contents of the stops.txt file)
+ * @param allTrainStopCoordinates - The stop data as a string (just the contents of the stops.txt file)
  * @param location - The location in the format of [latitude, longitude].
  */
-export declare function getNearbyStops(processedStopData: StopInterface, locationOfUser: [number, number], distance: number): StopInterface;
+export declare function getNearbyStops(allTrainStopCoordinates: StopInterface, locationOfUser: [number, number], distance: number): StopInterface;
 export declare function getNearbyBusStops(location: [string, string], latSpan: string, lonSpan: string, apiKey: string): Promise<any>;
-export declare function getIconURLFromTrainString(): void;
+export declare function getIconToURL(): {
+    "1": string;
+    "2": string;
+    "3": string;
+    "4": string;
+    "5": string;
+    "6": string;
+    "7": string;
+    "7d": string;
+    a: string;
+    b: string;
+    c: string;
+    d: string;
+    e: string;
+    f: string;
+    g: string;
+    h: string;
+    j: string;
+    l: string;
+    m: string;
+    n: string;
+    q: string;
+    r: string;
+    s: string;
+    sf: string;
+    sir: string;
+    sr: string;
+    w: string;
+    z: string;
+};
+export declare function getTrainLinesWithIcons(): string[];
 export {};

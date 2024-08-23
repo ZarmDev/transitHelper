@@ -1,6 +1,7 @@
 node_modules
 save.txt
 svg
-assets
 busSvgs
 .env
+htmlResult.html
+eachTrainRoute.txt

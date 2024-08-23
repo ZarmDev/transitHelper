@@ -1,16 +1,18 @@
 # transitHelper
 A Typescript library to make it easy (cough, cough) to create a transit app. (Only for NYC)
 
-It takes ~41MB (including node_modules) and depends on gtfs-realtime-binding, express and typescript.
+It only depends on gtfs-realtime-binding and typescript.
 
-The express library is only used to test the library (due to CORS) and is used as a dev dependency.
+The express library is only used to test the library (due to CORS) and is only installed as a dev dependency.
 
 This works with:
 - React-native
 - In the browser 
 - Node.js
 
-Please follow the instructions below (including "Requirements"!!!) to use the library.
+If you wanna know why you can trust this library (I also have my doubts when installing new libraries) then you can scroll down to "Is this trustworthy?"
+
+*It explains every folder and what the files do.*
 
 # Showcase
 Proof that it works:
@@ -18,10 +20,47 @@ https://github.com/ZarmDev/OpenTransitApp
 
 Note that this project is still being developed, if you have any questions please open an issue :))))))
 
-# Credits
-Louh for the subway icons:
+# Quickstart - HTML
 
-https://github.com/louh/mta-subway-bullets?tab=readme-ov-file
+# Quickstart - NodeJS/React-native
+
+# How to actually use it
+## In the browser
+To use in a html file add this to your <head> tag: 
+
+```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
+
+(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
+
+## In node.js
+Just copy the index.js file in the build folder and put the file in your project.
+
+Then, import it in your file that you want the functions to be available.
+```import * as tH from './index.js'```
+
+Or, just import whatever you need:
+``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
+
+## In React-native
+You can just copy the src/index.ts file and put it in your React-native project. Then, you can import it anyway you want:
+
+```import * as tH from './index.ts'```
+
+OR
+
+``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
+
+# Requirements for getting *realtime* bus data 
+As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
+
+You have to request an api key before getting **realtime** bus data. That being said, you can still get bus stop data so it's only if you need realtime data.
+
+Here's the link: http://bt.mta.info/wiki/Developers/Index
+
+Or, just go to the MTA developer site and find it there.
+
+Once you got your api key, you should put it in a .env file as BUS_API_KEY (example env file:
+BUS_API_KEY=your_api_key)
 
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
@@ -72,95 +111,32 @@ tH.getOpenStreetMapData()
 tH.getRouteTo()
 ```
 
-# Requirements
-## 1. Requirements for doing anything with this library
-Regardless if your testing, using or whatever with this project, **you need to install the assets beforehand**.
+# Utility functions
+In the utilities folder, there are many important functions.
 
-To install the assets, which is GTFS data, you can go to
-https://new.mta.info/developers and go to "Static GTFS data"
-
-Then, you can click Regular GTFS Data for the train data and you can click the links in the "Buses" sections for bus data (if you need it)
-
-If you use server-to-test.ts, you must put the **unzipped** folders you downloaded in assets and put the bus data in a folder called "buses" and all the train data "trains" folder.
-**Otherwise, it will not work!!! (Unless you change each of the data variables in server-to-test.ts but do you really want to do that...)**
-
-## 2. Not required but important
-**You can just skip to the code ⬇️**
-
-Basically, the MTA *doesn't* (to my knowledge) provide an easy way to know what train lines are at a specific stop.
-
-In src/addInfoToStops.ts, you will find a train and bus designed function that adds the trainlines to stops.txt
-
-This is **really** useful (but not required) if you want to know what train lines are at a given stop.
-
-So, how do you use it? Well as an example, in my Transit app I plan to download the MTA files on the users end and then run the function in otherfunctions.ts to add the trainlines in a file called "stops2.txt" or something like that.
-
-(That's not helpful) Well ok then. **Here's the code**:
-```
-const stopFilePath = "./assets/trains/google_transit/stops.txt"
-const shapeFilePath = "./assets/trains/google_transit/shapes.txt"
-const saveToFilePath = './assets/trains/google_transit/stops2.txt';
-addTrainLinesToStopsFile(stopFilePath, shapeFilePath)
-```
-** NOTE: If your using React-native, use the RNaddInfoToStops.ts file. Also, since they are TS files, to run them:
-1. Build it by running ```npx tsc -p tsconfig2.json```
-2. Then, just run ```node build/addInfoToStops.js```
-3. If you ever use **ANYTHING THAT REQUIRES STOPS.TXT (stop data)** then you **MUST** run the addInfoToStops file.
-
-With react-native, just run the RNaddInfoToStops.ts file in react-native.
-
-With Node.js/Browsers just run the addInfoToStops.ts file (you can build it using the steps above and you can use the JS file)
-
-*What addInfoToStops.ts does:* It looks through shapes.txt and finds the coordinates that match a stop_id (in stops.txt) to a train line (from shapes.txt)
-
-## 2. Requirements for getting *realtime* bus data 
-As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
-
-You have to request an api key before getting **realtime** bus data. That being said, you can still get bus stop data so it's only if you need realtime data.
-
-Here's the link: http://bt.mta.info/wiki/Developers/Index
-
-Or, just go to the MTA developer site and find it there.
-
-Once you got your api key, you should put it in a .env file as BUS_API_KEY (.env file should look like:
-BUS_API_KEY=999999-9999999999-999999)
-
-# How to use it
-## Note:
-All the examples of how to use the functions are in server-to-test.ts
-
-If you want to test let's just say the train arrivals function then just run ```npm run start``` and go to ```localhost:8082/realtimeTrainData``` in your browser when you see localhost:8082 in the console.
-## In the browser
-To use in a html file add this to your <head> tag: 
-
-```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
-
-(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
-
-## In node.js
-Just copy the index.js file in the build folder and put the file in your project.
-
-Then, import it in your file that you want the functions to be available.
-```import * as tH from './index.js'```
-
-Or, just import whatever you need:
-``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
-
-## In React-native
-You can just copy the src/index.ts file and put it in your React-native project. Then, you can import it anyway you want:
-
-```import * as tH from './index.ts'```
-
-OR
-
-``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
+- addInfoToStops.ts: If you use ANY bus function that requires stop data then you would need to run this function. However, if you copied stops2.txt from the assets folder or just installed the entire assets folder everything will work fine :)
+- createBusSvgs.js: As the name implies, it creates an image of each bus in each borough. It's pretty cool honestly you can try it out. It's just there for now...
+- getStopsForEachTrainLine.js: Experimental function to try to replace addInfoToStops or just to create a new function for transitHelper
+- RNaddInfoToStops.ts: React-native version of addInfoToStops. Kind of useless - might delete it later
 
 # Is this trustworthy?
-Well the data is from the MTA site and the actual code is pretty short so you could review it. The dependencies aren't uncommon except gtfs-realtime-bindings, which is from https://github.com/MobilityData/gtfs-realtime-bindings and the example is here: https://github.com/MobilityData/gtfs-realtime-bindings/blob/master/nodejs/README.md
+1. **None of the code executes unless YOU execute it! Therefore, you can review the code before running it**
+2. The data in assets is from the MTA developer site, so if you don't trust it you can download it at the site.
+3. Each folder has a purpose:
+- assets: Where MTA data (GTFS data) is stored and the modified stops2.txt
+- build: Where Typescript files are converted to Javascript files because Typescript files can't be run by themselves (as of now...)
+- dist: Where the bundle.js file is (to use in browsers)
+- src: Where the main files are
+index.ts: Where the main functions are
+server-to-test.ts: An express server to test the functions. If you don't know what express is don't worry about it you can just ignore this file unless your trying to contribute
+- utilities: Useful functions, some of them are very important. To see the importance of each function check out "Utility functions above"
+- package.json: Part of every Javascript package - where the package data is and what packages you installed
+- tsconfig.json: Just to configure Typescript, specifically, it tells Typescript where to put your built files (like after running npm run build)
+- tsconfig2.json: Another configuration file, it's for running a file in the utilities folder
+- webpack.config.mjs: Tell the bundler (the thing that lets you create a bundle.js for browsers) to include or exclude files/folders
+4. The dependencies aren't uncommon except gtfs-realtime-bindings, which is from https://github.com/MobilityData/gtfs-realtime-bindings
 
-**All the routes are specified in server-to-test.ts**
-
-# How to edit the code (long explanation)
+# How to edit the code (for contributers)
 To edit the code:
 1. Clone the repo
 2. Add your changes
@@ -187,7 +163,7 @@ If you use tH.getTrainLineShapes, you may be wondering what FS, GS and SI are in
 When testing on the map, it shows that **FS represents the Franklin Shuttle, GS stands for the Grand Central Shuttle, SI is the Staten Island Transit and H is the Rockaway Park
 Shuttle**
 
-# Documentation (work-in-progress)
+# Full Documentation (work-in-progress)
 > tH.getArrivals(line, targetStopID, unixTime, direction)
 
 Example usage: (Please read the stuff below to understand this)
@@ -272,3 +248,11 @@ This library does not provide any functions for that.
 
 ## Is it possible to use this for other cities?
 Nope. Maybe https://mobilitydatabase.org/ will be used for other cities in the future.
+
+# Legal
+According to the MTA:
+
+"By accessing our data feeds, you are agreeing to these Terms and Conditions. This agreement authorizes you to download and host the data on a non-MTA server (maintained by you or a third party) and to make the data available to others who will access that non-MTA server.
+
+MTA prohibits the development of an app that would make the data available to others directly from MTA's server(s)."
+> This library provides the GTFS data in the assets folder and it's recommended you bundle the GTFS data into your app or host a mirror for your app.
