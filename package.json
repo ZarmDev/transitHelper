@@ -7,8 +7,9 @@
     "build": "tsc -p tsconfig.json",
     "start": "npm run build && node build/server-to-test.js",
     "deploy": "npx webpack && npm run build",
-    "cbs": "node src/otherfunctions/createBusSvgs.js",
-    "addIToStops": "npx tsc -p tsconfig2.json && node build/addInfoToStops.js"
+    "cbs": "node utilities/createBusSvgs.js",
+    "addIToStops": "npx tsc -p tsconfig2.json && node build/addInfoToStops.js",
+    "getRoutes": "node utilities/getStopsForEachTrainLine.js"
   },
   "author": "ZarmDev",
   "license": "MIT",
@@ -21,10 +22,12 @@
   "devDependencies": {
     "@svgdotjs/svg.js": "^3.2.4",
     "@types/express": "^4.17.21",
+    "axios": "^1.7.5",
     "express": "^4.19.2",
+    "jsdom": "^24.1.1",
     "svgdom": "^0.1.19",
-    "ts-loader": "^9.5.1",
     "typescript": "^5.5.3",
+    "ts-loader": "^9.5.1",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
   }
