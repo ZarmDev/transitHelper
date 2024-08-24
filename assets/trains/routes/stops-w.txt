@@ -1,7 +1,7 @@
 Astoria-Ditmars Blvd
 Astoria Blvd
 30 Av
-Broadway 
+Broadway
 36 Av
 39 Av
 Queensboro Plaza
@@ -17,7 +17,7 @@ Times Sq-42 St
 8 St-NYU
 Prince St
 Canal St
-City Hall 
+City Hall
 Cortlandt St
 Rector St
 Whitehall St-South Ferry

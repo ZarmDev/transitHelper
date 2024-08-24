@@ -8,7 +8,7 @@ Dyckman St
 125 St
 59 St-Columbus Circle
 42 St/Port Authority Bus Terminal
-34 St-Penn Station 
+34 St-Penn Station
 14 St
 W 4 St-Washington Sq
 Canal St
@@ -16,29 +16,29 @@ Chambers St
 Fulton St
 High St
 Jay St-MetroTech
-Hoyt-Schermerhorn 
+Hoyt-Schermerhorn
 Nostrand Av
 Utica Av
 Broadway Junction
 Euclid Av
-Grant Av 
+Grant Av
 80 St
 88 St
 Rockaway Blvd
 104 St
-111 St 
-Ozone Pk-Lefferts Boulevard 
-Aqueduct Racetrack 
+111 St
+Ozone Pk-Lefferts Boulevard
+Aqueduct Racetrack
 Aqueduct-North Conduit Av
 Howard Beach-JFK Airport
-Broad Channel 
+Broad Channel
 Beach 67 St
 Beach 60 St
 Beach 44 St
 Beach 36 St
-Beach 25 St 
+Beach 25 St
 Far Rockaway-Mott Av
-Broad Channel 
+Broad Channel
 Beach 90 St
 Beach 98 St
 Beach 105 St

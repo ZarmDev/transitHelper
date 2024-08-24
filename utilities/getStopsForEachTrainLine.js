@@ -63,11 +63,12 @@ for (var i = 0; i < trainLinesWithIcons.length; i++) {
                 //     // Then, remove the first character
                 //     dataTitle = dataTitle.slice(1);
                 // }
+                const removeWhitespaces = data.trim()
                 if (dataTitle.includes("Subway Station")) {
                     dataTitle = "Subway Station"
-                    justStops += data + '\n'
+                    justStops += removeWhitespaces + '\n'
                 }
-                info[dataTitle] = data.trim()
+                info[dataTitle] = removeWhitespaces
             }
             stopsAtBorough.push(info)
         }

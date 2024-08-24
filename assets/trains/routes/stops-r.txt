@@ -1,6 +1,6 @@
 Forest Hills-71 Av
 67 Av
-63 Dr-Rego Park 
+63 Dr-Rego Park
 Woodhaven Blvd
 Grand Av
 Elmhurst Av
@@ -23,12 +23,12 @@ Times Square-42 St
 8 St-NYU
 Prince St
 Canal St
-City Hall 
+City Hall
 Cortlandt St
 Rector St
-Whitehall St-South Ferry 
+Whitehall St-South Ferry
 Court St
-Jay St-MetroTech 
+Jay St-MetroTech
 DeKalb Av
 Atlantic Av-Barclays Ctr
 Union St

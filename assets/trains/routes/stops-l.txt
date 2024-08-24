@@ -2,7 +2,7 @@
 6 Av
 14 St-Union Sq
 3 Av
-1 Av 
+1 Av
 Bedford Av
 Lorimer St
 Graham Av
@@ -15,10 +15,10 @@ Myrtle-Wyckoff Avs
 Halsey St
 Wilson Av
 Bushwick Av-Aberdeen St
-Broadway Junction 
+Broadway Junction
 Atlantic Av
 Sutter Av
 Livonia Av
 New Lots Av
 East 105 St
-Canarsie-Rockaway Pkwy 
+Canarsie-Rockaway Pkwy

@@ -1,4 +1,4 @@
-Wakefield-241 St 
+Wakefield-241 St
 Nereid Av
 233 St
 225 St
@@ -25,20 +25,20 @@ Central Park North (110 St)
 96 St
 72 St
 Times Sq-42 St
-34 St-Penn Station 
+34 St-Penn Station
 14 St
 Chambers St
 Park Place
 Fulton St
 Wall St
 Clark St
-Borough Hall 
+Borough Hall
 Hoyt St
 Nevins St
 Atlantic Av-Barclays Ctr
 Bergen St
-Grand Army Plaza 
-Eastern Pkwy-Brooklyn Museum 
+Grand Army Plaza
+Eastern Pkwy-Brooklyn Museum
 Franklin Av-Medgar Evers College
 President St-Medgar Evers College
 Sterling St
@@ -46,4 +46,4 @@ Winthrop St
 Church Av
 Beverly Rd
 Newkirk Av-Little Haiti
-Flatbush Av-Brooklyn College 
+Flatbush Av-Brooklyn College
