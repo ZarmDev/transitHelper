@@ -1,0 +1,204 @@
+{
+    "The Bronx stations": [
+        {
+            "Subway Station": "Woodlawn",
+            "Entrance and Exit Location(s)": "Jerome Ave and Bainbridge Ave",
+            "Platform Type": "One side platform, one island platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station (terminal)"
+        },
+        {
+            "Subway Station": "Mosholu Pkwy",
+            "Entrance and Exit Location(s)": "Jerome Ave and Moshulu Parkway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Bedford Pk Blvd-Lehman College",
+            "Entrance and Exit Location(s)": "Jerome Ave and Bedford Park Blvd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Kingsbridge Rd",
+            "Entrance and Exit Location(s)": "Jerome Ave and Kingsbridge Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Fordham Rd",
+            "Entrance and Exit Location(s)": "Jerome Ave and Fordham Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "183 St",
+            "Entrance and Exit Location(s)": "Jerome Ave and W 183 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Burnside Av",
+            "Entrance and Exit Location(s)": "Jerome Ave and Burnside Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "176 St",
+            "Entrance and Exit Location(s)": "Jerome Ave and E 176 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Mt Eden Av",
+            "Entrance and Exit Location(s)": "Jerome Ave and Mt. Eden Avenue",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "170 St",
+            "Entrance and Exit Location(s)": "Jerome Ave and 170 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "167 St",
+            "Entrance and Exit Location(s)": "River Ave and E 167 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "161 St-Yankee Stadium",
+            "Entrance and Exit Location(s)": "River Ave and E 161 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "B rush hours only, D all times except late nights",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "149 St-Grand Concourse",
+            "Entrance and Exit Location(s)": "E 149 St and Grand Concourse",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2, 5 all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "138 St-Grand Concourse",
+            "Entrance and Exit Location(s)": "E 138 St and Grand Concourse",
+            "Platform Type": "Two side platforms",
+            "Transfers": "5 all times except late nights",
+            "Other Station Features": "Subway, local station"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "125 St",
+            "Entrance and Exit Location(s)": "E 125 St and Lexington Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "5 all times except late nights, 6, Bus or train to airport",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "86 St",
+            "Entrance and Exit Location(s)": "E 86 St and Lexington Ave",
+            "Platform Type": "Four side platforms",
+            "Transfers": "5 all times except late nights, 6",
+            "Other Station Features": "Subway, local station, ADA accessible (ONLY northbound 6)"
+        },
+        {
+            "Subway Station": "59 St",
+            "Entrance and Exit Location(s)": "E 60 St and Lexington Ave, E 59 St and Lexington Ave, E 60 St and 3rd Ave",
+            "Platform Type": "Four side platforms",
+            "Transfers": "N,R all times except late nights, W weekdays only, 5 all times except late nights,6",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Grand Central-42 St",
+            "Entrance and Exit Location(s)": "Park Ave and E 42 St, Lexington Ave and E 42 St, E 42 St between Park Ave and Lexington Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "5,S all times except late nights, 6,7 all times",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "14 St-Union Sq",
+            "Entrance and Exit Location(s)": "E 15 St and Union Square East, E 14 St and 4th Ave, Union Square Park at E 14 St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "L,N,Q,R all times except late nights, W weekdays only, 5 all times except late night, 6",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Brooklyn Bridge-City Hall",
+            "Entrance and Exit Location(s)": "Centre St between Chambers St and Brooklyn Bridge Promenade, Reade St and Centre St, Frankfort St at Pace Plaza",
+            "Platform Type": "Two island platforms",
+            "Transfers": "J,Z rush hours only, 5 all times except late nights, 6",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Fulton St",
+            "Entrance and Exit Location(s)": "Fulton St and Broadway, Dey St and Broadway, John St and Broadway, Cortlandt St and Broadway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "A,C all times except late nights,J,Z rush hour only, 2, 3 all times except late nights, 5 all times except late nights",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Wall St",
+            "Entrance and Exit Location(s)": "Rector St and Broadway, Trinity Building at Broadway and Thames St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "5 all times except late nights",
+            "Other Station Features": "Subway, express station"
+        },
+        {
+            "Subway Station": "Bowling Green",
+            "Entrance and Exit Location(s)": "Bowling Green Park at Whitehall St, Battery Place and State St, Battery Place and Broadway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "5 all times except late nights",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Borough Hall",
+            "Entrance and Exit Location(s)": "Joralemon St and Court St, Court St and Montague St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2,3 all times except late nights,5 weekdays only, R",
+            "Other Station Features": "Subway, local and express station, ADA accessible (except for R, Brooklyn bound 4,5)"
+        },
+        {
+            "Subway Station": "Nevins St",
+            "Entrance and Exit Location(s)": "Flatbush Ave between Nevins St and Livingston St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2,3 all times except late nights ,5 weekdays only",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Atlantic Av-Barclays Ctr",
+            "Entrance and Exit Location(s)": "Hanson Place and Flatbush Ave, Pacific St and 4th Ave, Atlantic Ave and Flatbush Ave",
+            "Platform Type": "One island platform, two side platforms",
+            "Transfers": "B weekdays untul 11 pm, D,N,Q,R,W limited rush hour service, 2,3 all times except late nights, ,5 weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Franklin Av-Medgar Evers College",
+            "Entrance and Exit Location(s)": "Franklin Ave and Eastern Parkway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2,3 all times except late nights, 5 weekdays only",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Crown Heights-Utica Av",
+            "Entrance and Exit Location(s)": "Utica Ave and Eastern Parkway, Schenectady Ave and Eastern Parkway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "3 all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        }
+    ]
+}

@@ -1,0 +1,272 @@
+{
+    "The Bronx stations": [
+        {
+            "Subway Station": "Pelham Bay Park",
+            "Entrance and Exit Location(s)": "Westchester Ave and Bruckner Blvd",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station (terminal), ADA accessible"
+        },
+        {
+            "Subway Station": "Buhre Av",
+            "Entrance and Exit Location(s)": "Edison Ave and Westchester Ave, Buhre Ave and Edison Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Middletown Rd",
+            "Entrance and Exit Location(s)": "Westchester Ave and Middletown Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Westchester Sq-East Tremont Av",
+            "Entrance and Exit Location(s)": "Westchester Ave and Ferris Pl",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Zerega Av",
+            "Entrance and Exit Location(s)": "Zerega Ave and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Castle Hill Av",
+            "Entrance and Exit Location(s)": "Castle Hill Ave and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Parkchester",
+            "Entrance and Exit Location(s)": "Center of Hugh Grant Circle at Westchester Ave and Metropolitan Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "Limited weekday peak direction express",
+            "Other Station Features": "Elevated, local and express station"
+        },
+        {
+            "Subway Station": "St Lawrence Av",
+            "Entrance and Exit Location(s)": "St Lawrence Ave and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Morrison Av-Soundview",
+            "Entrance and Exit Location(s)": "Morrison Ave and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Elder Av",
+            "Entrance and Exit Location(s)": "Elder Ave and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Whitlock Av",
+            "Entrance and Exit Location(s)": "Whitlock Ave and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Hunts Point Av",
+            "Entrance and Exit Location(s)": "Hunts Points Ave and Southern Blvd, E 163 St and Bruckner Blvd",
+            "Platform Type": "Two island platforms",
+            "Transfers": "Limited weekday peak direction express",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Longwood Av",
+            "Entrance and Exit Location(s)": "Longwood Ave and Southern Blvd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "E 149 St",
+            "Entrance and Exit Location(s)": "E 149 St and Southern Blvd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "E 143 St-Mary's St",
+            "Entrance and Exit Location(s)": "E 143 St and Southern Blvd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Cypress Av",
+            "Entrance and Exit Location(s)": "E 138 St between Cypress Ave and Jackson Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Brook Av",
+            "Entrance and Exit Location(s)": "E 138 St and Brook Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "3 Av-138 St",
+            "Entrance and Exit Location(s)": "E 138 St and 3rd Ave, E 138 St and Alexander Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "Limited weekday peak direction express",
+            "Other Station Features": "Subway, local and express station"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "125 St",
+            "Entrance and Exit Location(s)": "E 125 St and Lexington Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "4,5 all times except late nights, bus or train to Airport",
+            "Other Station Features": "Subway, local and express station , ADA accessible"
+        },
+        {
+            "Subway Station": "116 St",
+            "Entrance and Exit Location(s)": "E 116 St and Lexington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "110 St",
+            "Entrance and Exit Location(s)": "E 110 St and Lexington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "103 St",
+            "Entrance and Exit Location(s)": "E 103 St and Lexington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "96 St",
+            "Entrance and Exit Location(s)": "E 96 St and Lexington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "86 St",
+            "Entrance and Exit Location(s)": "E 86 St and Lexington Ave",
+            "Platform Type": "Four side platforms",
+            "Transfers": "4,5 all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "77 St",
+            "Entrance and Exit Location(s)": "E 77 St and Lexington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "68 St-Hunter College",
+            "Entrance and Exit Location(s)": "E 68 St and Lexington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "59 St",
+            "Entrance and Exit Location(s)": "E 60 St and Lexington Ave, E 59 St and Lexington Ave, E 60 St and 3rd Ave",
+            "Platform Type": "Four side platforms",
+            "Transfers": "N,R all times except late nights, W weekdays only, 4, 5 all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "51 St",
+            "Entrance and Exit Location(s)": "E 51 St and Lexington Ave, E 52 St and Lexington Ave, Citicorp Plaza at E 53 St and Lexington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "E,M weekdays until 11 p.m.",
+            "Other Station Features": "Subway, local station , ADA accessible"
+        },
+        {
+            "Subway Station": "Grand Central-42 St",
+            "Entrance and Exit Location(s)": "Park Ave and E 42 St,  Lexington Ave and E 42 St, E 42 St between Park Ave and Lexington Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "5,S all times except late nights, 4,7 all times",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "33 St",
+            "Entrance and Exit Location(s)": "E 32 St and Park Avenue S, E 33 St and Park Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "28 St",
+            "Entrance and Exit Location(s)": "E 28 St and Park Ave South",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station , ADA accessible (southbound only)"
+        },
+        {
+            "Subway Station": "23 St",
+            "Entrance and Exit Location(s)": "E 22 St and Park Ave South, E 23 St and Park Ave South",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station , ADA accessible"
+        },
+        {
+            "Subway Station": "14 St-Union Sq",
+            "Entrance and Exit Location(s)": "E 15 St and Union Square East, E 14 St and 4th Ave, Union Square Park at E 14 St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "L,N,Q,R all times except late nights, W weekdays only, 4,5 all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Astor Pl",
+            "Entrance and Exit Location(s)": "E 8 St and 4th Ave, Lafayette St and Astor Pl",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Bleeker St",
+            "Entrance and Exit Location(s)": "Houston St and Lafayette St, Bleeker St and Lafayette St, Bleeker St and Mulberry St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "B weekdays until 11 p.m., D,F,M all times except late nights",
+            "Other Station Features": "Subway, local station , ADA accessible"
+        },
+        {
+            "Subway Station": "Spring St",
+            "Entrance and Exit Location(s)": "Spring St and Cleveland Place, Spring St and Lafayette St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Canal St",
+            "Entrance and Exit Location(s)": "Canal St and Lafayette St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J,N,Q,R all times except late nights, W weekdays only",
+            "Other Station Features": "Subway, local station , ADA accessible (6 only)"
+        },
+        {
+            "Subway Station": "Brooklyn Bridge-City Hall",
+            "Entrance and Exit Location(s)": "Centre St between Chambers St and Brooklyn Bridge Promenade, Reade St and Centre St, Frankfort St at Pace Plaza",
+            "Platform Type": "Two island platforms",
+            "Transfers": "J,Z rush hours only,4,5 all times except late nights",
+            "Other Station Features": "Subway, local and express station  (terminal)"
+        }
+    ]
+}

@@ -1,0 +1,244 @@
+{
+    "Manhattan stations": [
+        {
+            "Subway Station": "Harlem-148 St",
+            "Entrance and Exit Location(s)": "W 149 St and Adam C Powell Blvd",
+            "Platform Type": "One island platform",
+            "Transfers": "Subway, local station",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "145 St",
+            "Entrance and Exit Location(s)": "W 145 St and Lenox Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "Subway, local station",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "135 St",
+            "Entrance and Exit Location(s)": "W 135 St and Lenox Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "125 St",
+            "Entrance and Exit Location(s)": "W 125 St and Lenox Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2, SBS M60 to Airport",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "116 St",
+            "Entrance and Exit Location(s)": "W 116 St and Lenox Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Central Park North (110 St)",
+            "Entrance and Exit Location(s)": "W 111 St and Lenox Ave, St Nicholas Ave and Central Park North",
+            "Platform Type": "One island platform",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "96 St",
+            "Entrance and Exit Location(s)": "Broadway between W 96 St and W 95 St, Broadway and W 94 St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "1,2",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "72 St",
+            "Entrance and Exit Location(s)": "W 72 St between Broadway and Amsterdam Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "1,2",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Times Square-42 St",
+            "Entrance and Exit Location(s)": "W 42 St and 7th Ave, W 41 St between 7th Ave and Broadway, W 40 St and 7th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "N,Q,1,2,7 all times, W weekdays only, R,S all times except late nights; 42 St/Port Authority Bus Terminal A, E all times, C all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible (transfer to 42 St/Port Authority Bus Terminal not accessible)"
+        },
+        {
+            "Subway Station": "34 St-Penn Station",
+            "Entrance and Exit Location(s)": "W 34 St and 7th Ave, W 33 St and 7th Ave, W 32 St and 7th Ave",
+            "Platform Type": "One island platform, two side platforms",
+            "Transfers": "1,2",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "14 St",
+            "Entrance and Exit Location(s)": "W 14 St and 7th Ave, W 13 St and 7th Ave, W 12 St and 7th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "F,L,M all times except late nights, 1,2",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Chambers St",
+            "Entrance and Exit Location(s)": "Chambers St and W Broadway, Chambers St and Hudson St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "1,2",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Park Place",
+            "Entrance and Exit Location(s)": "Park Place and Broadway, Park Place and Church St",
+            "Platform Type": "One island platform",
+            "Transfers": "A,C all times except late nights,E,R,W weekdays only,2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Fulton St",
+            "Entrance and Exit Location(s)": "Fulton St and William St, John St and William St",
+            "Platform Type": "One island platform",
+            "Transfers": "A,C all times except late nights,J,Z rush hour only, 2, 4, 5 all times except late nights",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Wall St",
+            "Entrance and Exit Location(s)": "Wall St and William St, Pine St and William St, Cedar St and William St",
+            "Platform Type": "One island platform",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Clark St",
+            "Entrance and Exit Location(s)": "Clark St and Henry St",
+            "Platform Type": "One island platform",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Borough Hall",
+            "Entrance and Exit Location(s)": "Court St and Montague St, Montague St and Cadman Plaza West",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2,4,5 weekdays only, R",
+            "Other Station Features": "Subway, local and express station, ADA accessible (except for R, Brooklyn bound 4,5)"
+        },
+        {
+            "Subway Station": "Hoyt St",
+            "Entrance and Exit Location(s)": "Fulton St and Hoyt St, Fulton St and Bridge St, Fulton St and Duffield St, Fulton St and Elm St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Nevins St",
+            "Entrance and Exit Location(s)": "Flatbush Ave between Nevins St and Livingston St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2,4,5 weekdays only",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Atlantic Av-Barclays Ctr",
+            "Entrance and Exit Location(s)": "Hanson Place and Flatbush Ave, Pacific St and 4th Ave, Atlantic Ave and Flatbush Ave",
+            "Platform Type": "Two side platforms, one island platform",
+            "Transfers": "B weekdays untul 11 pm, D,N,Q,R,W limited rush hour service, 2,4,5 weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Bergen St",
+            "Entrance and Exit Location(s)": "Bergen St and Flatbush Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Grand Army Plaza",
+            "Entrance and Exit Location(s)": "Plaza St West and Flatbush Ave, Plaza St East and Flatbush Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Eastern Parkway-Brooklyn Museum",
+            "Entrance and Exit Location(s)": "Eastern Parkway, west of Washington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Franklin Av-Medgar Evers College",
+            "Entrance and Exit Location(s)": "Franklin Ave and Eastern Parkway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2,4,5 weekdays only",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Nostrand Av",
+            "Entrance and Exit Location(s)": "Nostrand Ave and Eastern Parkway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Kingston Av",
+            "Entrance and Exit Location(s)": "Kingston Ave and Eastern Parkway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Crown Heights-Utica Av",
+            "Entrance and Exit Location(s)": "Utica Ave and Eastern Parkway, Schenectady Ave and Eastern Parkway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "4",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Sutter Ave-Rutland Rd",
+            "Entrance and Exit Location(s)": "E 98 St and Rutland Rd, E 98 St and Sutter Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Saratoga Av",
+            "Entrance and Exit Location(s)": "Sratoga Ave and Livonia Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Rockaway Av",
+            "Entrance and Exit Location(s)": "Rockaway Ave and Livonia Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Junius St",
+            "Entrance and Exit Location(s)": "Livonia Ave between Powell St and Sackman St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Pennsylvania Av",
+            "Entrance and Exit Location(s)": "Pennsylvania Ave and Livonia Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Van Siclen Av",
+            "Entrance and Exit Location(s)": "Van Siclen Ave and Livonia Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "New Lots Av",
+            "Entrance and Exit Location(s)": "Ashford St and Livonia Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "Bus or Airtrain to Airport",
+            "Other Station Features": "Elevated, local station"
+        }
+    ]
+}

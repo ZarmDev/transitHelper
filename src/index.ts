@@ -499,6 +499,14 @@ export async function getNearbyBusStops(location: [string, string], latSpan: str
     return importantdata
 }
 
+// export function getAllTrainRoutes(routeData: string, shouldIncludeAllInformation: boolean) {
+//     if (shouldIncludeAllInformation) {
+//         // JSON.parse(routeData)
+//     } else {
+//         routeData
+//     }
+// }
+
 const iconToURL = {
     "1": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
     "2": "https://github.com/louh/mta-subway-bullets/blob/main/svg/2.svg",

@@ -1,0 +1,260 @@
+{
+    "Queens stations": [
+        {
+            "Subway Station": "Forest Hills-71 Av",
+            "Entrance and Exit Location(s)": "70th Rd and 71st Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "E, F, R except late nights",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "67 Av",
+            "Entrance and Exit Location(s)": "Queens Boulevard and 67th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "63 Dr-Rego Park",
+            "Entrance and Exit Location(s)": "64th Ave and Queens Boulevard, 63rd Drive and Queens Boulevard",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights, Q72 to Laguardia",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Woodhaven Blvd",
+            "Entrance and Exit Location(s)": "Queens Boulevard and 59th Ave, 60th Ave and 92nd St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Grand Av-Newtown",
+            "Entrance and Exit Location(s)": "Queens Boulevard at 54th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Elmhurst Av",
+            "Entrance and Exit Location(s)": "82nd St and Broadway, 45th Ave and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Jackson Hts-Roosevelt Av",
+            "Entrance and Exit Location(s)": "74 St and Roosevelt Ave, 73 St and Broadway, 75 St and Broadway",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "E, F, R except late nights, 7",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "65 St",
+            "Entrance and Exit Location(s)": "Broadway and 65th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Northern Blvd",
+            "Entrance and Exit Location(s)": "Northern Blvd and 36 St, Northern Blvd and 35 St, Northern Blvd and 34 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "46 St",
+            "Entrance and Exit Location(s)": "46th St and Broadway, Broadway and 48th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Steinway St",
+            "Entrance and Exit Location(s)": "34th Ave and Steinway St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "36 St",
+            "Entrance and Exit Location(s)": "4th Ave and 36th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Queens Plaza",
+            "Entrance and Exit Location(s)": "Queens Blvd and Jackson Ave, West St and Jackson Ave, 41 Ave and Northern Blvd",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "E",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Court Sq-23 St",
+            "Entrance and Exit Location(s)": "44th Dr and 23rd St, 21st St and 44th Dr",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "E, G, 7",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "Lexington Av/53 St",
+            "Entrance and Exit Location(s)": "Lexington Ave and E 53 St, Lexington Ave and E 52 St, 3rd Ave and E 53 St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "E, 6",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "5 Av/53 St",
+            "Entrance and Exit Location(s)": "5th Ave and E 53 St, Madison Ave and E 53 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "E",
+            "Other Station Features": "Subway, express station"
+        },
+        {
+            "Subway Station": "47-50 Sts-Rockefeller Ctr",
+            "Entrance and Exit Location(s)": "6th Ave and 50th St, 6th Ave and 49th St, 6th Ave and 48th St, 6th Ave and 47th St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11pm, D, F",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "42 St-Bryant Pk",
+            "Entrance and Exit Location(s)": "6th Ave and W 50 St, 6th Ave and W 49 St, 6th Ave and W 48 St, 6th Ave and W 47 St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11pm, D, F, 7",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "34 St-Herald Sq",
+            "Entrance and Exit Location(s)": "W 35 St between Broadway and 6th Ave, W 34 St between Broadway and 6th Ave, W 32 St between Broadway and 6th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11pm, D, F, N, Q, R except late nights, W weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "23 St",
+            "Entrance and Exit Location(s)": "23rd St and 6th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "14 St",
+            "Entrance and Exit Location(s)": "W 14 St and 6th Ave, W 16 St and 6th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F, L, 1, 2, 3 except late nights",
+            "Other Station Features": "Subway, local station, accessible uptown only"
+        },
+        {
+            "Subway Station": "W 4 St-Washington Sq",
+            "Entrance and Exit Location(s)": "W 3 St and 6th Ave, Waverly Pl and 6th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "A, C except late nights, E, B weekdays until 11pm, D, F",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Broadway-Lafayette St",
+            "Entrance and Exit Location(s)": "Broadway and Houston St, Houston St and Lafayette St, Bleeker St and Lafayette St, Bleeker St and Mulberry St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11pm, D, F, 6",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Delancey St-Essex St",
+            "Entrance and Exit Location(s)": "Delancey St and Essex St, Delancey St and Norfolk St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F, J, Z rush hours only",
+            "Other Station Features": "Subway, local station"
+        }
+    ],
+    "Brooklyn and Queens stations": [
+        {
+            "Subway Station": "Marcy Av",
+            "Entrance and Exit Location(s)": "Marcy Ave and Broadway, Havemeyer St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "J, Z rush hours in peak direction",
+            "Other Station Features": "Elevated, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Hewes St",
+            "Entrance and Exit Location(s)": "Hewes St and Broadway, Hooper St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "J",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Lorimer St",
+            "Entrance and Exit Location(s)": "Lorimer St and Broadway, Broadway beween Wallabout St and Broadway, Throop Ave and Lorimer St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "J",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Flushing Av",
+            "Entrance and Exit Location(s)": "Flushing Ave and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "J",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Myrtle Av",
+            "Entrance and Exit Location(s)": "Myrtle Ave and Broadway",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "J, Z rush hours in peak direction",
+            "Other Station Features": "Elevated, local and express station"
+        },
+        {
+            "Subway Station": "Central Av",
+            "Entrance and Exit Location(s)": "Myrtle Ave and Cedar St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Knickerbocker Av",
+            "Entrance and Exit Location(s)": "Knickerbocker Ave and Green Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Myrtle-Wyckoff Avs",
+            "Entrance and Exit Location(s)": "Wyckoff Ave and Palmetto St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "L",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Seneca Av",
+            "Entrance and Exit Location(s)": "Palmetto St and Seneca Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Forest Av",
+            "Entrance and Exit Location(s)": "Fairview Ave and Putnam Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Fresh Pond Rd",
+            "Entrance and Exit Location(s)": "62 St and 8th Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Middle Village-Metropolitan Av",
+            "Entrance and Exit Location(s)": "Rentar Plaza and Metropolitan Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        }
+    ]
+}

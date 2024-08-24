@@ -1,0 +1,323 @@
+{
+    "Queens stations": [
+        {
+            "Subway Station": "Forest Hills-71 Av",
+            "Entrance and Exit Location(s)": "71st Ave and Queens Blvd, 70 Road and Queens Blvd",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "E, F; M weekdays until 11 pm",
+            "Other Station Features": "Subway, local and express station (terminal), ADA accessible"
+        },
+        {
+            "Subway Station": "67 Av",
+            "Entrance and Exit Location(s)": "67th Ave and Queens Blvd., 67 Drive and Queens Blvd",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "63 Dr-Rego Park",
+            "Entrance and Exit Location(s)": "63 Drive and Queens Blvd, 64th Ave and Queens Blvd",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm, Q72 to LGA Airport",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Woodhaven Blvd",
+            "Entrance and Exit Location(s)": "Woodhaven Blvd and Queens Blvd, 59th Ave and Queens Blvd, 92 St and Queens Blvd",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Grand Av",
+            "Entrance and Exit Location(s)": "54th Ave and Queens Blvd, Justice Ave and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Elmhurst Av",
+            "Entrance and Exit Location(s)": "Elmhurst Ave and Broadway, 82 St and Broadway, Britton Ave and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Jackson Hts-Roosevelt Av",
+            "Entrance and Exit Location(s)": "74 St and Roosevelt Ave, 73 St and Broadway, 75 St and Broadway",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "E, F, M weekdays until 11 pm, 7",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "65 St",
+            "Entrance and Exit Location(s)": "Broadway and 65 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Northern Blvd",
+            "Entrance and Exit Location(s)": "Northern Blvd and Broadway, 54 St and Northern Blvd",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "46 St",
+            "Entrance and Exit Location(s)": "48 St and Broadway, Newtown Road between Broadway and 48 St, 46 St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Steinway St",
+            "Entrance and Exit Location(s)": "Steinway St and 34th Ave, Steinway St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "36 St",
+            "Entrance and Exit Location(s)": "Northern Blvd and 36 St, Northern Blvd and 35 St, Northern Blvd and 34 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M weekdays until 11 pm",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Queens Plaza",
+            "Entrance and Exit Location(s)": "Queens Blvd and Jackson Ave, West St and Jackson Ave, 41 Ave and Northern Blvd and 41st Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "E, M weekdays until 11 pm",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "Lexington Av/59 St",
+            "Entrance and Exit Location(s)": "3rd Ave and E 60 St, Lexington Ave and E 60 St, Lexington Ave and E 59 St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "N, W weekdays only, 4, 5 all times except late nights, 6",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "5 Av/59 St",
+            "Entrance and Exit Location(s)": "5th Ave and E 60 St, Central Park South and Grand Army Plaza",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "N, W weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "57 St-7 Av",
+            "Entrance and Exit Location(s)": "W 57 St and 7th Ave, W 55 St and 7th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "Q, N, W weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "49 St",
+            "Entrance and Exit Location(s)": "W 49 St and 7th Ave, W 47 St and 7th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "N, W weekdays only",
+            "Other Station Features": "Subway, local station, ADA accessible (northbound only)"
+        },
+        {
+            "Subway Station": "Times Square-42 St",
+            "Entrance and Exit Location(s)": "W 42 St and 7th Ave, W 42 St and Broadway, W 41 St and 7th Ave, W 40 St and Broadway",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "A, C all times except late nights, E, Q, R all times except late nights, W weekdays only, S all times except late nights, 1, 2, 3, 7",
+            "Other Station Features": "Subway, local and express station, ADA accessible (except for A, C, E, S lines)"
+        },
+        {
+            "Subway Station": "34 St-Herald Square",
+            "Entrance and Exit Location(s)": "W 35 St between Broadway and 6th Ave, W 34 St between Broadway and 6th Ave, W 32 St between Broadway and 6th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11 pm, D, F, M until 11 pm, Q, W weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "28 St",
+            "Entrance and Exit Location(s)": "W 28 St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "W weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "23 St",
+            "Entrance and Exit Location(s)": "E 23 St and Broadway, 23 St and 5th Ave, E 22 St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "W weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "14 St-Union Sq",
+            "Entrance and Exit Location(s)": "Union Square West and E 16 St, Broadway and E 14 St, Union Square East and E 15 St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "L, Q, N, W weekdays only, 4, 5 all times except last night, 6",
+            "Other Station Features": "Subway, local and express station, ADA accessible (except for 4, 5, 6 lines)"
+        },
+        {
+            "Subway Station": "8 St-NYU",
+            "Entrance and Exit Location(s)": "E 8 St and Broadway, Broadway and Waverly Place",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "W weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Prince St",
+            "Entrance and Exit Location(s)": "Prince St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "W weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Canal St",
+            "Entrance and Exit Location(s)": "Broadway and Canal St, Lafayette St and Canal St, Centre St and Canal St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "J, Q, N, W weekdays only, Z rush hour only, 6",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "City Hall",
+            "Entrance and Exit Location(s)": "Broadway and Warren St, Broadway and Murray St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "W weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Cortlandt St",
+            "Entrance and Exit Location(s)": "Church St and Dey St, Church St and Cortlandt St, Broadway and Dey St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "A, C all times except late nights, E, W weekdays only, 2, 3 all times except late nights",
+            "Other Station Features": "Subway, local station, ADA accessible ( E, R, W only)"
+        },
+        {
+            "Subway Station": "Rector St",
+            "Entrance and Exit Location(s)": "Rector St and Trinity Place",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "W weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Whitehall St-South Ferry",
+            "Entrance and Exit Location(s)": "Whitehall St and Stoner St, Whitehall St and Water St, Water St and State St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "W weekdays only, 1",
+            "Other Station Features": "Subway, local station"
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Court St",
+            "Entrance and Exit Location(s)": "Montague St and Clinton St, Court St and Montague St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "2, 3 all times except late nights, 4, 5 weekdays only",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Jay St-MetroTech",
+            "Entrance and Exit Location(s)": "Jay St and Willoughby St, Lawrence St and Willoughby St, Bridge St and Willoughby St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "A, C all times except late nights, F",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "DeKalb Av",
+            "Entrance and Exit Location(s)": "Dekalb Ave and Flatbush Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11 pm, Q",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Atlantic Av-Barclays Ctr",
+            "Entrance and Exit Location(s)": "Hanson Place and Flatbush Ave, Pacific St and 4th Ave, Atlantic Ave and Flatbush Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11 pm, D, N, Q, 2, 3 all times except late nights, 4, 5 weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Union St",
+            "Entrance and Exit Location(s)": "Union St and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "4 Av-9 St",
+            "Entrance and Exit Location(s)": "9 St and 4th Ave, 10 St and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Prospect Av",
+            "Entrance and Exit Location(s)": "Prospect Ave and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F, G",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "25 St",
+            "Entrance and Exit Location(s)": "25th St and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "36 St",
+            "Entrance and Exit Location(s)": "36 St and 4th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "D, N",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "45 St",
+            "Entrance and Exit Location(s)": "45 St and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "53 St",
+            "Entrance and Exit Location(s)": "53 St and 4th Ave, 52 St and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "59 St",
+            "Entrance and Exit Location(s)": "60 St and 4th Ave, 61 St and 4th Ave, 59 St and 4th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "N",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Bay Ridge Av",
+            "Entrance and Exit Location(s)": "68 St and 4th Ave, Bay Ridge Ave and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "77 St",
+            "Entrance and Exit Location(s)": "77 St and 4th Ave, 76 St and 4th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "86 St",
+            "Entrance and Exit Location(s)": "86 St and 4th Ave, 85 St and 4th Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Bay Ridge-95 St",
+            "Entrance and Exit Location(s)": "95 St and 5th Ave, 93 St and 4th Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station (terminal)"
+        }
+    ]
+}

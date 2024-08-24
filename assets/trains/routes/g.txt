@@ -1,0 +1,153 @@
+{
+    "Queens stations": [
+        {
+            "Subway Station": "Court Sq",
+            "Entrance and Exit Location(s)": "23rd St and 45th Ave, Jackson Ave and Pearson St, 21st St and 44th Dr",
+            "Platform TypeÊ": "One island platform",
+            "Transfers": "E, M weekdays until 11 pm, 7 rush hours until 9:30 pm peak direction",
+            "Other Station Features": "Subway, local station, ADA accessible (terminal)."
+        },
+        {
+            "Subway Station": "21 St",
+            "Entrance and Exit Location(s)": "21st St and Jackson Ave",
+            "Platform TypeÊ": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Greenpoint Av",
+            "Entrance and Exit Location(s)": "Manhattan Ave and India St, Manhattan Ave and Greenpoint Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "Nassau Av",
+            "Entrance and Exit Location(s)": "Manhattan Ave and Nassau Ave, Manhattan Ave and Norman Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Metropolitan Av",
+            "Entrance and Exit Location(s)": "Union Ave and Keap St, Metropolitan Ave and Union Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "L all times",
+            "Other Station Features": "Subway, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "Broadway",
+            "Entrance and Exit Location(s)": "Broadway and Heyward St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Flushing Av",
+            "Entrance and Exit Location(s)": "Flushing Ave and Marcy Ave, Union Ave and Gerry St, Walton St and Marcy Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Myrtle Willoughby Avs",
+            "Entrance and Exit Location(s)": "Marcy Ave and Myrtle Ave, Marcy Ave and Willoughby Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Bedford-Nostrand Avs",
+            "Entrance and Exit Location(s)": "Nostrand Ave and Lafayette Ave, Bedford Ave and Lafayette Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Classon Av",
+            "Entrance and Exit Location(s)": "Classon Ave and Lafayette Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Clinton-Washington Avs",
+            "Entrance and Exit Location(s)": "Clinton Ave and Lafayette Ave, Washington Ave and Lafayette Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Fulton St",
+            "Entrance and Exit Location(s)": "South Portland Ave and Lafayette Ave, Lafayette Ave and Fulton St, Fort Greene Pl and Fulton St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Hoyt-Schermerhorn",
+            "Entrance and Exit Location(s)": "Hoyt St and Schermerhorn St, Livingston St and Bond St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "A all times, C all times except late nights",
+            "Other Station Features": "Subway, local and express station."
+        },
+        {
+            "Subway Station": "Bergen St",
+            "Entrance and Exit Location(s)": "Bergen St and Smith St, Warren St and Smith St, Wyckoff St and Smith St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F all times",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Carroll St",
+            "Entrance and Exit Location(s)": "President St and Smith St, Second St and Smith St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F all times",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Smith-9 Sts",
+            "Entrance and Exit Location(s)": "Smith St and 9th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F all times",
+            "Other Station Features": "Viaduct, local station."
+        },
+        {
+            "Subway Station": "4 Av-9 Sts",
+            "Entrance and Exit Location(s)": "4th Ave and 10th St, 4th Ave and 9th St, 4th Ave between 9th St and 10th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F all times, R all times",
+            "Other Station Features": "Viaduct, local station."
+        },
+        {
+            "Subway Station": "7 Av",
+            "Entrance and Exit Location(s)": "7th Ave and 9th St, 8th Ave and 9th St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "F all times",
+            "Other Station Features": "Subway, local and express station, ADA accessible."
+        },
+        {
+            "Subway Station": "15 St-Prospect Park",
+            "Entrance and Exit Location(s)": "Bartel Pritchard Sq between 15th and Prospect Park, Howard Pl and Windsor Pl, Prospect Park West and Southwest",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "F all times",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Fort Hamilton Pkwy",
+            "Entrance and Exit Location(s)": "Greenwood Ave and Prospect Ave, Prospect Ave and Reeve Pl",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "F all times",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Church Av",
+            "Entrance and Exit Location(s)": "Albemarle Rd and McDonald Ave, Church Ave and McDonald Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "F all times",
+            "Other Station Features": "Subway, local station, ADA accessible (terminal)."
+        }
+    ]
+}

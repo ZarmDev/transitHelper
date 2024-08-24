@@ -1,0 +1,174 @@
+{
+    "Manhattan Stations": [
+        {
+            "Subway Station": "8 Av",
+            "Entrance and Exit Location(s)": "W 14 St and 8th Ave, W 15 St and 8th Ave, W 16 St and 8th Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "A all times, E all times, C all times except late nights",
+            "Other Station Features": "Subway, express station, ADA accessible (terminal)"
+        },
+        {
+            "Subway Station": "6 Av",
+            "Entrance and Exit Location(s)": "14 St and 6th Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "1 all times, 2 all times, 3 all times except late nights, F all times, M weekdays during rush hour",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "14 St-Union Sq",
+            "Entrance and Exit Location(s)": "E 15 St and Union Square East, E 14 St and 4th Ave, Union Square Park at E 14 St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "N,Q,R all times except late nights, W weekdays only, 4,5 all times except late nights, 6",
+            "Other Station Features": "Subway, express station, ADA accessible (L,N,Q,R,W only)"
+        },
+        {
+            "Subway Station": "3 Av",
+            "Entrance and Exit Location(s)": "3rd Ave and E 14 St, E 14 St and 3rd Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "1 Av",
+            "Entrance and Exit Location(s)": "1st Ave and 14th St, Avenue A and 14th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Bedford Av",
+            "Entrance and Exit Location(s)": "Bedford Ave and N 7th St, Driggs Ave and N 7th St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "Lorimer St",
+            "Entrance and Exit Location(s)": "Lorimer St and Broadway, Broadway beween Wallabout St and Broadway, Throop Ave and Lorimer St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "G all times",
+            "Other Station Features": "Subway, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "Graham Av",
+            "Entrance and Exit Location(s)": "Graham Ave and Metropolitan Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Grand St",
+            "Entrance and Exit Location(s)": "Bushwick Ave and Grand St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "Montrose Av",
+            "Entrance and Exit Location(s)": "Montrose Ave and Bushwick Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Morgan Av",
+            "Entrance and Exit Location(s)": "Morgan Ave and Harrison Place, Bogart St and Harrison Place",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Jefferson St",
+            "Entrance and Exit Location(s)": "Starr Ave and Wyckoff Ave, Jefferson St and Wyckoff Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "DeKalb Av",
+            "Entrance and Exit Location(s)": "DeKalb Ave and Wyckoff Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Myrtle-Wyckoff Avs",
+            "Entrance and Exit Location(s)": "Wyckoff Ave and Palmetto St, Myrtle Ave and Wyckoff Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "M all times",
+            "Other Station Features": "Subway, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "Halsey St",
+            "Entrance and Exit Location(s)": "Wyckoff Ave and George St, Halsey St and Wyckoff Ave, Norman St and Wyckoff Ave, Covert St and Wyckoff Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Wilson Av",
+            "Entrance and Exit Location(s)": "Wilson Ave and Moffat St",
+            "Platform Type&nbsp;": "One side platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible Manhattan-bound only."
+        },
+        {
+            "Subway Station": "Bushwick Av-Aberdeen St",
+            "Entrance and Exit Location(s)": "Aberdeen St and DeSales Place",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Broadway Junction",
+            "Entrance and Exit Location(s)": "Van Sinderen Ave between Fulton St and Truxton St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "A all times, C all times except late nights, J all times, Z during rush hour",
+            "Other Station Features": "Subway, express station."
+        },
+        {
+            "Subway Station": "Atlantic Av",
+            "Entrance and Exit Location(s)": "Atlantic Ave and E New York Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Sutter Av",
+            "Entrance and Exit Location(s)": "Sutter Ave and Van Sinderen Ave, Belmont Ave and Van Sinderen Ave, Belmont Ave and Junius St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Livonia Av",
+            "Entrance and Exit Location(s)": "Van Sinderen Ave and Livonia Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "New Lots Av",
+            "Entrance and Exit Location(s)": "Van Sinderen Ave and New Lots Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "B15 to JFK Airport",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "East 105 St",
+            "Entrance and Exit Location(s)": "E 105 St station house",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station."
+        },
+        {
+            "Subway Station": "Canarsie-Rockaway Pkwy",
+            "Entrance and Exit Location(s)": "Rockaway Parkway, E 98 St and Glenwood Road",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible (terminal)."
+        }
+    ]
+}
