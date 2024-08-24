@@ -65,7 +65,7 @@ for (var i = 0; i < trainLinesWithIcons.length; i++) {
     eachRoute[currentTrainLine] = eachBorough
     // console.log(eachRoute)
     await delay(100);
-    break
 }
-await fs.writeFile('./eachTrainRoute.txt', JSON.stringify(eachRoute))
+await fs.writeFile('./routestops.txt', JSON.stringify(eachRoute))
+console.log('Finished!')
 // console.log(eachRoute);
