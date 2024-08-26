@@ -1,0 +1,326 @@
+{
+    "Details about branch service": [],
+    "Stations on the A line": [
+        {
+            "Subway Station": "Inwood-207 St",
+            "Entrance and Exit Location(s)": "Broadway and W 207 St, Broadway and W 211 St, Broadway and Isham St",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, Local station, ADA accessible (terminal)"
+        },
+        {
+            "Subway Station": "Dyckman St",
+            "Entrance and Exit Location(s)": "Broadway and Dyckman St, Broadway and Riverside Drive on northern end of Fort Tyron Park",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "190 St",
+            "Entrance and Exit Location(s)": "Bennet Ave and W 192 St, Fort Washington Ave and Cabrini Blvd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "181 St",
+            "Entrance and Exit Location(s)": "W 181 St and Fort Washington Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "175 St",
+            "Entrance and Exit Location(s)": "W 175 St and Fort Washington Ave, W 177 St and Fort Washington Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "168 St",
+            "Entrance and Exit Location(s)": "W 168 St and St Nichoclas Ave, W 169 St and Broadway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, 1",
+            "Other Station Features": "Subway, local and express station, ADA accessible (A, C lines)"
+        },
+        {
+            "Subway Station": "145 St",
+            "Entrance and Exit Location(s)": "W 145 St and St Nicholas Ave, W 146 St and St Nicholas Ave, W 147 St and St Nicholas Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "B weekdays until 11 p.m., C all times except late nights, D",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "125 St",
+            "Entrance and Exit Location(s)": "W 125 St and St Nicholas Ave, W 126 St and St Nicholas Ave, W 127 St and St Nicholas Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "B weekdays until 11 p.m., C all times except late nights, D",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "59 St-Columbus Circle",
+            "Entrance and Exit Location(s)": "W 58 St and 8th Ave, W 59 St and Columbus Circle, W 60 St between Broadway and Central Park West",
+            "Platform Type": "Two island platforms",
+            "Transfers": "B weekdays until 11 p.m., C all times except late nights, D, 1",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "42 St/Port Authority Bus Terminal",
+            "Entrance and Exit Location(s)": "W 40 St and 8th Ave, W 42 St and 8th Ave, W 43 St and 8th Ave, W 44 St and 8th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, E all times; Times Sq-42 St N,Q,1,2,3,7 all times, W weekdays only, R,S all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible (transfer to Times Sq-42 St not accessible)"
+        },
+        {
+            "Subway Station": "34 St-Penn Station",
+            "Entrance and Exit Location(s)": "W 33 St and 8th Ave, W 34 St and 8th Ave, W 35 St and 8th Ave",
+            "Platform Type": "One island platfor, two side platforms",
+            "Transfers": "C all times except late nights, E, LIRR",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "14 St",
+            "Entrance and Exit Location(s)": "W 14 St and 8th Ave, W 15 St and 8th Ave, W 16 St and 8th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, E, L",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "W 4 St-Washington Sq",
+            "Entrance and Exit Location(s)": "W 3 St and 6th Ave, Waverly Pl and 6th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "B weekdays until 11 p.m., C all times except late nights, D, E, F, M weekdays until 11 p.m.",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Canal St",
+            "Entrance and Exit Location(s)": "Canal St and 6th Ave, West Broadway and 6th Ave, Walker St and 6th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, E",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Chambers St",
+            "Entrance and Exit Location(s)": "Church St and Chambers St, Church St and Warren St, Church and Murray St, Church and Park Pl",
+            "Platform Type": "One island platform",
+            "Transfers": "C all times except late nights, E, 2, 3, all times except late nights, R all times except late nights, W weekdays only",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Fulton St",
+            "Entrance and Exit Location(s)": "Fulton St and Broadway, Fulton St and John St, Fulton St and Nassau St, Fulton St and William St",
+            "Platform Type": "One island platform",
+            "Transfers": "C all times except late nights, J, Z rush hour only, 2m 3 all times except late nights, 4, 5",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "High St",
+            "Entrance and Exit Location(s)": "Cadman Plaza West and Middagh St, Red Cross Pl and Adams St",
+            "Platform Type": "One island platform",
+            "Transfers": "C all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Jay St-MetroTech",
+            "Entrance and Exit Location(s)": "Willoughby St and Jay St, Fulton St and Jay St, Jay St south of Myrtle Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, F, R all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Hoyt-Schermerhorn",
+            "Entrance and Exit Location(s)": "Bond St and Schermerhorn St, Hoyt St and Schermerhorn St, Schermerhorn St between Bond St and Hoyt St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, G",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Nostrand Av",
+            "Entrance and Exit Location(s)": "Nostrand Ave and Fulton St",
+            "Platform Type": "Four side platforms",
+            "Transfers": "C all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Utica Av",
+            "Entrance and Exit Location(s)": "Fulton St and Utica Ave, Fulton St and Stuyvesant Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Broadway Junction",
+            "Entrance and Exit Location(s)": "Van Sinderen Ave between Fulton St and Truxton St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, J, L, Z rush hour only",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Euclid Av",
+            "Entrance and Exit Location(s)": "Pitkin Ave and Euclid Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Grant Av",
+            "Entrance and Exit Location(s)": "Pitkin Ave and Grant Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "80 St",
+            "Entrance and Exit Location(s)": "80 St and Liberty Ave, 77 St and Liberty Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "88 St",
+            "Entrance and Exit Location(s)": "88 St and Liberty Ave, 86 St and Liberty Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Rockaway Blvd",
+            "Entrance and Exit Location(s)": "Liberty Ave and Rockaway Blvd, 94 St and Liberty Ave, 97 St and Liberty Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        }
+    ],
+    "Stations on the Lefferts Boulevard branch": [
+        {
+            "Subway Station": "104 St",
+            "Entrance and Exit Location(s)": "104 St and Liberty Ave, 102 St and Liberty Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "111 St",
+            "Entrance and Exit Location(s)": "111 St and Liberty Ave, 109 St and Liberty Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Ozone Pk-Lefferts Boulevard",
+            "Entrance and Exit Location(s)": "Lefferts Blvd and Liberty Ave, 116 St and Liberty Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        }
+    ],
+    "Stations on the Far Rockaway branch": [
+        {
+            "Subway Station": "Aqueduct Racetrack",
+            "Entrance and Exit Location(s)": "Aqueduct Road south of Pitkin Ave, Resorts World Casino passageway",
+            "Platform Type": "One side platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "At grade, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Aqueduct-North Conduit Av",
+            "Entrance and Exit Location(s)": "North Conduit Ave and Aqueduct Road, 99 Pl and Hawtree Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "At grade, local station"
+        },
+        {
+            "Subway Station": "Howard Beach-JFK Airport",
+            "Entrance and Exit Location(s)": "103 St and 159 Ave, Coleman Sq and 159 Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "Airtrain to JFK",
+            "Other Station Features": "At grade, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Broad Channel",
+            "Entrance and Exit Location(s)": "West Road and Noel Road, West Road and E 6 Road",
+            "Platform Type": "Two side platforms",
+            "Transfers": "S",
+            "Other Station Features": "At grade, local station"
+        },
+        {
+            "Subway Station": "Beach 67 St",
+            "Entrance and Exit Location(s)": "Beach 67 St and Rockaway Freeway, Beach 69 St and Rockaway Freeway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible."
+        },
+        {
+            "Subway Station": "Beach 60 St",
+            "Entrance and Exit Location(s)": "Rockaway Freeway and Beach 59 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station."
+        },
+        {
+            "Subway Station": "Beach 44 St",
+            "Entrance and Exit Location(s)": "Rockaway Freeway and Beach 44 St, Edgemere Ave and Beach 45 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Beach 36 St",
+            "Entrance and Exit Location(s)": "Rockaway Freeway between Beach 35 St between Beach 35 St and Beach 36 St, Edgemere Ave between 35 St and Beach 36 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Beach 25 St",
+            "Entrance and Exit Location(s)": "Rockaway Freeway Beach 25 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Far Rockaway-Mott Av",
+            "Entrance and Exit Location(s)": "Mott Ave and Beach 22 St",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        }
+    ],
+    "Stations on the Rockaway Park branch": [
+        {
+            "Subway Station": "Broad Channel",
+            "Entrance and Exit Location(s)": "West Road and Noel Road, West Road and E 6 Road",
+            "Platform Type": "Two side platforms",
+            "Transfers": "S",
+            "Other Station Features": "At grade, local station"
+        },
+        {
+            "Subway Station": "Beach 90 St",
+            "Entrance and Exit Location(s)": "Beach 90 St and Rockaway Freeway, Beach 89 St and Rokaway Freeway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "S",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Beach 98 St",
+            "Entrance and Exit Location(s)": "Rockaway Freeway and Beach 98 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "S",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Beach 105 St",
+            "Entrance and Exit Location(s)": "Rockaway Freeway between Beach 105 St and beach 106 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "S",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Rockaway Park-Beach 116 St",
+            "Entrance and Exit Location(s)": "Beach 116 St between Newport Ave and Rockaway Beach",
+            "Platform Type": "One island platform",
+            "Transfers": "S",
+            "Other Station Features": "At grade, local station, ADA accessible"
+        }
+    ]
+}

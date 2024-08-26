@@ -1,0 +1,167 @@
+{
+    "Queens stations": [
+        {
+            "Subway Station": "Astoria-Ditmars Blvd",
+            "Entrance and Exit Location(s)": "31 St between 23rd Ave and Ditmars Blvd",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "N",
+            "Other Station Features": "Elevated, local station (terminal)"
+        },
+        {
+            "Subway Station": "Astoria Blvd",
+            "Entrance and Exit Location(s)": "Hoyt Ave South and 31 St, Hoyt Ave North and 31 St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "N, M60 SBS to LGA Airport",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "30 Av",
+            "Entrance and Exit Location(s)": "30 Ave and 31 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "N",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Broadway",
+            "Entrance and Exit Location(s)": "Broadway and 31 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "N",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "36 Av",
+            "Entrance and Exit Location(s)": "36th Ave and 31 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "N",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "39 Av",
+            "Entrance and Exit Location(s)": "39th Ave and 31 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "N",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Queensboro Plaza",
+            "Entrance and Exit Location(s)": "Queens Plaza North between 27 St and Crescent St, Queens Plaza South between 27 St and Crescent St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "N, 7",
+            "Other Station Features": "Elevated, local and express station"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "Lexington Av/59 St",
+            "Entrance and Exit Location(s)": "3rd Ave and E 60 St, Lexington Ave and E 60 St, Lexington Ave and E 59 St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "R all times except late nights, N, 4, 5 all times except late nights, 6",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "5 Av/59 St",
+            "Entrance and Exit Location(s)": "5th Ave and E 60 St, Central Park South and Grand Army Plaza",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights, N",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "57-7 Av",
+            "Entrance and Exit Location(s)": "W 57 St and 7th Ave, W 55 St and 7th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "Q, R all times except late nights, N",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "49 St",
+            "Entrance and Exit Location(s)": "W 49 St and 7th Ave, W 47 St and 7th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights, N",
+            "Other Station Features": "Subway, local station, ADA accessible (northbound only)"
+        },
+        {
+            "Subway Station": "Times Sq-42 St",
+            "Entrance and Exit Location(s)": "W 42 St and 7th Ave, W 42 St and Broadway, W 41 St and 7th Ave, W 40 St and Broadway",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "A, C all times except late nights, E, Q, R all times except late nights, 1, 2, 3, 7",
+            "Other Station Features": "Subway, local and express station, ADA accessible (except for A, C, E, S lines)"
+        },
+        {
+            "Subway Station": "34 St-Herald Sq",
+            "Entrance and Exit Location(s)": "W 35 St between Broadway and 6th Ave, W 34 St between Broadway and 6th Ave, W 32 St between Broadway and 6th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B weekdays until 11 pm, D, F, M weekdays until 11 pm, Q, R all times except late nights, N",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "28 St",
+            "Entrance and Exit Location(s)": "W 28 St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "23 St",
+            "Entrance and Exit Location(s)": "E 23 St and Broadway, 23 St and 5th Ave, E 22 St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "14 St-Union Sq",
+            "Entrance and Exit Location(s)": "Union Square West and E 16 St, Broadway and E 14 St, Union Square East and E 15 St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "L, N, Q, R all times except late nights, 4, 5 all times except late nights, 6",
+            "Other Station Features": "Subway, local and express station, ADA accessible (except for 4, 5, 6 lines)"
+        },
+        {
+            "Subway Station": "8 St-NYU",
+            "Entrance and Exit Location(s)": "E 8 St and Broadway, Broadway and Waverly Place",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Prince St",
+            "Entrance and Exit Location(s)": "Prince St and Broadway",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Canal St",
+            "Entrance and Exit Location(s)": "Broadway and Canal St, Lafayette St and Canal St, Centre St and Canal St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "J, Q, N, R all times except late nights, Z rush hour only, 6",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "City Hall",
+            "Entrance and Exit Location(s)": "Broadway and Warren St, Broadway and Murray St",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "R all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Cortlandt St",
+            "Entrance and Exit Location(s)": "Church St and Dey St, Church St and Cortlandt St, Broadway and Dey St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "A, C, all times except late nights, E, R all times except late nights, 2, 3 all times except late nights",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Rector St",
+            "Entrance and Exit Location(s)": "Rector St and Trinity Place",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Whitehall St-South Ferry",
+            "Entrance and Exit Location(s)": "Whitehall St and Stoner St, Whitehall St and Water St, Water St and State St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "R all times except late nights, 1",
+            "Other Station Features": "Subway, local station"
+        }
+    ]
+}

@@ -1,0 +1,323 @@
+{
+    "Eastchester Dyre Avenue branch stations": [
+        {
+            "Subway Station": "Eastchester-Dyre Av",
+            "Entrance and Exit Location(s)": "Light St and Dyre Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station (terminal"
+        },
+        {
+            "Subway Station": "Baychester Av",
+            "Entrance and Exit Location(s)": "Baychester Ave and Thomas E Brown Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Gun Hill Rd",
+            "Entrance and Exit Location(s)": "E Gun Hill Rd between Sexton Pl and Dewitt Pl",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Pelham Pkwy",
+            "Entrance and Exit Location(s)": "Esplanade and Pelham Parkway North",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Morris Park",
+            "Entrance and Exit Location(s)": "Espalanade and Paulding Ave, E 180 St and Morris Park Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "E 180 St",
+            "Entrance and Exit Location(s)": "E 180 St and Morris Park Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "West Farms Sq-E Tremont Av",
+            "Entrance and Exit Location(s)": "E 178 St and Boston Rd, E Tremont Ave and Boston Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "174 St",
+            "Entrance and Exit Location(s)": "E 174 St, Boston Rd and Southern Blvd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Freeman St",
+            "Entrance and Exit Location(s)": "Freeman St and Southern Blvd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Simpson St",
+            "Entrance and Exit Location(s)": "Simpson St and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Intervale Av",
+            "Entrance and Exit Location(s)": "Intervale Ave and Westchester Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Prospect Av",
+            "Entrance and Exit Location(s)": "E 160 St and Westchester Ave, Prospect Ave and Longwood Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Jackson Av",
+            "Entrance and Exit Location(s)": "Jackson Ave and Westchester Ave, E 152 St and Jackson Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "3 Av-149 St",
+            "Entrance and Exit Location(s)": "E 149 St and Third Ave, E 149 St and Melrose Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "149 St-Grand Concourse",
+            "Entrance and Exit Location(s)": "E 149 St and Grand Concourse",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2,4",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "138 St-Grand Concourse",
+            "Entrance and Exit Location(s)": "E 138 St and Grand Concourse",
+            "Platform Type": "Two side platforms",
+            "Transfers": "4 all except rush hours",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "125 St",
+            "Entrance and Exit Location(s)": "E 125 St and Lexington Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "4,6, Bus or train to airport",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "86 St",
+            "Entrance and Exit Location(s)": "E 86 St and Lexington Ave",
+            "Platform Type": "Four side platforms",
+            "Transfers": "4,6",
+            "Other Station Features": "Subway, local station, ADA accessible (ONLY northbound 6)"
+        },
+        {
+            "Subway Station": "59 St",
+            "Entrance and Exit Location(s)": "E 60 St and Lexington Ave, E 59 St and Lexington Ave, E 60 St and 3rd Ave",
+            "Platform Type": "Four side platforms",
+            "Transfers": "N,R all times except late nights, W weekdays only, 4,6",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Grand Central-42 St",
+            "Entrance and Exit Location(s)": "Park Ave and E 42 St,  Lexington Ave and E 42 St, E 42 St between Park Ave and Lexington Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "S all times except late nights, 4,6,7 all times",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "14 St-Union Sq",
+            "Entrance and Exit Location(s)": "E 15 St and Union Square East, E 14 St and 4th Ave, Union Square Park at E 14 St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "L,N,Q,R all times except late nights, W weekdays only, 4, 6",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Brooklyn Bridge-City Hall",
+            "Entrance and Exit Location(s)": "Centre St between Chambers St and Brooklyn Bridge Promenade, Reade St and Centre St, Frankfort St at Pace Plaza",
+            "Platform Type": "Two island platforms",
+            "Transfers": "J,Z rush hours only, 4, 6",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Fulton St",
+            "Entrance and Exit Location(s)": "Fulton St and Broadway, Dey St and Broadway, John St and Broadway, Cortlandt St and Broadway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "A,C all times except late nights,J,Z rush hour only, 2, 3 all times except late nights,4",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Wall St",
+            "Entrance and Exit Location(s)": "Rector St and Broadway, Trinity Building at Broadway and Thames St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "4",
+            "Other Station Features": "Subway, express station"
+        },
+        {
+            "Subway Station": "Bowling Green",
+            "Entrance and Exit Location(s)": "Bowling Green Park at Whitehall St, Battery Place and State St, Battery Place and Broadway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "4",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        }
+    ],
+    "Nereid Avenue branch stations": [
+        {
+            "Subway Station": "Nereid Av",
+            "Entrance and Exit Location(s)": "White Plains Rd and Nereid Avenue",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station"
+        },
+        {
+            "Subway Station": "233 St",
+            "Entrance and Exit Location(s)": "E 233 St and White Plains Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station, ADA accessible"
+        },
+        {
+            "Subway Station": "225 St",
+            "Entrance and Exit Location(s)": "E 225 St and White Plains Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station"
+        },
+        {
+            "Subway Station": "219 St",
+            "Entrance and Exit Location(s)": "E 219 St and White Plains Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station"
+        },
+        {
+            "Subway Station": "Gun Hill Rd",
+            "Entrance and Exit Location(s)": "E Gun Hill Rd and White Plains Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station, ADA accessible"
+        },
+        {
+            "Subway Station": "Burke Av",
+            "Entrance and Exit Location(s)": "Burke Ave and White Plains Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station"
+        },
+        {
+            "Subway Station": "Allerton Av",
+            "Entrance and Exit Location(s)": "Allerton Ave and White Plains Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station"
+        },
+        {
+            "Subway Station": "Pelham Pkwy",
+            "Entrance and Exit Location(s)": "Pelham Parkway South and White Plains Rd, Pelham Parkway North and White Plains Rd",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station"
+        },
+        {
+            "Subway Station": "Bronx Park East",
+            "Entrance and Exit Location(s)": "Sagamore St and Birchell Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Elevated, rush hour station"
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Borough Hall",
+            "Entrance and Exit Location(s)": "Joralemon St and Court St, Court St and Montague St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2,3 all time except late nights, 4, R",
+            "Other Station Features": "Subway, local and express station, ADA accessible (except for R, Brooklyn bound 4,5)"
+        },
+        {
+            "Subway Station": "Nevins St",
+            "Entrance and Exit Location(s)": "Flatbush Ave between Nevins St and Livingston St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2,3 all time except late nights, 4",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Atlantic Av-Barclays Ctr",
+            "Entrance and Exit Location(s)": "Hanson Place and Flatbush Ave, Pacific St and 4th Ave, Atlantic Ave and Flatbush Ave",
+            "Platform Type": "One island platform, two side platforms",
+            "Transfers": "B weekdays until 11 pm, D,N,Q,R,W limited rush hour service, 2,3 all times except late nights, 4",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Franklin Av-Medgar Evers College",
+            "Entrance and Exit Location(s)": "Franklin Ave and Eastern Parkway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "2,3 all time except late nights, 4",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "President St-Medgar Evers College",
+            "Entrance and Exit Location(s)": "President St and Nostrand Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Sterling St",
+            "Entrance and Exit Location(s)": "Sterling St and Nostrand Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Winthrop St",
+            "Entrance and Exit Location(s)": "Winthrop St and Nostrand Ave, Parkside Ave and Nostrand Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Church Av",
+            "Entrance and Exit Location(s)": "Church Ave and Nostrand Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Beverly Rd",
+            "Entrance and Exit Location(s)": "Beverly Rd and Nostrand Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Newkirk Av-Little Haiti",
+            "Entrance and Exit Location(s)": "Newkirk Ave and Nostrand Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Flatbush Av-Brooklyn College",
+            "Entrance and Exit Location(s)": "Flatbush Ave and Nostrand Ave, Avenue H and Nostrand Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "2",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        }
+    ]
+}

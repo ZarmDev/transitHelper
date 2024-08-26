@@ -1,0 +1,160 @@
+{
+    "Queens stations": [
+        {
+            "Subway Station": "Jamaica Center-Parsons/Archer",
+            "Entrance and Exit Location(s)": "Parsons Blvd and Archer Ave, 153 St and Archer Ave, 158 St and Archer Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "J, Z rush hour only",
+            "Other Station Features": "Subway, express station, ADA accessible (terminal)"
+        },
+        {
+            "Subway Station": "Sutphin Blvd-Archer Av-JFK Airport",
+            "Entrance and Exit Location(s)": "Sutphin Blvd and Archer Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "J, Z rush hour only, LIRR",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Jamaica-Van Wyck",
+            "Entrance and Exit Location(s)": "89 Ave and Van Wyck Expressway, Metropolitan Ave and Jamaica Ave",
+            "Platform Type": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Briarwood",
+            "Entrance and Exit Location(s)": "Main St and Queens Blvd, Queens Blvd and Van Wyck Expressway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "F",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Kew Gardens-Union Tpke",
+            "Entrance and Exit Location(s)": "Union Turnpike and Queens Blvd",
+            "Platform Type": "Two island platforms",
+            "Transfers": "F",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "75 Av",
+            "Entrance and Exit Location(s)": "Queens Blvs and 75 Ave, Queens Blvd and 75 Road",
+            "Platform Type": "Two side platforms",
+            "Transfers": "F",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Forest Hills-71 Av",
+            "Entrance and Exit Location(s)": "71 Ave and Queens Blvd, 70 Road and Queens Blvd",
+            "Platform Type": "Two island platforms",
+            "Transfers": "F, M weekdays until p.m., R all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Jackson Hts-Roosevelt Av",
+            "Entrance and Exit Location(s)": "74 St and Roosevelt Ave, 73 St and Broadway, 75 St and Broadway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "7, F, M weekdays until p.m., R all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Queens Plaza",
+            "Entrance and Exit Location(s)": "Queens Blvd and Jackson Ave, West St and Jackson Ave, 41 Ave and Northern Blvd",
+            "Platform Type": "Two island platforms",
+            "Transfers": "M weekdays until p.m., R all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Court Sq-23 St",
+            "Entrance and Exit Location(s)": "44 Drive and 23 St, 44 Drive and 21 St, Jackson Ave and 45 Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "M weekdays until p.m.,G, 7",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "Lexington Av/53 St",
+            "Entrance and Exit Location(s)": "Lexington Ave and E 53 St, Lexington Ave and E 52 St, 3rd Ave and E 53 St",
+            "Platform Type": "One island platform",
+            "Transfers": "M weekdays until 11 p.m., 6",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "5 Av/53 St",
+            "Entrance and Exit Location(s)": "5th Ave and E 53 St, Madison Ave and E 53 St",
+            "Platform Type": "Two side platforms",
+            "Transfers": "M weekdays until 11 p.m.",
+            "Other Station Features": "Subway, express station"
+        },
+        {
+            "Subway Station": "7 Av",
+            "Entrance and Exit Location(s)": "7th Ave and E 53 St, Broadway and E 53 St",
+            "Platform Type": "Two island platforms",
+            "Transfers": "B weekdays until 11 p.m., D",
+            "Other Station Features": "Subway, express station"
+        },
+        {
+            "Subway Station": "50 St",
+            "Entrance and Exit Location(s)": "W 50 St and 8th Ave, W 49 St and 8th Ave, W 51 St and 8th Ave",
+            "Platform Type": "Four side platforms",
+            "Transfers": "C all times except late nights",
+            "Other Station Features": "Subway, local station, ADA accessible (southbound only)"
+        },
+        {
+            "Subway Station": "42 St/Port Authority Bus Terminal",
+            "Entrance and Exit Location(s)": "W 40 St and 8th Ave, W 42 St and 8th Ave, W 43 St and 8th Ave, W 44 St and 8th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "C all times except late nights, A all times; Times Sq-42 St N,Q,1,2,3,7 all times, W weekdays only, R,S all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible (transfer to Times Sq-42 St not accessible)"
+        },
+        {
+            "Subway Station": "34 St-Penn Station",
+            "Entrance and Exit Location(s)": "W 33 St and 8th Ave, W 34 St and 8th Ave, W 35 St and 8th Ave",
+            "Platform Type": "One island platform, two side platforms",
+            "Transfers": "A all times, C all times except late nights, LIRR",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "23 St",
+            "Entrance and Exit Location(s)": "W 23 St and 8th Ave, W 24 St and 8th Ave, W 25 St and 8th Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "C all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "14 St",
+            "Entrance and Exit Location(s)": "W 14 St and 8th Ave, W 15 St and 8th Ave, W 16 St and 8th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "A all times, C all times except late nights",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "W 4 St-Washington Sq",
+            "Entrance and Exit Location(s)": "W 3 St and 6th Ave, Waverly Pl and 6th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "A all times, B weekdays until 11 p.m., D, C all times except late nights, F, M weekdays until 11 p.m",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Spring St",
+            "Entrance and Exit Location(s)": "Spring St and 6th Ave, Vandam St and Sixth Ave",
+            "Platform Type": "Two side platforms",
+            "Transfers": "C all times except late nights",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Canal St",
+            "Entrance and Exit Location(s)": "Canal St and 6th Ave, West Broadway and 6th Ave, Walker St and 6th Ave",
+            "Platform Type": "Two island platforms",
+            "Transfers": "A all times, C all times except late nights",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "World Trade Center",
+            "Entrance and Exit Location(s)": "Park Pl and Church St, Vesey St and Church St, Church St between Vessey St and Fulton St",
+            "Platform Type": "One island platform",
+            "Transfers": "A all times, C all times except late nights, 2, 3 all times except late nights, R",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        }
+    ]
+}

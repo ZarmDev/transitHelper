@@ -1,0 +1,155 @@
+{
+    "Queens stations": [
+        {
+            "Subway Station": "Jamaica Center-Parsons/Archer",
+            "Entrance and Exit Location(s)": "Parsons Blvd. and Archer Ave., 153 St. and Archer Ave., 158 St. and Archer Ave.",
+            "Platform Type": "Two island platforms",
+            "Transfers": "E,J rush hour",
+            "Other Station Features": "Subway, express station, ADA accessible (terminal)"
+        },
+        {
+            "Subway Station": "Sutphin Blvd-Archer Av-JFK Airport",
+            "Entrance and Exit Location(s)": "Sutphin Blvd. and Archer Ave.",
+            "Platform Type": "Two island platforms",
+            "Transfers": "E,J, LIRR",
+            "Other Station Features": "Subway, express station, ADA accessible"
+        },
+        {
+            "Subway Station": "121 St",
+            "Entrance and Exit Location(s)": "121 St. and Jamaica Ave., 123 St. and Jamaica Ave.",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J all times except rush hours",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "104 St",
+            "Entrance and Exit Location(s)": "104 St. and Jamaica Ave..",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J all times except rush hours",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Woodhaven Blvd",
+            "Entrance and Exit Location(s)": "Woodhaven Blvd. and Jamaica Ave., 95 St. and Jamaica Ave.",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J",
+            "Other Station Features": "Elevated, local and express station"
+        },
+        {
+            "Subway Station": "75 St-Elderts Ln",
+            "Entrance and Exit Location(s)": "75 St. and Jamaica Ave.",
+            "Platform Type": "Two side platforms",
+            "Transfers": "Z rush hour only",
+            "Other Station Features": "Elevated, local station"
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Crescent St",
+            "Entrance and Exit Location(s)": "Fulton St. between Crescent St. and Pine St.",
+            "Platform Type": "One island platform",
+            "Transfers": "J",
+            "Other Station Features": "Elevated, local and express station"
+        },
+        {
+            "Subway Station": "Norwood Av",
+            "Entrance and Exit Location(s)": "Norwood Ave. and Fulton St.",
+            "Platform Type": "One island platform",
+            "Transfers": "J all times except rush hours",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Van Siclen Av",
+            "Entrance and Exit Location(s)": "Fulton St. and Van Siclen Ave.",
+            "Platform Type": "One island platform",
+            "Transfers": "J all times except rush hours",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Alabama Av",
+            "Entrance and Exit Location(s)": "Alabama Ave. and Fulton St, Georgia Ave. and Fulton St.",
+            "Platform Type": "One island platform",
+            "Transfers": "J",
+            "Other Station Features": "Elevated, local and express station"
+        },
+        {
+            "Subway Station": "Broadway Junction",
+            "Entrance and Exit Location(s)": "Van Sinderen Ave. between Fulton St. and Truxton St.",
+            "Platform Type": "Two island platforms",
+            "Transfers": "A,C all times except late nights,L,J",
+            "Other Station Features": "Elevated, local and express station"
+        },
+        {
+            "Subway Station": "Chauncey St",
+            "Entrance and Exit Location(s)": "Chauncey St. and Broadway, Broadway between Moffat St. and Cooper St.",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J all times except rush hours",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Gates Av",
+            "Entrance and Exit Location(s)": "Palmetto St. and Broadway, Linden St. and Broadway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J all times except rush hours",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Myrtle Av",
+            "Entrance and Exit Location(s)": "Myrtle Ave. and Broadway",
+            "Platform Type": "Two island platforms",
+            "Transfers": "J,M",
+            "Other Station Features": "Elevated, local and express station"
+        },
+        {
+            "Subway Station": "Marcy Av",
+            "Entrance and Exit Location(s)": "Marcy Ave. and Broadway, Havemeyer St. and Broadway",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J,M all times except late nights",
+            "Other Station Features": "Elevated, local and express station, ADA accessible"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "Delancey St Essex St",
+            "Entrance and Exit Location(s)": "Delancey St. and Essex St., Delancey St. and Norfolk St.",
+            "Platform Type": "One side platform, one island platform",
+            "Transfers": "F,M all times except late nights,J",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Bowery",
+            "Entrance and Exit Location(s)": "Delancey St. between Chrystie St. and Bowery",
+            "Platform Type": "One island platform",
+            "Transfers": "J",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Canal St",
+            "Entrance and Exit Location(s)": "Centre St. between Walker St. and Canal St., Lafayette St. and Canal St., Broadway and Canal St.",
+            "Platform Type": "One island platform",
+            "Transfers": "N,Q,R all times except late nights,W weekdays only,J,6",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Chambers St",
+            "Entrance and Exit Location(s)": "South of Foley Square, Centre St. and Chambers St.",
+            "Platform Type": "Two island platforms",
+            "Transfers": "J,4,5,6",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Fulton St",
+            "Entrance and Exit Location(s)": "Fulton St. and Nassau St., John St. and Nassau St., Broadway and Fulton St., William St. and Fulton St.",
+            "Platform Type": "Two side platforms",
+            "Transfers": "A,C all times except late nights,J,2,3 all times except late nights,4,5 all times except late nights",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "Broad St",
+            "Entrance and Exit Location(s)": "Broad St. north of Beaver St., Exchange Pl. and Broad St., Wall St. and Broad St.",
+            "Platform Type": "Two side platforms",
+            "Transfers": "J",
+            "Other Station Features": "Subway, local station"
+        }
+    ]
+}

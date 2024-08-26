@@ -1,3 +1,7 @@
+## Note
+This library is still very new and not polished, and many features will change in the coming time.
+
+If you really want to use it (ahem, no one) then **you should be fine if you use the realtime functions**. The other functions work but are definitely going to heavily change in a month or two so beware...
 # transitHelper
 A Typescript library to make it easy (cough, cough) to create a transit app. (Only for NYC)
 
@@ -20,37 +24,30 @@ https://github.com/ZarmDev/OpenTransitApp
 
 Note that this project is still being developed, if you have any questions please open an issue :))))))
 
-# Quickstart - HTML
+# Requirements before using this
+## Requirements for using ANY function that is in the "Not realtime data" section (see "All the commands and if they have been implemented")
+To use any function that doesn't require stopdata, you **MUST** have the GTFS data from the MTA.
+This repository includes the GTFS data in the assets folder for your convenience, but you can also download it from https://new.mta.info/developers
 
-# Quickstart - NodeJS/React-native
+Whenever a function requires a "data" parameter, you have to supply one of the text files from the GTFS data.
 
-# How to actually use it
-## In the browser
-To use in a html file add this to your <head> tag: 
+There are examples in the "Examples" section and also examples in server-to-test.ts
 
-```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
+**IMPORTANT**
 
-(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
+If you choose to download the data from the MTA site and not from this repository, do know that for any function that requires stop data, you need to use the stops2.txt file from this repository.
 
-## In node.js
-Just copy the index.js file in the build folder and put the file in your project.
+The reason stops2.txt even exists is because it adds trainlines to the file 
 
-Then, import it in your file that you want the functions to be available.
-```import * as tH from './index.js'```
+It was a solution made because it was very hard to get arrivals from stops without the data added in stops2.txt 
+stops2.txt is generated from a file in utilities/addInfoToStops.ts
 
-Or, just import whatever you need:
-``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
+**This is definitely going to change soon, as although it works for some stops, the data is mostly inaccurate**
 
-## In React-native
-You can just copy the src/index.ts file and put it in your React-native project. Then, you can import it anyway you want:
+**Therefore, please avoid any of the non-realtime functions as of now until replacements are made for it.**
 
-```import * as tH from './index.ts'```
-
-OR
-
-``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
-
-# Requirements for getting *realtime* bus data 
+*Also don't install stops2.txt unless your desperate to use the library*😒
+## Requirements for getting *realtime* bus data 
 As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
 
 You have to request an api key before getting **realtime** bus data. That being said, you can still get bus stop data so it's only if you need realtime data.
@@ -61,6 +58,43 @@ Or, just go to the MTA developer site and find it there.
 
 Once you got your api key, you should put it in a .env file as BUS_API_KEY (example env file:
 BUS_API_KEY=your_api_key)
+
+# Quickstart
+## In node.js
+```npm i transit-helper```
+
+(**See "Is this trustworthy?" below for more info on if you can trust this library**)
+
+Orrrrr, just copy the index.js file in the build folder and put the file in your project.
+
+Then, import it in your file that you want the functions to be available.
+```import * as tH from './index.js'```
+
+Or, just import whatever you need:
+``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
+
+## In React-native
+```npm i transit-helper```
+
+Orrrrr, just copy the index.js file in the build folder and put the file in your react-native project.
+
+```import * as tH from './index.ts'```
+
+OR
+
+``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
+
+## In the browser
+To use in a html file add this to your <head> tag: 
+
+```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
+
+(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
+
+# Examples
+```
+check back later (😓)
+```
 
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
@@ -75,13 +109,11 @@ Realtime functions:
 
 ❌tH.getBusServiceAlerts(data, shouldIncludePlannedWork, apiKey)
 
-❌tH.getTransfers(data, stopID) // When using this keep in mind construction, service alerts, etc
-
 ❌tH.getLocationsOfTrains(data, stopID)
 
 ❌tH.getLocationsOfBuses(data, stopID)
 
-Not realtime data: (Updated every x months according to https://new.mta.info/developers/gtfs-schedules-transition)
+Not realtime data: (but, it's updated according to MTA schedule https://new.mta.info/developers/gtfs-schedules-transition)
 
 ✅tH.getTrainLineShapes(data)
 
@@ -97,9 +129,11 @@ Not realtime data: (Updated every x months according to https://new.mta.info/dev
 
 ❌tH.getCurrentBorough(locationOfUser)
 
-❌tH.getAllTrainStopsOnLine(shouldCheckForAlertsOnLine)
+❌tH.getStopsOnRoute(data, shouldCheckForAlertsOnLine)
 
-❌tH.getAllBusStopsOnLine(shouldCheckForAlertsOnLine)
+❌tH.getBusStopsOnRoute(data, shouldCheckForAlertsOnLine)
+
+❌tH.getTransfersAtTrainStop(data, stopID) // When using this you should also inform users of service alerts
 ```
 Maybe in the far future:
 ```
@@ -249,7 +283,7 @@ This library does not provide any functions for that.
 ## Is it possible to use this for other cities?
 Nope. Maybe https://mobilitydatabase.org/ will be used for other cities in the future.
 
-# Legal
+# Legal/Advice for app developers
 According to the MTA:
 
 "By accessing our data feeds, you are agreeing to these Terms and Conditions. This agreement authorizes you to download and host the data on a non-MTA server (maintained by you or a third party) and to make the data available to others who will access that non-MTA server.

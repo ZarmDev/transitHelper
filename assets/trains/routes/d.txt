@@ -1,0 +1,260 @@
+{
+    "The Bronx stations": [
+        {
+            "Subway Station": "Norwood-205 St",
+            "Entrance and Exit Location(s)": "East 206 St and Bainbridge Ave, East 205 St and Perry Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "Bedford Park Blvd",
+            "Entrance and Exit Location(s)": "Bedford Park Boulevard and Grand Concourse",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local and express station, ADA accessible (terminal)"
+        },
+        {
+            "Subway Station": "Kingsbridge Rd",
+            "Entrance and Exit Location(s)": "Kingsbridge Road and Grand Concourse",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Fordham Rd",
+            "Entrance and Exit Location(s)": "East 188 St and Grand Concourse, Fordham Road and Grand Concourse",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "182-183 Sts",
+            "Entrance and Exit Location(s)": "182 St and Grand Concourse, Grand Concourse and Anthony Avenue",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "Tremont Av",
+            "Entrance and Exit Location(s)": "Grand Concourse and Echo Place",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "174-175 Sts",
+            "Entrance and Exit Location(s)": "Walton Ave and Morris Ave, 174 and 175 St, 175 St and Grand Concourse",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "170 St",
+            "Entrance and Exit Location(s)": "East 171 St and Grand Concourse",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "167 St",
+            "Entrance and Exit Location(s)": "167 St and Grand Concourse, McClellan St and Grand Concourse",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "161 St-Yankee Stadium",
+            "Entrance and Exit Location(s)": "River Ave and E 161 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "4, B during rush hours",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        }
+    ],
+    "Manhattan stations": [
+        {
+            "Subway Station": "155 St",
+            "Entrance and Exit Location(s)": "155 St and Harlem River Dr",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "B during rush hours",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "145 St",
+            "Entrance and Exit Location(s)": "W 145 St and St Nicholas Ave, W 146 St and St Nicholas Ave, W 147 St and St Nicholas Ave",
+            "Platform Type&nbsp;": "Four island platforms",
+            "Transfers": "A, C except late nights, B",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "125 St",
+            "Entrance and Exit Location(s)": "W 125 St and St Nicholas Ave, W 126 St and St Nicholas Ave, W 127 St and St Nicholas Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "A, C except late nights, B, M60 SBS to LGA Airport",
+            "Other Station Features": "Subway, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "59 St-Columbus Circle",
+            "Entrance and Exit Location(s)": "W 58 St and 8th Ave, W 59 St and Columbus Circle, W 60 St between Broadway and Central Park West",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "A, C except late nights, B, 1",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "7 Av",
+            "Entrance and Exit Location(s)": "7th Ave and E 53 St, Broadway and E 53 St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B, E",
+            "Other Station Features": "Subway, local station"
+        },
+        {
+            "Subway Station": "47-50 Sts-Rockefeller Ctr",
+            "Entrance and Exit Location(s)": "6th Ave and W 50 St, 6th Ave and W 49 St, 6th Ave and W 48 St, 6th Ave and W 47 St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B, F, M weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "42 St-Bryant Pk",
+            "Entrance and Exit Location(s)": "6th Ave and W 42 St, 6th Ave and W 40 St, W 42 St between 5th Ave and 6th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B, F, M weekdays only, 7",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "34 St-Herald Sq",
+            "Entrance and Exit Location(s)": "W 35 St between Broadway and 6th Ave, W 34 St between Broadway and 6th Ave, W 32 St between Broadway and 6th Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B, F, M weekdays only, N, Q, R except late nights, W weekdays only",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "W 4 St-Washington Sq",
+            "Entrance and Exit Location(s)": "W 3 St and 6th Ave, Waverly Pl and 6th Ave",
+            "Platform Type&nbsp;": "Four island platforms",
+            "Transfers": "B, F, M weekdays only, A, C except late nights, E",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Broadway-Lafayette St",
+            "Entrance and Exit Location(s)": "Broadway and Houston St, Houston St and Lafayette St, Bleeker St and Lafayette St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "B, F, M weekdays only, 6",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "Grand St",
+            "Entrance and Exit Location(s)": "Grand St and Chrystie St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "B",
+            "Other Station Features": "Subway, local and express station"
+        }
+    ],
+    "Brooklyn stations": [
+        {
+            "Subway Station": "Atlantic Av-Barclays Ctr",
+            "Entrance and Exit Location(s)": "Hanson Place and Flatbush Ave, Pacific St and 4th Ave, Atlantic Ave and Flatbush Ave",
+            "Platform Type&nbsp;": "One island platform",
+            "Transfers": "B, N, Q, Rexcept late nights, 2, 3 except late nights, 4, 5 weekdays",
+            "Other Station Features": "Subway, local and express station, ADA accessible"
+        },
+        {
+            "Subway Station": "36 St",
+            "Entrance and Exit Location(s)": "4th Ave and 36th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "N, R",
+            "Other Station Features": "Subway, local and express station"
+        },
+        {
+            "Subway Station": "9 Av",
+            "Entrance and Exit Location(s)": "9th Ave and New Utrecht Ave",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Open cut, local station"
+        },
+        {
+            "Subway Station": "Fort Hamilton Pkwy",
+            "Entrance and Exit Location(s)": "New Utrecht Ave and 45th St, 44 St and 43 St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "50 St",
+            "Entrance and Exit Location(s)": "New Utrecht Ave and 50th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "55 St",
+            "Entrance and Exit Location(s)": "New Utrecht Ave and 55th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "62 St",
+            "Entrance and Exit Location(s)": "New Utrecht Ave and 62nd St",
+            "Platform Type&nbsp;": "Two island platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "71 St",
+            "Entrance and Exit Location(s)": "New Utrecht Ave and 71st St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "79 St",
+            "Entrance and Exit Location(s)": "New Utrecht Ave and 79th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "18 Av",
+            "Entrance and Exit Location(s)": "18 Ave and 85th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "20 Av",
+            "Entrance and Exit Location(s)": "20 Ave and 86th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Bay Pkwy",
+            "Entrance and Exit Location(s)": "Bay Parkway and 86th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station, ADA accessible"
+        },
+        {
+            "Subway Station": "25 Av",
+            "Entrance and Exit Location(s)": "86th St and 25th Ave",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Bay-50 St",
+            "Entrance and Exit Location(s)": "Harway Ave and Bay 50th St",
+            "Platform Type&nbsp;": "Two side platforms",
+            "Transfers": "No Transfers",
+            "Other Station Features": "Elevated, local station"
+        },
+        {
+            "Subway Station": "Coney Island-Stillwell Av",
+            "Entrance and Exit Location(s)": "Mermaid Ave east of Stillwell Ave, Stillwell Ave and Surf Ave",
+            "Platform Type&nbsp;": "Four island platforms",
+            "Transfers": "F, N, Q",
+            "Other Station Features": "Elevated, terminal station, ADA accessible"
+        }
+    ]
+}
