@@ -1,6 +1,6 @@
 // Just a useful file to let you serve the bundle.js to your HTML file or whatever
 // You can do <script src="http://x.x.x.x:8082/bundle.js"></script>
-// Fill the x's with your private ip address. I used to know how to get it but i forgot (sorry...)
+// Fill the x's with "the" ip address. I don't know if it's your ip or wifi ip
 import express from 'express';
 
 const app = express();

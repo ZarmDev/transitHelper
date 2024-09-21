@@ -2,9 +2,11 @@
   "name": "transit-helper",
   "version": "1.0.0",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "type": "module",
   "files": [
-    "src/index.ts"
+    "build/index.js",
+    "build/index.d.ts"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -20,7 +22,6 @@
   "description": "useful functions to handle train data",
   "dependencies": {
     "@types/node": "^20.14.9",
-    "dotenv": "^16.4.5",
     "gtfs-realtime-bindings": "^1.1.1"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.3",
     "webpack": "^5.92.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "dotenv": "^16.4.5"
   }
 }

@@ -19,7 +19,7 @@ export async function writeToFile(filename: string, content: string) {
 
 app.get('/serviceAlerts', async (req, res) => {
     try {
-        const alerts = await tH.getTrainServiceAlerts(false);
+        const alerts = await tH.getTrainServiceAlerts(false, false);
         res.json(alerts);
     } catch (error) {
         const e = error as Error;
@@ -30,8 +30,9 @@ app.get('/serviceAlerts', async (req, res) => {
 app.get('/realtimeTrainData', async (req, res) => {
     try {
         // to test
-        const targetStopID = 'D26'
-        const line = 'Q'
+        const targetStopID = 'R01'
+        // N or W
+        const line = 'W'
         const direction = ""
         const date = Date.now()
         const realtime = await tH.getTrainArrivals(line, targetStopID, date, direction);

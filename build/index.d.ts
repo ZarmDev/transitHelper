@@ -6,7 +6,7 @@ interface ServiceAlerts {
         descriptionText: string | null;
     };
 }
-export declare function getTrainServiceAlerts(shouldIncludePlannedWork: boolean): Promise<Partial<ServiceAlerts>>;
+export declare function getTrainServiceAlerts(inHTMLFormat: boolean, shouldIncludePlannedWork: boolean): Promise<ServiceAlerts>;
 export declare function unixTimestampToDateTime(unixTimestamp: number): Date;
 interface ArrivalInterface {
     arrivalTime: number;
@@ -32,7 +32,6 @@ interface StopInterface {
     [stopID: string]: {
         stopname: string;
         coordinates: [number, number];
-        parent_station: string;
         type: "bus" | "train";
         trainLine?: string;
     };

@@ -3,5 +3,8 @@
 - Maybe gonna use this to help in the future: https://github.com/Bus-Data-NYC/shape-with-stops
 - In the future, maybe just query this for colors? https://data.ny.gov/Transportation/MTA-Colors/3uhz-sej2/about_data
 - Add instructions on how to deal with stops2.txt in README.md 
+- Add instructions in utilties README.md
+- Find a way to deal with trainLinesWithIcons variable and how to make it consistent
+- Create a function to delete all unneccessary fiels in the assets folder (and if you do actually do that commit an assets folder that is purged but keep one with all the files you need)
 # last updated GTFS data:
 ...

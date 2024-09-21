@@ -28,7 +28,7 @@ export function writeToFile(filename, content) {
 }
 app.get('/serviceAlerts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const alerts = yield tH.getTrainServiceAlerts(false);
+        const alerts = yield tH.getTrainServiceAlerts(false, false);
         res.json(alerts);
     }
     catch (error) {
@@ -39,8 +39,9 @@ app.get('/serviceAlerts', (req, res) => __awaiter(void 0, void 0, void 0, functi
 app.get('/realtimeTrainData', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         // to test
-        const targetStopID = 'D26';
-        const line = 'Q';
+        const targetStopID = 'R01';
+        // N or W
+        const line = 'W';
         const direction = "";
         const date = Date.now();
         const realtime = yield tH.getTrainArrivals(line, targetStopID, date, direction);

@@ -1,7 +1,3 @@
-## Note
-This library is still very new and not polished, and many features will change in the coming time.
-
-If you really want to use it (ahem, no one) then **you should be fine if you use the realtime functions**. The other functions work but are definitely going to heavily change in a month or two so beware...
 # transitHelper
 A Typescript library to make it easy (cough, cough) to create a transit app. (Only for NYC)
 
@@ -18,35 +14,30 @@ If you wanna know why you can trust this library (I also have my doubts when ins
 
 *It explains every folder and what the files do.*
 
+NOTE: I used a lot of AI in this project - you can tell if there is a comment that says AI was used, if there's no comment, I probably didn't use AI there.
+
 # Showcase
 Proof that it works:
 https://github.com/ZarmDev/OpenTransitApp
 
 Note that this project is still being developed, if you have any questions please open an issue :))))))
 
-# Requirements before using this
-## Requirements for using ANY function that is in the "Not realtime data" section (see "All the commands and if they have been implemented")
+# Requirements
 To use any function that doesn't require stopdata, you **MUST** have the GTFS data from the MTA.
-This repository includes the GTFS data in the assets folder for your convenience, but you can also download it from https://new.mta.info/developers
 
-Whenever a function requires a "data" parameter, you have to supply one of the text files from the GTFS data.
+If you wish to use **ANY** non *realtime* function (arrivals, service alerts) you MUST use a modified version of stops.txt (a file with stop data from the MTA GTFS data) called stops2.txt
 
-There are examples in the "Examples" section and also examples in server-to-test.ts
+**I recommend that you do this:**
+1. Create a folder called assets
+2. Create a folder called buses
+3. Create a folder called trains
+4. Install GTFS data from the MTA site (https://new.mta.info/developers)
+(it's called Regular GTFS)
+5. Extract the ZIP folder and put it in the trains folder
+6. Run getStopsForEachTrainLine.py
+Make sure that the assetDir and routeDir match up with where your assets folder is
 
-**IMPORTANT**
-
-If you choose to download the data from the MTA site and not from this repository, do know that for any function that requires stop data, you need to use the stops2.txt file from this repository.
-
-The reason stops2.txt even exists is because it adds trainlines to the file 
-
-It was a solution made because it was very hard to get arrivals from stops without the data added in stops2.txt 
-stops2.txt is generated from a file in utilities/addInfoToStops.ts
-
-**This is definitely going to change soon, as although it works for some stops, the data is mostly inaccurate**
-
-**Therefore, please avoid any of the non-realtime functions as of now until replacements are made for it.**
-
-*Also don't install stops2.txt unless your desperate to use the library*😒
+Note that whenever a function requires a "data" parameter, you have to supply data from one of the text files from the GTFS data. There are examples of how to do this in src/server-to-test.ts and in the "Examples" section (sorry, too lazy to make that section)
 ## Requirements for getting *realtime* bus data 
 As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
 
@@ -61,6 +52,14 @@ BUS_API_KEY=your_api_key)
 
 # Quickstart
 ## In node.js
+1. Copy the contents of index.ts or build/index.js (use JS if you use JS or TS if you use TS)
+2. Import the functions and your done! If you want to use non-realtime data functions see the "Requirements" section
+OR
+1. Clone the repo
+2. You can delete all the folders except assets and src.
+3. Now you will have everything you need out of the box
+
+**NPM package is not maintained right now... So please don't use it**
 ```npm i transit-helper```
 
 (**See "Is this trustworthy?" below for more info on if you can trust this library**)
@@ -133,7 +132,7 @@ Not realtime data: (but, it's updated according to MTA schedule https://new.mta.
 
 ❌tH.getBusStopsOnRoute(data, shouldCheckForAlertsOnLine)
 
-❌tH.getTransfersAtTrainStop(data, stopID) // When using this you should also inform users of service alerts
+❌tH.getTransfersAtTrainStop(data, stopID) // When using this you should also inform users of service alerts that affect transferring
 ```
 Maybe in the far future:
 ```
@@ -143,6 +142,8 @@ tH.getCityGrid()
 tH.getOpenStreetMapData()
 // also maybe use https://algs4.cs.princeton.edu/44sp/ (nyc.txt) to get routes to places
 tH.getRouteTo()
+tH.getWalkingRouteTo()
+tH.getDistanceBasedOnMapFeatures()
 ```
 
 # Utility functions
@@ -290,3 +291,6 @@ According to the MTA:
 
 MTA prohibits the development of an app that would make the data available to others directly from MTA's server(s)."
 > This library provides the GTFS data in the assets folder and it's recommended you bundle the GTFS data into your app or host a mirror for your app.
+
+# Useful
+https://www.youtube.com/watch?v=8OQKHhu1VgQ

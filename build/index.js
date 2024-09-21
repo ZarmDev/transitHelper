@@ -28,9 +28,8 @@ export function parseAndReturnFeed(url) {
     });
 }
 // not done
-export function getTrainServiceAlerts(shouldIncludePlannedWork) {
+export function getTrainServiceAlerts(inHTMLFormat, shouldIncludePlannedWork) {
     return __awaiter(this, void 0, void 0, function* () {
-        // Partial is here so Typescript doesn't attack the compiler :( (To let the object be empty at first)
         var trainAlerts = {};
         const feed = yield parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts");
         // Where all the data is. The other key is header, used for metadata
@@ -59,7 +58,7 @@ export function getTrainServiceAlerts(shouldIncludePlannedWork) {
                     const descriptionTranslation = description == null ? null : description["translation"];
                     if (headerTextTranslation) {
                         // you can either use index 0 or 1 which either gives you the normal version or version in HTML
-                        const headerText = headerTextTranslation[1]["text"];
+                        const headerText = headerTextTranslation[Number(inHTMLFormat)]["text"];
                         if (routesAffected) {
                             // loop through each route affected
                             // console.log(routesAffected, i)
@@ -367,7 +366,6 @@ export function getAllBusStopCoordinates(stopData) {
         stops[stop_id] = {
             "stopname": stop_name,
             "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
-            "parent_station": parent_station,
             "type": "bus"
         };
     }
@@ -390,11 +388,10 @@ export function getAllTrainStopCoordinates(stopData) {
         //     console.log(stopData[i])
         // }
         let splitByComma = stopData[i].split(',');
-        const [stop_id, stop_name, stop_lat, stop_lon, location_type, parent_station, trainLine] = splitByComma;
+        const [stop_id, stop_name, stop_lat, stop_lon, trainLine] = splitByComma;
         stops[stop_id] = {
             "stopname": stop_name,
             "coordinates": [parseFloat(stop_lat), parseFloat(stop_lon)],
-            "parent_station": parent_station,
             "type": "train",
             "trainLine": trainLine
         };
@@ -471,6 +468,13 @@ export function getNearbyBusStops(location, latSpan, lonSpan, apiKey) {
         return importantdata;
     });
 }
+// export function getAllTrainRoutes(routeData: string, shouldIncludeAllInformation: boolean) {
+//     if (shouldIncludeAllInformation) {
+//         // JSON.parse(routeData)
+//     } else {
+//         routeData
+//     }
+// }
 const iconToURL = {
     "1": "https://github.com/louh/mta-subway-bullets/blob/main/svg/1.svg",
     "2": "https://github.com/louh/mta-subway-bullets/blob/main/svg/2.svg",
@@ -502,7 +506,8 @@ const iconToURL = {
     "z": "https://github.com/louh/mta-subway-bullets/blob/main/svg/z.svg",
 };
 export function getIconToURL() { return iconToURL; }
-const trainLinesWithIcons = ["1", "2", "3", "4", "5", "6", "7", "7d", "a", "b", "c", "d", "e", "f", "g", "h", "j", "l", "m", "n", "q", "r", "s", "sf", "sir", "sr", "w", "z"];
+// h -> rockaway shuttle, x means express, sf -> Franklin shuttle, sr -> Grand Central shuttle, SIR -> Staten Island Transit
+const trainLinesWithIcons = ["1", "2", "3", "4", "5", "6", "6x", "7", "7x", "a", "b", "c", "d", "e", "f", "fx", "g", "h", "j", "l", "m", "n", "q", "r", "s", "sf", "sir", "sr", "w", "z"];
 export function getTrainLinesWithIcons() { return trainLinesWithIcons; }
 // export function getNearbyTrainStops(stopData: string[], location: [number, number], stopCoordinates: string[][], stopNames: string[]) {
 //     let stops = [];
