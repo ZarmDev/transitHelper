@@ -17,6 +17,10 @@ export async function writeToFile(filename: string, content: string) {
     }
 }
 
+app.get('/', async (req, res) => {
+    res.json("To test out functions, look in server-to-test.ts and find what you want to test. There is more info in the README.md")
+});
+
 app.get('/serviceAlerts', async (req, res) => {
     try {
         const alerts = await tH.getTrainServiceAlerts(false, false);
@@ -72,9 +76,7 @@ app.get('/realtimeBusData', async (req, res) => {
 
 app.get('/getAllTrainStops', async (req, res) => {
     try {
-        // to test
         const data = await fs.readFile("./assets/trains/google_transit/stops2.txt", 'utf-8')
-        // const realtime = await tH.getAllTrainStopCoordinates(data);
         const realtime = tH.getAllTrainStopCoordinates(data.split('\n'))
         res.json(realtime);
     } catch (error) {

@@ -1,4 +1,6 @@
 # transitHelper
+*scroll down to "Quickstart" to see how to get started*
+
 A Typescript library to make it easy (cough, cough) to create a transit app. (Only for NYC)
 
 It only depends on gtfs-realtime-binding and typescript.
@@ -17,86 +19,17 @@ If you wanna know why you can trust this library (I also have my doubts when ins
 NOTE: I used a lot of AI in this project - you can tell if there is a comment that says AI was used, if there's no comment, I probably didn't use AI there.
 
 # Showcase
-Proof that it works:
-https://github.com/ZarmDev/OpenTransitApp
+You can try out a online transit map that uses transitHelper right here: https://zarmdev.github.io/staticTransitApp/leaflet_map.html
 
-Note that this project is still being developed, if you have any questions please open an issue :))))))
 
-# Requirements
-To use any function that doesn't require stopdata, you **MUST** have the GTFS data from the MTA.
-
-If you wish to use **ANY** non *realtime* function (arrivals, service alerts) you MUST use a modified version of stops.txt (a file with stop data from the MTA GTFS data) called stops2.txt
-
-**I recommend that you do this:**
-1. Create a folder called assets
-2. Create a folder called buses
-3. Create a folder called trains
-4. Install GTFS data from the MTA site (https://new.mta.info/developers)
-(it's called Regular GTFS)
-5. Extract the ZIP folder and put it in the trains folder
-6. Run getStopsForEachTrainLine.py
-Make sure that the assetDir and routeDir match up with where your assets folder is
-
-Note that whenever a function requires a "data" parameter, you have to supply data from one of the text files from the GTFS data. There are examples of how to do this in src/server-to-test.ts and in the "Examples" section (sorry, too lazy to make that section)
-## Requirements for getting *realtime* bus data 
-As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
-
-You have to request an api key before getting **realtime** bus data. That being said, you can still get bus stop data so it's only if you need realtime data.
-
-Here's the link: http://bt.mta.info/wiki/Developers/Index
-
-Or, just go to the MTA developer site and find it there.
-
-Once you got your api key, you should put it in a .env file as BUS_API_KEY (example env file:
-BUS_API_KEY=your_api_key)
-
-# Quickstart
-## In node.js
-1. Copy the contents of index.ts or build/index.js (use JS if you use JS or TS if you use TS)
-2. Import the functions and your done! If you want to use non-realtime data functions see the "Requirements" section
-OR
-1. Clone the repo
-2. You can delete all the folders except assets and src.
-3. Now you will have everything you need out of the box
-
-**NPM package is not maintained right now... So please don't use it**
-```npm i transit-helper```
-
-(**See "Is this trustworthy?" below for more info on if you can trust this library**)
-
-Orrrrr, just copy the index.js file in the build folder and put the file in your project.
-
-Then, import it in your file that you want the functions to be available.
-```import * as tH from './index.js'```
-
-Or, just import whatever you need:
-``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
-
-## In React-native
-```npm i transit-helper```
-
-Orrrrr, just copy the index.js file in the build folder and put the file in your react-native project.
-
-```import * as tH from './index.ts'```
-
-OR
-
-``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
-
-## In the browser
-To use in a html file add this to your <head> tag: 
-
-```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
-
-(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
-
-# Examples
-```
-check back later (😓)
-```
+I also used this library in a React-native app which worked pretty well https://github.com/ZarmDev/OpenTransitApp
 
 # All the commands and if they have been implemented
 (✅ if implemented, ❕if it works but isnt finished, ❌ if not working or not implemented)
+
+⚠️Some parameters may be accurate, check the use of the function in server-to-test.ts or find the function and check the parameters in index.ts
+
+If your using Typescript, it should show the parameters in VSCode or other IDE's
 ```
 Realtime functions:
 
@@ -145,6 +78,78 @@ tH.getRouteTo()
 tH.getWalkingRouteTo()
 tH.getDistanceBasedOnMapFeatures()
 ```
+
+# Quickstart
+(**See "Is this trustworthy?" all the way below for more info on if you can trust this library**)
+## README!
+Before you start creating issues, you should know that the "data" parameter corresponds to a file from the MTA gtfs.
+
+This is an example taken from server-to-test.ts, make sure you remember that server-to-test.ts has all the examples of how to use functions:
+```
+const data = await fs.readFile("./assets/trains/google_transit/stops2.txt", 'utf-8')
+const realtime = tH.getAllTrainStopCoordinates(data.split('\n'))
+res.json(realtime);
+```
+
+**If you want to just test out functions, you can clone the repo and then run ```npm run start``` and play around with functions in server-to-test.ts**
+
+
+The instructions below are just if you don't want all the random files I put in for contributers, but if you really want to quickly start you can just clone it and everything should work out of the box.
+
+## Vanilla Javascript
+1. Copy the contents of build/index.js
+2. Copy any files you need from the assets folder in this repository or get it from the MTA site (https://new.mta.info/developers)
+
+Then, import it in your file that you want the functions to be available.
+```import * as tH from './index.js'```
+
+Or, just import whatever you need:
+``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
+
+## Typescript
+1. Copy index.ts
+2. Copy any files you need from the assets folder in this repository or get it from the MTA site (https://new.mta.info/developers)
+
+Then, import it in your file that you want the functions to be available.
+```import * as tH from './index.ts'```
+
+Or, just import whatever you need:
+``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
+
+## Package (Not a good option now)
+**NPM package hasn't been updated... please wait like a week I'm pretty busy**
+```npm i transit-helper```
+
+Then, import it in your file that you want the functions to be available.
+```import * as tH from 'transit-helper'```
+
+Or, just import whatever you need:
+``` import { getTrainLineShapes, getTrainArrivals } from './index.js'```
+
+## In React-native
+Follow the package way or the "Vanilla Javascript" way.
+
+## In the browser
+To use in a html file add this to your <head> tag: 
+
+```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
+
+(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
+
+# Examples (TODO)
+In the examples folder
+
+## Requirements for getting *realtime* bus data 
+As the MTA developer site (https://new.mta.info/developers) mentions, "Real-time bus data is provided via the Bus Time set of APIs. You will need to create an account and use an API key to access the feeds."
+
+You have to request an api key before getting **realtime** bus data. That being said, you can still get bus stop data so it's only if you need realtime data.
+
+Here's the link: http://bt.mta.info/wiki/Developers/Index
+
+Or, just go to the MTA developer site and find it there.
+
+Once you got your api key, you should supply it as an argument to functions that need it. If you want to test out server-to-test.ts with a bus api key, create a .env file at the root of the project and set BUS_API_KEY to your api key. (example env file:
+BUS_API_KEY=your_api_key)
 
 # Utility functions
 In the utilities folder, there are many important functions.
