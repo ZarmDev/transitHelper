@@ -1,21 +1,19 @@
 {
   "name": "transit-helper",
   "version": "1.0.0",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "src/index.ts",
   "type": "module",
   "files": [
-    "build/index.js",
-    "build/index.d.ts"
+    "src/index.ts"
   ],
   "scripts": {
+    "start": "bun src/server-to-test.ts",
+    "deploy": "bunx webpack",
     "build": "tsc -p tsconfig.json",
-    "start": "npm run build && node build/server-to-test.js",
-    "deploy": "npx webpack && npm run build",
-    "cbs": "node utilities/createBusSvgs.js",
-    "addInfo": "node utilities/addInfoToStops.js",
-    "getRoutes": "node utilities/getStopsForEachTrainLine.js",
-    "sB": "node utilities/serveBundle.js"
+    "cbs": "bun utilities/createBusSvgs.js",
+    "addInfo": "bun utilities/addInfoToStops.js",
+    "getRoutes": "bun utilities/getStopsForEachTrainLine.js",
+    "sB": "bun utilities/serveBundle.js"
   },
   "author": "ZarmDev",
   "license": "Apache-2.0",

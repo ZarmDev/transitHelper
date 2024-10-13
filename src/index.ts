@@ -193,6 +193,9 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
             }
         }
     }
+    if (arrivals.length == 0) {
+        console.log("It's possible your stopID or trainline is incorrect. Check the if your stopID really is part of the trainline you put in. ALSO: MAKE SURE YOUR TRAIN IS ACTUALLY RUNNING - IT'S POSSIBLE THERE ARE NO ARRIVALS BECAUSE IT'S NOT RUNNING AT THIS TIME.");
+    }
     return arrivals
 }
 

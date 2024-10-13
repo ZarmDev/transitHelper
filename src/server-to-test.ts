@@ -34,10 +34,10 @@ app.get('/serviceAlerts', async (req, res) => {
 app.get('/realtimeTrainData', async (req, res) => {
     try {
         // to test
-        const targetStopID = 'R01'
+        const targetStopID = '107'
         // N or W
-        const line = 'W'
-        const direction = ""
+        const line = '1'
+        const direction = "S"
         const date = Date.now()
         const realtime = await tH.getTrainArrivals(line, targetStopID, date, direction);
         res.json(realtime);

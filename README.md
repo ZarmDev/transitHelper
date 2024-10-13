@@ -91,14 +91,16 @@ const realtime = tH.getAllTrainStopCoordinates(data.split('\n'))
 res.json(realtime);
 ```
 
-**If you want to just test out functions, you can clone the repo and then run ```npm run start``` and play around with functions in server-to-test.ts**
+**If you want to just test out functions, you can clone the repo and then run ```bun run start``` and play around with functions in server-to-test.ts**
 
 
 The instructions below are just if you don't want all the random files I put in for contributers, but if you really want to quickly start you can just clone it and everything should work out of the box.
 
 ## Vanilla Javascript
-1. Copy the contents of build/index.js
-2. Copy any files you need from the assets folder in this repository or get it from the MTA site (https://new.mta.info/developers)
+**NOTE: Bun can run Typescript files (bun run src/index.ts DOES work unlike node src/index.ts)**
+1. Copy index.ts file or clone the repository
+2. Run bun run build and take the index.js file from the build folder that is created 
+3. Copy any files you need from the assets folder in this repository or get it from the MTA site (https://new.mta.info/developers)
 
 Then, import it in your file that you want the functions to be available.
 ```import * as tH from './index.js'```
@@ -117,8 +119,8 @@ Or, just import whatever you need:
 ``` import { getTrainLineShapes, getTrainArrivals } from './index.ts'```
 
 ## Package (Not a good option now)
-**NPM package hasn't been updated... please wait like a week I'm pretty busy**
-```npm i transit-helper```
+**package hasn't been updated... please wait like a week I'm pretty busy**
+```bun i transit-helper```
 
 Then, import it in your file that you want the functions to be available.
 ```import * as tH from 'transit-helper'```
@@ -134,7 +136,7 @@ To use in a html file add this to your <head> tag:
 
 ```<script src="https://cdn.jsdelivr.net/gh/ZarmDev/transitHelper@latest/dist/bundle.js"></script>```
 
-(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run npm run deploy yourself to get a bundle.js file)
+(Note that sometimes it doesn't update immediately or I forget to deploy it to the bundle.js lol - if that happens just make an issue or you can run bun run deploy yourself to get a bundle.js file)
 
 # Examples (TODO)
 In the examples folder
@@ -171,7 +173,7 @@ index.ts: Where the main functions are
 server-to-test.ts: An express server to test the functions. If you don't know what express is don't worry about it you can just ignore this file unless your trying to contribute
 - utilities: Useful functions, some of them are very important. To see the importance of each function check out "Utility functions above"
 - package.json: Part of every Javascript package - where the package data is and what packages you installed
-- tsconfig.json: Just to configure Typescript, specifically, it tells Typescript where to put your built files (like after running npm run build)
+- tsconfig.json: Just to configure Typescript, specifically, it tells Typescript where to put your built files (like after running bun run build)
 - tsconfig2.json: Another configuration file, it's for running a file in the utilities folder
 - webpack.config.mjs: Tell the bundler (the thing that lets you create a bundle.js for browsers) to include or exclude files/folders
 4. The dependencies aren't uncommon except gtfs-realtime-bindings, which is from https://github.com/MobilityData/gtfs-realtime-bindings
@@ -180,8 +182,8 @@ server-to-test.ts: An express server to test the functions. If you don't know wh
 To edit the code:
 1. Clone the repo
 2. Add your changes
-3. Run npm install
-4. Run npm run start
+3. Run bun install
+4. Run bun run start
 - You will see localhost:8082 appear. You can hold crtl and click it to see it in the browser.
 - Say I wanted to see the train arrivals, you would go to the browser and go to the url of "localhost:8082/realtimeTrainData"
 - By default, it's going to give you a 1 train stop which I forgot where it was
@@ -194,7 +196,7 @@ To edit the code:
 - The stop id is 106
 - Now, in server-to-test, set the targetStopID to 106, the line to 1 (you can search up what the line is online) and the direction to either "", "N" or "S". North and south are "N" and "S" and putting an empty string ("") means you want both directions.
 - Do note that you should never put the targetStopID with the N or S for example, in "101N,Van Cortlandt Park-242 St,40.889248,-73.898583,,101" there are versions without and with N or S. Just put 101 without the N or S.
-5. If you want to deploy it to a bundle, then run ```npm run deploy```
+5. If you want to deploy it to a bundle, then run ```bun run deploy```
 - A bundle is just using webpack to put everything in one JS file that can be used in the browser or even in Node.js.
 - The bundles are provided for users in dist/bundle.js
 
