@@ -34,12 +34,15 @@ app.get('/serviceAlerts', async (req, res) => {
 app.get('/realtimeTrainData', async (req, res) => {
     try {
         // to test
-        const targetStopID = '107'
+        const targetStopID = '635'
         // N or W
-        const line = '1'
+        const lines = "4"
         const direction = "S"
         const date = Date.now()
-        const realtime = await tH.getTrainArrivals(line, targetStopID, date, direction);
+        const line = "1";
+        const feed : any = await tH.getFeedData(line);
+        // res.json(feed);
+        const realtime = await tH.getTrainArrivals(feed, lines, targetStopID, date, direction);
         res.json(realtime);
     } catch (error) {
         // Huh?!? AI said you could do this which I never knew...

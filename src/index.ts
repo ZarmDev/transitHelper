@@ -15,7 +15,7 @@ export async function parseAndReturnFeed(url: string) {
     // Convert ArrayBuffer to Uint8Array
     const uint8Array = new Uint8Array(buffer);
     const feed = GtfsRealTimeBindings.transit_realtime.FeedMessage.decode(uint8Array);
-    return feed
+    return feed;
 }
 
 interface ServiceAlerts {
@@ -26,7 +26,7 @@ interface ServiceAlerts {
 }
 
 // not done
-export async function getTrainServiceAlerts(inHTMLFormat : boolean, shouldIncludePlannedWork: boolean) {
+export async function getTrainServiceAlerts(inHTMLFormat: boolean, shouldIncludePlannedWork: boolean) {
     var trainAlerts: ServiceAlerts = {}
     const feed = await parseAndReturnFeed("https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")
     // Where all the data is. The other key is header, used for metadata
@@ -95,14 +95,12 @@ interface ArrivalInterface {
 }
 //Huh?!?
 type ArrivalsInterface = ArrivalInterface[];
-export async function getTrainArrivals(line: string, targetStopID: string, date: number, direction: string) {
-    // console.log(targetStopID);
-    if (targetStopID.length === 4) {
-        let errormsg = "Error: The length of the stop ID should be 4. It's possible that you provided the stopID with the S or N at the end. If you did that, just slice off the last character of the stop ID before running this function."
-        console.error(errormsg);
-        return errormsg;
-    }
-    var arrivals: ArrivalsInterface = []
+
+/**
+ * This exists to make sure programmers use good practice. For example, you can reuse this object if say you have a train app and the user presses arrivals for the 1 train and then the 7 train. Since they use the same source, you can reuse this object's data if it was read recently. Also, you can reuse this data for getting realtime vehicle information instead of resending a request.
+ * @param line - The train line which you want data from. If you say put "A" you will get data for the A, C and E train. To learn more about that check https://api.mta.info/#/subwayRealTimeFeeds
+ */
+export async function getFeedData(line: string) {
     let source = "";
     if (["A", "C", "E"].includes(line)) {
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"
@@ -122,6 +120,17 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
         source = "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si"
     }
     const feed = await parseAndReturnFeed(source)
+    return feed;
+}
+
+// Maybe it's bad practice that feed is of type any
+export async function getTrainArrivals(feed: any, line: string | string[], targetStopID: string, date: number, direction: string) {
+    var arrivals: ArrivalsInterface = [];
+    if (targetStopID.length === 4) {
+        let errormsg = "Error: The length of the stop ID should be 4. It's possible that you provided the stopID with the S or N at the end. If you did that, just slice off the last character of the stop ID before running this function."
+        console.error(errormsg);
+        return errormsg;
+    }
     // writeToFile('save.txt', JSON.stringify(feed, null, 2))
     // what are entities? idk :/
     const entities = feed["entity"]
@@ -139,9 +148,21 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
         const trip = tripUpdate["trip"]
         const tripID = trip["tripId"]
         const routeID = trip["routeId"]
-        // not sure if this works for all lines... maybe not working for SIR
-        if (routeID != line) {
+        if (!routeID) {
             continue;
+        }
+        // not sure if this works for all lines... maybe not working for SIR
+        // If line is just a string, then only look for one train
+        if (typeof line == "string") {
+            if (routeID != line) {
+                continue;
+            }
+        } else {
+            // Otherwise, we can assume line is an array. So, we need to check the entire line array;
+            // Check if the train line is in the line array
+            if (!line.includes(routeID)) {
+                continue;
+            }
         }
         // all the arrivals for each stop in stops.txt (google_transit folder)
         const stopTimeUpdate = tripUpdate["stopTimeUpdate"]
@@ -181,7 +202,7 @@ export async function getTrainArrivals(line: string, targetStopID: string, date:
                                         arrivals.push({
                                             "arrivalTime": timeDifference,
                                             "direction": currentDirection,
-                                            "line": line
+                                            "line": routeID
                                         })
                                         // arrivals.push(`${line} arrives in ${timeDifference} minutes at ${realStopName} in the direction of ${}`)
                                     }
@@ -245,12 +266,12 @@ export async function getBusArrivals(busLine: string, targetStopID: string, date
     let response: any = await fetch(url)
     response = await response.json();
     // this is where all the important stuff is!
-    const busVehicleArray : BusArrivalInterface = response["Siri"]["ServiceDelivery"]["StopMonitoringDelivery"][0]["MonitoredStopVisit"]
+    const busVehicleArray: BusArrivalInterface = response["Siri"]["ServiceDelivery"]["StopMonitoringDelivery"][0]["MonitoredStopVisit"]
     // this function is just if your lazy and only want the vehicle locations coming to the stop and the extension object (with useful data)
     return busVehicleArray
 }
 
-function getTrainLineColor(line: string) {
+export function getTrainLineColor(line: string) {
     let color = "";
     // Should add H, FS and GS later... (Franklin shuttle and Grand Central Shuttle) and H is the old name of the Rockaway shuttle
     if (["A", "C", "E"].includes(line)) {
@@ -427,6 +448,10 @@ export function getAllTrainStopCoordinates(stopData: string[]) {
     return stops
 }
 
+// export function getLastRouteStop(routeData: string[]) {
+
+// }
+
 // export function getTrainLineFromLocation(processedShapeData : TrainLineInterface, coordinates: [number, number]) {
 //     let pSDKeys = Object.keys(processedShapeData)
 //     let pSDVals = Object.values(processedShapeData)
@@ -537,66 +562,11 @@ const iconToURL = {
     "z": "https://github.com/louh/mta-subway-bullets/blob/main/svg/z.svg",
 }
 
-export function getIconToURL() {return iconToURL}
+export function getIconToURL() { return iconToURL }
 
 // h -> rockaway shuttle, x means express, sf -> Franklin shuttle, sr -> Grand Central shuttle, SIR -> Staten Island Transit
 const trainLinesWithIcons = ["1", "2", "3", "4", "5", "6", "6x", "7", "7x", "a", "b", "c", "d", "e", "f", "fx", "g", "h", "j", "l", "m", "n", "q", "r", "s", "sf", "sir", "sr", "w", "z"]
-export function getTrainLinesWithIcons() {return trainLinesWithIcons}
-
-// export function getNearbyTrainStops(stopData: string[], location: [number, number], stopCoordinates: string[][], stopNames: string[]) {
-//     let stops = [];
-//     // TODO: Maybe skip stops we have already seen to save performane because MTA provides mutliple of the same stops with almost the same coordinates
-//     if (stopData.length != 0) {
-//         // let precision = 6;
-//         // keep it in the memory to save performance
-//         if (stopCoordinates.length == 0) {
-//             for (var i = 0; i < stopData.length; i++) {
-//                 let split = stopData[i].split(',')
-//                 let latlng = [split[2], split[3]]
-//                 let stopname = split[1]
-//                 // .map((coord) => parseFloat(coord).toFixed(precision))
-//                 stopCoordinates.push(latlng)
-//                 stopNames.push(stopname)
-//             }
-//             // for (var i = 0; i < stopCoordinates.length; i++) {
-//             //     console.log(stopCoordinates[i], stopData[i].split(','))
-//             // }
-//             // console.log('----------------------------------')
-//         }
-//         // let location = [location["latitude"], location["longitude"]]
-//         // .map((i) => parseFloat(i.toFixed(precision)));
-//         for (var i = 0; i < stopCoordinates.length; i++) {
-//             let location = stopCoordinates[i];
-//             // console.log(location)
-//             // let latSame = stopCoordinates[i][0] == location[0];
-//             // let longSame = stopCoordinates[i][1] == location[1];
-//             // let acceptableDifference = 0.004;
-//             let acceptableDifference = 0.009;
-//             // if the latitude/longitude is close enough by the acceptableDifference (plus or minus range)
-//             // console.log(`${parseFloat(location[0])} - ${acceptableDifference}`)
-//             let latMinus = (parseFloat(location[0]) - acceptableDifference);
-//             // console.log(`hmmm ${latMinus}`)
-//             let latPlus = (parseFloat(location[0]) + acceptableDifference);
-//             let longMinus = (parseFloat(location[1]) - acceptableDifference);
-//             let longPlus = (parseFloat(location[1]) + acceptableDifference);
-//             // multiply each side by 100000 or something and maybe the comparisons will work?
-//             let inRangeLat = (latMinus <= location[0]) && (latPlus >= location[0])
-//             let inRangeLong = (longMinus <= location[1]) && (longPlus >= location[1])
-//             // console.log(stopData[i].split(',')[1])
-//             // console.log(`${latMinus} <= ${location[0]} && ${latPlus} >= ${location[0]}`)
-//             // console.log(`${longMinus} <= ${location[1]} && ${longPlus} >= ${location[1]}`)
-//             // console.log(inRangeLat, inRangeLong)
-//             // if ((latSame && longSame)) {
-//             if (inRangeLat && inRangeLong) {
-//                 let stopname = stopNames[i]
-//                 stops.push(stopname)
-//             }
-//         }
-//         // console.log(stops)
-//         return stops
-//     }
-//     return `Failed ${stopData.length != 0} ${stopCoordinates.length == 0}`
-// }
+export function getTrainLinesWithIcons() { return trainLinesWithIcons }
 
 // get an array of coordinates that correspond to the 4 corners and one middle of each borough
 function getBorough() { }

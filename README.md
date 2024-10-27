@@ -33,6 +33,8 @@ If your using Typescript, it should show the parameters in VSCode or other IDE's
 ```
 Realtime functions:
 
+✅tH.getFeedData(line)
+
 ✅tH.getTrainArrivals(line, targetStopID, unixTime, direction)
 
 ❕tH.getBusArrivals(line, targetStopID, unixTime, direction, apiKey)
@@ -58,6 +60,8 @@ Not realtime data: (but, it's updated according to MTA schedule https://new.mta.
 ✅tH.getNearbyStops(allTrainStopCoordinates, locationOfUser, distance)
 
 ✅tH.getNearbyBusStops(location: [string, string], latSpan: string, lonSpan: string, apiKey: string)
+
+✅tH.getTrainLineColor(line)
 
 ❌tH.getCurrentBorough(locationOfUser)
 

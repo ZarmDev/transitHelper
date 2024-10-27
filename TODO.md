@@ -1,3 +1,7 @@
+- Shorten the routes folder and stops2.txt (all stop data files) to not include North and South data and instead just one of them with no directions to greatly shorten lookup times + storage
+- Fix the GTFS data not including service changes and stuff
+- Fix npm package
+
 - Filter service alerts for planned work that is happening within this time
 - For getArrivals make it so you can just supply an array for line because that's probably better for performance, as running the function in a for loop is bad and will read the same txt files multiple times (also change the parameter name to lines)
 - Maybe gonna use this to help in the future: https://github.com/Bus-Data-NYC/shape-with-stops
